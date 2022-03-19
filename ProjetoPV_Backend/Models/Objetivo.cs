@@ -23,7 +23,7 @@ namespace ProjetoPV_Backend.Models
         [Required, Display(Name = "Valor acumulado")]
         public double ValorAcumulado { get; set; }
 
-        [Required]
+        [Required, StringLength(3)]
         public string Moeda { get; set; }
     }
 }
