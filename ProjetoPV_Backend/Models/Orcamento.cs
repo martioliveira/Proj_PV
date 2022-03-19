@@ -20,7 +20,7 @@ namespace ProjetoPV_Backend.Models
         [Required, Range(0.0, double.MaxValue)]
         public double Valor { get; set; }
 
-        [Required]
+        [Required, StringLength(3)]
         public string Moeda { get; set; }
 
 
