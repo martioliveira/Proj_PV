@@ -6,8 +6,8 @@ namespace ProjetoPV_Backend.Models
         [Key]
         public long OrcamentoContasId { get; set; }
 
-        public Orcamento OrcamentoId { get; set; }
+        public Orcamento Orcamento { get; set; }
 
-        public Conta ContaId { get; set; }
+        public Conta Conta { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace ProjetoPV_Backend.Models
         public string Moeda { get; set; }
 
         [Required]
-        public TipoConta TipoContaId { get; set; }
+        public TipoConta TipoConta { get; set; }
 
     }
 }
