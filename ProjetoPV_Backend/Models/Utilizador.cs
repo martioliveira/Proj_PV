@@ -6,6 +6,6 @@ namespace ProjetoPV_Backend.Models
     {
         [Key]
         public long UtilizadorId { get; set; }
-        public long ClienteId { get; set; }
+        public Cliente ClienteId { get; set; }
     }
 }

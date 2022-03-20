@@ -31,6 +31,6 @@ namespace ProjetoPV_Backend.Models
         public string Anexo { get; set; }
 
         [Required]
-        public long ClienteId { get; set; }
+        public Cliente ClienteId { get; set; }
     }
 }
