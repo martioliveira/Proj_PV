@@ -1,4 +1,10 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ProjetoPV_Backend.Data;
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<ProjetoPV_BackendContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ProjetoPV_BackendContext")));
 
 // Add services to the container.
 
