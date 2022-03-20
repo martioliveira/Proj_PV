@@ -9,28 +9,11 @@ namespace ProjetoPV_Backend.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Categoria",
-                columns: table => new
-                {
-                    CategoriaId = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Descricao = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClienteId = table.Column<long>(type: "bigint", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Categoria", x => x.CategoriaId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Cliente",
                 columns: table => new
                 {
                     ClienteId = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1")
                 },
                 constraints: table =>
                 {
@@ -63,15 +46,35 @@ namespace ProjetoPV_Backend.Migrations
                     table.PrimaryKey("PK_TipoTransacao", x => x.TipoTransacaoId);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Categoria",
+                columns: table => new
+                {
+                    CategoriaId = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Descricao = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClienteId = table.Column<long>(type: "bigint", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categoria", x => x.CategoriaId);
+                    table.ForeignKey(
+                        name: "FK_Categoria_Cliente_ClienteId",
+                        column: x => x.ClienteId,
+                        principalTable: "Cliente",
+                        principalColumn: "ClienteId");
+                });
+
             migrationBuilder.InsertData(
                 table: "Categoria",
                 columns: new[] { "CategoriaId", "ClienteId", "Descricao", "Nome" },
                 values: new object[,]
                 {
-                    { 1L, 0L, "Categoria destinada a gastos com transportes.", "Transportes" },
-                    { 2L, 0L, "Categoria destinada a gastos com alimentação.", "Comida e Bebida" },
-                    { 3L, 0L, "Categoria destinada a gastos no supermercado.", "Supermercado" },
-                    { 4L, 0L, "Categoria destinada a gastos com a habitação.", "Habitação" }
+                    { 1L, null, "Categoria destinada a gastos com transportes.", "Transportes" },
+                    { 2L, null, "Categoria destinada a gastos com alimentação.", "Comida e Bebida" },
+                    { 3L, null, "Categoria destinada a gastos no supermercado.", "Supermercado" },
+                    { 4L, null, "Categoria destinada a gastos com a habitação.", "Habitação" }
                 });
 
             migrationBuilder.InsertData(
@@ -100,6 +103,11 @@ namespace ProjetoPV_Backend.Migrations
                     { 2L, 1 },
                     { 3L, 2 }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Categoria_ClienteId",
+                table: "Categoria",
+                column: "ClienteId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -108,13 +116,13 @@ namespace ProjetoPV_Backend.Migrations
                 name: "Categoria");
 
             migrationBuilder.DropTable(
-                name: "Cliente");
-
-            migrationBuilder.DropTable(
                 name: "TipoConta");
 
             migrationBuilder.DropTable(
                 name: "TipoTransacao");
+
+            migrationBuilder.DropTable(
+                name: "Cliente");
         }
     }
 }

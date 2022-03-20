@@ -7,8 +7,8 @@ namespace ProjetoPV_Backend.Models
         [Key]
         public long ContaClientesId { get; set; }
 
-        public Conta ContaId { get; set; }
+        public Conta Conta { get; set; }
 
-        public Cliente ClientId { get; set; }
+        public Cliente Cliente { get; set; }
     }
 }
