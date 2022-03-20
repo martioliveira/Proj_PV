@@ -6,5 +6,9 @@ namespace ProjetoPV_Backend.Models
     {
         [Key]
         public long ClienteId { get; set; }
+        [Required]
+        public string Username { get; set; }
+        [Required]
+        public string Password { get; set; }
     }
 }

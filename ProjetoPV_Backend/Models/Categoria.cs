@@ -11,6 +11,6 @@ namespace ProjetoPV_Backend.Models
 
         [Display(Name = "Descrição da Categoria")]
         public string Descricao { get; set; }
-        public Cliente ClienteId { get; set; }
+        public long ClienteId { get; set; }
     }
 }
