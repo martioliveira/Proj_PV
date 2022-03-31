@@ -32,5 +32,7 @@ namespace ProjetoPV_Angular.Models
 
         [Required]
         public Cliente Cliente { get; set; }
+        public TipoTransacao TipoTransacao { get; set; }
+
     }
 }
