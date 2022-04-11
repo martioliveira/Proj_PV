@@ -2,7 +2,7 @@ import { Cliente } from "./cliente.model";
 import { TipoTransacao } from "./tipotransacao.model";
 
 export class Transacao {
-  constructor( TransacaoId: bigint,
+  constructor( TransacaoId: string,
              TipoTransacao: TipoTransacao,
              ContaOrigemId: bigint,
             ContaDestinoId: bigint,

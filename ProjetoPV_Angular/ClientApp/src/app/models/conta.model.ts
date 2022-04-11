@@ -1,7 +1,7 @@
 import { TipoConta } from "./tipoconta.model";
 
 export class Conta {
-  constructor( ContaId: bigint,
+  constructor( ContaId: string,
              Descricao: string,
                  Saldo: number,
                  Moeda: string,
