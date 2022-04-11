@@ -129,5 +129,12 @@ namespace ProjetoPV_Angular.Data
         public DbSet<TipoConta> TipoConta { get; set; }
         public DbSet<TipoTransacao> TipoTransacao { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<ProjetoPV_Angular.Models.Conta> Conta { get; set; }
+        public DbSet<ProjetoPV_Angular.Models.ContaClientes> ContaClientes { get; set; }
+        public DbSet<ProjetoPV_Angular.Models.Objetivo> Objetivo { get; set; }
+        public DbSet<ProjetoPV_Angular.Models.Orcamento> Orcamento { get; set; }
+        public DbSet<ProjetoPV_Angular.Models.OrcamentoContas> OrcamentoContas { get; set; }
+        public DbSet<ProjetoPV_Angular.Models.Transacao> Transacao { get; set; }
+        public DbSet<ProjetoPV_Angular.Models.Utilizador> Utilizador { get; set; }
     }
 }
