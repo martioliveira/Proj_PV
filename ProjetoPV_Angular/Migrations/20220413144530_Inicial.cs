@@ -386,8 +386,8 @@ namespace ProjetoPV_Angular.Migrations
                 {
                     ContaClientesId = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ContaId = table.Column<long>(type: "bigint", nullable: false),
-                    ClienteId = table.Column<long>(type: "bigint", nullable: false)
+                    ClienteId = table.Column<long>(type: "bigint", nullable: false),
+                    ContaId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {

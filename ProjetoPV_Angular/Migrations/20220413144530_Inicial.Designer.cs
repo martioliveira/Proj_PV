@@ -12,7 +12,7 @@ using ProjetoPV_Angular.Data;
 namespace ProjetoPV_Angular.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220413084034_Inicial")]
+    [Migration("20220413144530_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -1,2 +1,25 @@
 <h4>Criar Conta</h4>
 
+<form #contaForm="ngForm" (ngSubmit)="onSubmit(contaForm)">
+  <div class="form-group>">
+    <label for="descricao">Descricao:</label>
+    <input ngModel name="descricao" #descricao="ngModel" id="descricao" type="text" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="saldo">Saldo:</label>
+    <input ngModel name="saldo" id="saldo" #saldo="ngModel" type="number" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="moeda">Moeda:</label>
+    <input ngModel name="moeda" id="moeda" #moeda="ngModel" type="text" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="tipoContaId">Tipo de conta:</label>
+    <input ngModel name="tipoContaId" id="tipoContaId" #tipoContaId="ngModel" type="text" class="form-control" />
+  </div>
+  <div class="form-group">
+    <button class="btn-primary btn">Criar</button>
+    <a routerLink="" class="btn btn-primary">Voltar</a>
+  </div>
+
+</form>
