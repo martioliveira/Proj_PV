@@ -8,7 +8,7 @@ using ProjetoPV_Angular.Data;
 
 #nullable disable
 
-namespace ProjetoPV_Angular.Data.Migrations
+namespace ProjetoPV_Angular.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -458,6 +458,32 @@ namespace ProjetoPV_Angular.Data.Migrations
                     b.HasIndex("TipoContaId");
 
                     b.ToTable("Conta");
+
+                    b.HasData(
+                        new
+                        {
+                            ContaId = 1L,
+                            Descricao = "Conta 1",
+                            Moeda = "EUR",
+                            Saldo = 349.0,
+                            TipoContaId = 1L
+                        },
+                        new
+                        {
+                            ContaId = 2L,
+                            Descricao = "Conta 2",
+                            Moeda = "EUR",
+                            Saldo = 12.0,
+                            TipoContaId = 2L
+                        },
+                        new
+                        {
+                            ContaId = 3L,
+                            Descricao = "Conta 3",
+                            Moeda = "EUR",
+                            Saldo = 2199.0,
+                            TipoContaId = 2L
+                        });
                 });
 
             modelBuilder.Entity("ProjetoPV_Angular.Models.ContaClientes", b =>
@@ -711,12 +737,17 @@ namespace ProjetoPV_Angular.Data.Migrations
                         .HasMaxLength(3)
                         .HasColumnType("nvarchar(3)");
 
+                    b.Property<long>("TipoTransacaoId")
+                        .HasColumnType("bigint");
+
                     b.Property<double>("Valor")
                         .HasColumnType("float");
 
                     b.HasKey("TransacaoId");
 
                     b.HasIndex("ClienteId");
+
+                    b.HasIndex("TipoTransacaoId");
 
                     b.ToTable("Transacao");
                 });
@@ -856,7 +887,15 @@ namespace ProjetoPV_Angular.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ProjetoPV_Angular.Models.TipoTransacao", "TipoTransacao")
+                        .WithMany()
+                        .HasForeignKey("TipoTransacaoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Cliente");
+
+                    b.Navigation("TipoTransacao");
                 });
 
             modelBuilder.Entity("ProjetoPV_Angular.Models.Utilizador", b =>

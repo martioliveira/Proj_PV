@@ -1,0 +1,24 @@
+<p *ngIf="!contas"><em>Não tem nenhuma conta registada...</em></p>
+
+<a routerLink="/conta-create" class="btn btn-success">Criar Conta</a>
+
+<div *ngIf="contas">
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th>Conta Id</th>
+        <th>Descrição</th>
+        <th>Saldo</th>
+        <th>Moeda</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let conta of contas">
+        <td>{{ conta.contaId }}</td>
+        <td>{{ conta.descricao }}</td>
+        <td>{{ conta.saldo }}</td>
+        <td>{{ conta.moeda }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

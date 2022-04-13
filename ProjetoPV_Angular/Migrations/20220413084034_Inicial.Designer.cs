@@ -9,11 +9,11 @@ using ProjetoPV_Angular.Data;
 
 #nullable disable
 
-namespace ProjetoPV_Angular.Data.Migrations
+namespace ProjetoPV_Angular.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220330224203_initial")]
-    partial class initial
+    [Migration("20220413084034_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -432,6 +432,173 @@ namespace ProjetoPV_Angular.Data.Migrations
                     b.ToTable("Cliente");
                 });
 
+            modelBuilder.Entity("ProjetoPV_Angular.Models.Conta", b =>
+                {
+                    b.Property<long>("ContaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("ContaId"), 1L, 1);
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Moeda")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("nvarchar(3)");
+
+                    b.Property<double>("Saldo")
+                        .HasColumnType("float");
+
+                    b.Property<long>("TipoContaId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("ContaId");
+
+                    b.HasIndex("TipoContaId");
+
+                    b.ToTable("Conta");
+
+                    b.HasData(
+                        new
+                        {
+                            ContaId = 1L,
+                            Descricao = "Conta 1",
+                            Moeda = "EUR",
+                            Saldo = 349.0,
+                            TipoContaId = 1L
+                        },
+                        new
+                        {
+                            ContaId = 2L,
+                            Descricao = "Conta 2",
+                            Moeda = "EUR",
+                            Saldo = 12.0,
+                            TipoContaId = 2L
+                        },
+                        new
+                        {
+                            ContaId = 3L,
+                            Descricao = "Conta 3",
+                            Moeda = "EUR",
+                            Saldo = 2199.0,
+                            TipoContaId = 2L
+                        });
+                });
+
+            modelBuilder.Entity("ProjetoPV_Angular.Models.ContaClientes", b =>
+                {
+                    b.Property<long>("ContaClientesId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("ContaClientesId"), 1L, 1);
+
+                    b.Property<long>("ClienteId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ContaId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("ContaClientesId");
+
+                    b.HasIndex("ClienteId");
+
+                    b.HasIndex("ContaId");
+
+                    b.ToTable("ContaClientes");
+                });
+
+            modelBuilder.Entity("ProjetoPV_Angular.Models.Objetivo", b =>
+                {
+                    b.Property<long>("ObjetivoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("ObjetivoId"), 1L, 1);
+
+                    b.Property<DateTime>("DataFim")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataInicio")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Moeda")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("nvarchar(3)");
+
+                    b.Property<double>("ValorAcumulado")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ValorAtingir")
+                        .HasColumnType("float");
+
+                    b.HasKey("ObjetivoId");
+
+                    b.ToTable("Objetivo");
+                });
+
+            modelBuilder.Entity("ProjetoPV_Angular.Models.Orcamento", b =>
+                {
+                    b.Property<long>("OrcamentoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("OrcamentoId"), 1L, 1);
+
+                    b.Property<DateTime>("DataFim")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataInicio")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Moeda")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("nvarchar(3)");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("float");
+
+                    b.HasKey("OrcamentoId");
+
+                    b.ToTable("Orcamento");
+                });
+
+            modelBuilder.Entity("ProjetoPV_Angular.Models.OrcamentoContas", b =>
+                {
+                    b.Property<long>("OrcamentoContasId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("OrcamentoContasId"), 1L, 1);
+
+                    b.Property<long>("ContaId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("OrcamentoId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("OrcamentoContasId");
+
+                    b.HasIndex("ContaId");
+
+                    b.HasIndex("OrcamentoId");
+
+                    b.ToTable("OrcamentoContas");
+                });
+
             modelBuilder.Entity("ProjetoPV_Angular.Models.TipoConta", b =>
                 {
                     b.Property<long>("TipoContaId")
@@ -533,6 +700,78 @@ namespace ProjetoPV_Angular.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ProjetoPV_Angular.Models.Transacao", b =>
+                {
+                    b.Property<long>("TransacaoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("TransacaoId"), 1L, 1);
+
+                    b.Property<string>("Anexo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Beneficiario")
+                        .HasColumnType("int");
+
+                    b.Property<long>("ClienteId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ContaDestinoId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ContaOrigemId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataTransacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Moeda")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("nvarchar(3)");
+
+                    b.Property<long>("TipoTransacaoId")
+                        .HasColumnType("bigint");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("float");
+
+                    b.HasKey("TransacaoId");
+
+                    b.HasIndex("ClienteId");
+
+                    b.HasIndex("TipoTransacaoId");
+
+                    b.ToTable("Transacao");
+                });
+
+            modelBuilder.Entity("ProjetoPV_Angular.Models.Utilizador", b =>
+                {
+                    b.Property<long>("UtilizadorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("UtilizadorId"), 1L, 1);
+
+                    b.Property<long>("ClienteId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("UtilizadorId");
+
+                    b.HasIndex("ClienteId");
+
+                    b.ToTable("Utilizador");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -589,6 +828,85 @@ namespace ProjetoPV_Angular.Data.Migrations
                     b.HasOne("ProjetoPV_Angular.Models.Cliente", "Cliente")
                         .WithMany()
                         .HasForeignKey("ClienteId");
+
+                    b.Navigation("Cliente");
+                });
+
+            modelBuilder.Entity("ProjetoPV_Angular.Models.Conta", b =>
+                {
+                    b.HasOne("ProjetoPV_Angular.Models.TipoConta", "TipoConta")
+                        .WithMany()
+                        .HasForeignKey("TipoContaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TipoConta");
+                });
+
+            modelBuilder.Entity("ProjetoPV_Angular.Models.ContaClientes", b =>
+                {
+                    b.HasOne("ProjetoPV_Angular.Models.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjetoPV_Angular.Models.Conta", "Conta")
+                        .WithMany()
+                        .HasForeignKey("ContaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("Conta");
+                });
+
+            modelBuilder.Entity("ProjetoPV_Angular.Models.OrcamentoContas", b =>
+                {
+                    b.HasOne("ProjetoPV_Angular.Models.Conta", "Conta")
+                        .WithMany()
+                        .HasForeignKey("ContaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjetoPV_Angular.Models.Orcamento", "Orcamento")
+                        .WithMany()
+                        .HasForeignKey("OrcamentoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Conta");
+
+                    b.Navigation("Orcamento");
+                });
+
+            modelBuilder.Entity("ProjetoPV_Angular.Models.Transacao", b =>
+                {
+                    b.HasOne("ProjetoPV_Angular.Models.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjetoPV_Angular.Models.TipoTransacao", "TipoTransacao")
+                        .WithMany()
+                        .HasForeignKey("TipoTransacaoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("TipoTransacao");
+                });
+
+            modelBuilder.Entity("ProjetoPV_Angular.Models.Utilizador", b =>
+                {
+                    b.HasOne("ProjetoPV_Angular.Models.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Cliente");
                 });

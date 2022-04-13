@@ -19,6 +19,12 @@ const PROXY_CONFIG = [
     headers: {
       Connection: 'Keep-Alive'
     }
+  },
+  {
+    context: "/api",
+    target: "https://localhost:7274",
+    secure: false,
+    changeOrigin: true
   }
 ]
 

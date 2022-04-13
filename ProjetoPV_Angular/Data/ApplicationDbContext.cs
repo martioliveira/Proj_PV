@@ -18,35 +18,6 @@ namespace ProjetoPV_Angular.Data
         {
             base.OnModelCreating(builder);
 
-            //Popular Entidade Categoria
-            #region Dados Categoria
-            builder.Entity<Categoria>().HasData(
-                    new Categoria
-                    {
-                        CategoriaId = 1,
-                        Nome = "Transportes",
-                        Descricao = "Categoria destinada a gastos com transportes."
-                    },
-                    new Categoria
-                    {
-                        CategoriaId = 2,
-                        Nome = "Comida e Bebida",
-                        Descricao = "Categoria destinada a gastos com alimentação."
-                    },
-                    new Categoria
-                    {
-                        CategoriaId = 3,
-                        Nome = "Supermercado",
-                        Descricao = "Categoria destinada a gastos no supermercado."
-                    },
-                    new Categoria
-                    {
-                        CategoriaId = 4,
-                        Nome = "Habitação",
-                        Descricao = "Categoria destinada a gastos com a habitação."
-                    });
-            #endregion
-
             //Popular Entidade TipoConta
             #region Dados TipoConta
             builder.Entity<TipoConta>().HasData(
@@ -101,6 +72,64 @@ namespace ProjetoPV_Angular.Data
                         Descricao = TipoContaDescricao.ContaPoupança
                     }
                     );
+            #endregion
+
+            //Popular Entidade Conta
+            #region Dados Conta
+            builder.Entity<Conta>().HasData(
+                new Conta
+                {
+                    ContaId = 1,
+                    Descricao = "Conta 1",
+                    Moeda = "EUR",
+                    Saldo = 349,
+                    TipoContaId = 1
+                },
+                new Conta
+                {
+                    ContaId = 2,
+                    Descricao = "Conta 2",
+                    Moeda = "EUR",
+                    Saldo = 12,
+                    TipoContaId = 2
+                },
+                new Conta
+                {
+                    ContaId = 3,
+                    Descricao = "Conta 3",
+                    Moeda = "EUR",
+                    Saldo = 2199,
+                    TipoContaId = 2
+                }) ; 
+            #endregion
+
+            //Popular Entidade Categoria
+            #region Dados Categoria
+            builder.Entity<Categoria>().HasData(
+                    new Categoria
+                    {
+                        CategoriaId = 1,
+                        Nome = "Transportes",
+                        Descricao = "Categoria destinada a gastos com transportes."
+                    },
+                    new Categoria
+                    {
+                        CategoriaId = 2,
+                        Nome = "Comida e Bebida",
+                        Descricao = "Categoria destinada a gastos com alimentação."
+                    },
+                    new Categoria
+                    {
+                        CategoriaId = 3,
+                        Nome = "Supermercado",
+                        Descricao = "Categoria destinada a gastos no supermercado."
+                    },
+                    new Categoria
+                    {
+                        CategoriaId = 4,
+                        Nome = "Habitação",
+                        Descricao = "Categoria destinada a gastos com a habitação."
+                    });
             #endregion
 
             //Popular Entidade TipoTransacao
