@@ -1,9 +1,9 @@
 export class TipoConta {
-  constructor( TipoContaId: bigint,
+  constructor( TipoContaId: string,
                  Descricao: TipoContaDescricao ) { }
 }
 
-enum TipoContaDescricao {
+export enum TipoContaDescricao {
   Geral,
   ContaAtual,
   Dinheiro,
