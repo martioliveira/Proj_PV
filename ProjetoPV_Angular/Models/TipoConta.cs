@@ -22,6 +22,5 @@ namespace ProjetoPV_Angular.Models
 
         [EnumDataType(typeof(TipoContaDescricao))]
         public TipoContaDescricao Descricao { get; set; }
-
     }
 }

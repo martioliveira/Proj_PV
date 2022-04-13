@@ -7,8 +7,6 @@ namespace ProjetoPV_Angular.Models
         [Key]
         public long TransacaoId { get; set; }
 
-        // Adicionar tipo de transacão
-
         public long ContaOrigemId { get; set; }
         public long ContaDestinoId { get; set; }
 
