@@ -1,0 +1,26 @@
+<a routerLink="/transacoes-create" class="btn btn-success">Criar Transacao</a>
+
+<p *ngIf="transacoes.length == 0"><em>Não tem nenhuma transacão registada...</em></p>
+
+<div *ngIf="transacoes.length > 0">
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th>Tipo Transacao Id</th>
+        <th>Conta origem</th>
+        <th>Conta destino</th>
+        <th>Valor</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transacao of transacoes">
+        <td> {{ transacao.tipoTransacaoId }} </td>
+        <td> {{ transacao.contaOrigemId }} </td>
+        <td> {{ transacao.contaDestinoId }}</td>
+        <td> {{ transacao.valor }} {{ transacao.moeda}} </td>
+        <td> {{ transacao.dataTransacao }} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

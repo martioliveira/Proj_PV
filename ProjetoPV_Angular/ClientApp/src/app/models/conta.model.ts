@@ -1,4 +1,5 @@
 import { TipoConta } from "./tipoconta.model";
+import { Transacao } from "./transacao.model";
 
 export class Conta {
   constructor( public contaId: string,
@@ -7,5 +8,6 @@ export class Conta {
                public moeda: string,
                public tipoContaId: string,
                public tipoConta: TipoConta,
+               public transacoes: Transacao[]
              ) {}
 }

@@ -43,6 +43,24 @@ namespace ProjetoPV_Angular.Controllers
             return conta;
         }
 
+        // GET: api/Contas/Transacoes/5
+        [HttpGet]
+        [Route("Transacoes/{id}")]
+        public async Task<ActionResult<IEnumerable<Transacao>>> GetContaTransacoes(long id)
+        {
+            var conta = await _context.Conta.FindAsync(id);
+            
+            if (conta == null)
+            {
+                return NotFound();
+            }
+
+            var transacoes = await _context.Transacao.
+                Where(t => t.ContaOrigemId == id || t.ContaDestinoId == id).ToListAsync();
+
+            return transacoes;
+        }
+
         // PUT: api/Contas/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
