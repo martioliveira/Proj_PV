@@ -10,5 +10,9 @@ namespace ProjetoPV_Angular.Models
         public Conta Conta { get; set; }
 
         public Cliente Cliente { get; set; }
+
+        public long ClienteId { get; set; }
+
+        public long ContaId { get; set; }
     }
 }

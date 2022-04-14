@@ -13,4 +13,8 @@ export class ContaService {
   getContas(): Observable<Conta[]> {
     return this.http.get<Conta[]>(this.baseUrl + 'api/Contas');
   }
+
+  createConta(conta: Conta): Observable<Conta> {
+    return this.http.post<Conta>(this.baseUrl + 'api/Contas', conta);
+  }
 }
