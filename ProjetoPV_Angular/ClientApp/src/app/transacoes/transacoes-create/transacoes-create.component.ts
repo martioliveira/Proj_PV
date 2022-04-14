@@ -8,10 +8,22 @@ import { TipoTransacao } from '../../models/tipotransacao.model';
   selector: 'app-transacoes-create',
   templateUrl: './transacoes-create.component.html'
 })
+
+ 
 export class TransacoesCreateComponent implements OnInit {
-  constructor(private service: TransacaoService, private router: Router) { }
+
+  transacaoSelecionada = null;
+  tipotransacao = {
+    "1": "Receita",
+    "2": "Despesa",
+    "3": "Transação"
+  }
+
+  constructor(private service: TransacaoService, private router: Router) {
+  }
 
   ngOnInit(): void {
+
   }
 
   onSubmit(transacaoForm: NgForm) {

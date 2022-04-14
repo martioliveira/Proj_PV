@@ -11,6 +11,7 @@ import { Transacao } from '../../models/transacao.model';
 })
 export class ContaListComponent implements OnInit {
 
+  contaIdSelecionada: string | undefined;
   public contas: Conta[] = [];
   public transacoes: Transacao[] = [];
 
@@ -25,6 +26,7 @@ export class ContaListComponent implements OnInit {
   }
 
   selectedAccountFillTransactions(contaId: string) {
+    this.contaIdSelecionada = contaId;
     this.service.getTransacoesConta(contaId).subscribe((transacoes: Transacao[]) => this.transacoes = transacoes);
   }
 
