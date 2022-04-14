@@ -13,12 +13,13 @@ import { TipoTransacao } from '../../models/tipotransacao.model';
 export class TransacoesCreateComponent implements OnInit {
 
   transacaoSelecionada = null;
-  tipotransacao = tipoTransacaoEnum;
-  enumKeys: string[] = [];
-
+  tipotransacao = {
+    "1": "Receita",
+    "2": "Despesa",
+    "3": "Transação"
+  }
 
   constructor(private service: TransacaoService, private router: Router) {
-    this.enumKeys = Object.keys(this.tipotransacao).filter(f => !isNaN(Number(f)));
   }
 
   ngOnInit(): void {
@@ -34,10 +35,4 @@ export class TransacoesCreateComponent implements OnInit {
         console.error(error);
       });
   }
-}
-
-export enum tipoTransacaoEnum {
-  Receita = 1,
-  Despesa = 2,
-  Transação = 3,
 }
