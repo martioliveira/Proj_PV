@@ -16,6 +16,8 @@ import { ContaListComponent } from './conta/conta-list/conta-list.component';
 import { ContaCreateComponent } from './conta/conta-create/conta-create.component';
 import { TransacoesListComponent } from './transacoes/transacoes-list/transacoes-list.component';
 import { TransacoesCreateComponent } from './transacoes/transacoes-create/transacoes-create.component';
+import { TransacoesDetailsComponent } from './transacoes/transacoes-details/transacoes-details.component';
+import { TransacoesEditComponent } from './transacoes/transacoes-edit/transacoes-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { TransacoesCreateComponent } from './transacoes/transacoes-create/transa
     ContaListComponent,
     ContaCreateComponent,
     TransacoesListComponent,
-    TransacoesCreateComponent
+    TransacoesCreateComponent,
+    TransacoesDetailsComponent,
+    TransacoesEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -40,6 +44,8 @@ import { TransacoesCreateComponent } from './transacoes/transacoes-create/transa
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
       { path: 'conta-create', component: ContaCreateComponent },
       { path: 'transacoes-create', component: TransacoesCreateComponent },
+      { path: 'transacoes-details/:id', component: TransacoesDetailsComponent },
+      { path: 'transacoes-edit/:id', component: TransacoesEditComponent },
     ])
   ],
   providers: [

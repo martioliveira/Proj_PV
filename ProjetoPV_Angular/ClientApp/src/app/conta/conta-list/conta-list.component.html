@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let conta of contas; let i = index" (click)="selectedAccountFillTransactions(conta.contaId)" class="colorRow" [class.highlighted]="conta.contaId === contaIdSelecionada">
+      <tr *ngFor="let conta of contas" (click)="selectedAccountFillTransactions(conta.contaId)" class="colorRow" [class.highlighted]="conta.contaId === contaIdSelecionada">
         <td>{{ conta.contaId }}</td>
         <td>{{ conta.descricao }}</td>
         <td>{{ conta.saldo }} {{ conta.moeda }}</td>

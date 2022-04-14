@@ -5,7 +5,8 @@ import { Transacao } from '../../models/transacao.model';
 
 @Component({
   selector: 'app-transacoes-list',
-  templateUrl: './transacoes-list.component.html'
+  templateUrl: './transacoes-list.component.html',
+  styleUrls: ['./transacoes-list.component.css']
 })
 export class TransacoesListComponent implements OnInit {
 
@@ -20,6 +21,15 @@ export class TransacoesListComponent implements OnInit {
 
   getTransacoes(): void {
     this.service.getTransacoes().subscribe((transacoes: Transacao[]) => this.transacoes = transacoes);
+  }
+
+  onDeleteTransacao(id: string) {
+    if (confirm("Apagar a transação?")) {
+      this.service.deleteTransacao(id)
+        .subscribe(res => {
+          this.getTransacoes();
+        });
+    }
   }
 
 }
