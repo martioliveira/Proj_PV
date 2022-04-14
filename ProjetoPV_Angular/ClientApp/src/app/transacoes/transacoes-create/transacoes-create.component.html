@@ -9,25 +9,30 @@
     <label for="contaDestinoId">Id Conta destino:</label>
     <input ngModel name="contaDestinoId" id="contaDestinoId" #contaDestinoId="ngModel" type="number" class="form-control" />
   </div>
+  <div class="form-group">
+    <label for="tipoTransacaoId">Tipo Transação:</label>
+    <input ngModel name="tipoTransacaoId" id="tipoTransacaoId" #tipoTransacaoId="ngModel" type="number" class="form-control" />
+    <!--<select ngModel name="tipoTransacaoId" class="form-control">
+      <option *ngFor="let name of enumKeys" [value]="name">
+        {{tipotransacao[name]}}
+      </option>
+    </select>-->
+  </div>
   <div class="form-group>">
     <label for="descricao">Descrição:</label>
     <input ngModel name="descricao" #descricao="ngModel" id="descricao" type="text" class="form-control" />
-  </div>
-  <div class="form-group">
-    <label for="beneficiario">Beneficiario:</label>
-    <input ngModel name="beneficiario" id="beneficiario" #beneficiario="ngModel" type="number" class="form-control" />
-  </div>
-  <div class="form-group">
-    <label for="moeda">Moeda:</label>
-    <input ngModel name="moeda" id="moeda" #moeda="ngModel" type="text" class="form-control" />
   </div>
   <div class="form-group">
     <label for="valor">Valor:</label>
     <input ngModel name="valor" id="valor" #valor="ngModel" type="number" class="form-control" />
   </div>
   <div class="form-group">
-    <label for="tipoTransacaoId">Tipo Transação Id:</label>
-    <input ngModel name="tipoTransacaoId" id="tipoTransacaoId" #tipoTransacaoId="ngModel" type="number" class="form-control" />
+    <label for="moeda">Moeda:</label>
+    <input ngModel name="moeda" id="moeda" #moeda="ngModel" type="text" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="beneficiario">Beneficiario:</label>
+    <input ngModel name="beneficiario" id="beneficiario" #beneficiario="ngModel" type="number" class="form-control" />
   </div>
   <div class="form-group">
     <label for="anexo">Anexo:</label>

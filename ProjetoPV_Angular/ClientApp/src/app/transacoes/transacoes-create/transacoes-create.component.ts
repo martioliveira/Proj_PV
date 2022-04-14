@@ -8,10 +8,21 @@ import { TipoTransacao } from '../../models/tipotransacao.model';
   selector: 'app-transacoes-create',
   templateUrl: './transacoes-create.component.html'
 })
+
+ 
 export class TransacoesCreateComponent implements OnInit {
-  constructor(private service: TransacaoService, private router: Router) { }
+
+  transacaoSelecionada = null;
+  tipotransacao = tipoTransacaoEnum;
+  enumKeys: string[] = [];
+
+
+  constructor(private service: TransacaoService, private router: Router) {
+    this.enumKeys = Object.keys(this.tipotransacao).filter(f => !isNaN(Number(f)));
+  }
 
   ngOnInit(): void {
+
   }
 
   onSubmit(transacaoForm: NgForm) {
@@ -23,4 +34,10 @@ export class TransacoesCreateComponent implements OnInit {
         console.error(error);
       });
   }
+}
+
+export enum tipoTransacaoEnum {
+  Receita = 1,
+  Despesa = 2,
+  Transação = 3,
 }
