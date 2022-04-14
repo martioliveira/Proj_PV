@@ -2,8 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoPV_Angular.Data;
@@ -16,10 +19,12 @@ namespace ProjetoPV_Angular.Controllers
     public class ContasController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ContasController(ApplicationDbContext context)
+        public ContasController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: api/Contas
@@ -77,19 +82,22 @@ namespace ProjetoPV_Angular.Controllers
         // POST: api/Contas
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Conta>> PostConta(Conta conta)
         {
             _context.Conta.Add(conta);
             await _context.SaveChangesAsync();
 
-            /*
-            ContaClientes contaClientes = new ContaClientes();
-            contaClientes.ClienteId = 1;
-            contaClientes.ContaId = conta.ContaId;
-
-            _context.ContaClientes.Add(contaClientes);
-            await _context.SaveChangesAsync();
-            */
+            var user = await _userManager.FindByIdAsync(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            if (user != null)
+            {
+                ContaClientes contaClientes = new ContaClientes()
+                { ContaId = conta.ContaId,
+                  ApplicationUserId = user.Id
+                };
+                _context.ContaClientes.Add(contaClientes);
+                await _context.SaveChangesAsync();
+            }
 
             return CreatedAtAction("GetConta", new { id = conta.ContaId }, conta);
         }

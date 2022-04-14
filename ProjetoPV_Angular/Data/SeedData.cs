@@ -25,8 +25,8 @@ namespace ProjetoPV_Angular.Data
 
                 if (result.Succeeded)
                 {
-                    await userManager.AddToRoleAsync(user, "ApplicationUser");
-                    System.Console.WriteLine($"Adding role ApplicationUser to user {user.UserName} - Succeeded: {result.Succeeded}");
+                    IdentityResult roleResult = await userManager.AddToRoleAsync(user, "ApplicationUser");
+                    System.Console.WriteLine($"Adding role ApplicationUser to user {user.UserName} - Succeeded: {roleResult.Succeeded}");
                 }
             }
 
@@ -39,7 +39,7 @@ namespace ProjetoPV_Angular.Data
                 if (result.Succeeded)
                 {
                     IdentityResult roleResult = await userManager.AddToRoleAsync(user, "Administrador");
-                    System.Console.WriteLine($"Adding role Administrador to user {user.UserName} - Succeeded: {result.Succeeded}");
+                    System.Console.WriteLine($"Adding role Administrador to user {user.UserName} - Succeeded: {roleResult.Succeeded}");
                 }
             }
         }
