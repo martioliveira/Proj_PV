@@ -16,8 +16,6 @@ namespace ProjetoPV_Angular.Models
         [Required, StringLength(3)]
         public string? Moeda { get; set; }
 
-        public long TipoContaId { get; set; }
-
         [Required]
         public long TipoContaId { get; set; }
 
