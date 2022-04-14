@@ -7,12 +7,12 @@ namespace ProjetoPV_Angular.Models
         [Key]
         public long ContaClientesId { get; set; }
 
-        public Conta Conta { get; set; }
+        [Required]
+        public string? ApplicationUserId { get; set; }
 
-        public Cliente Cliente { get; set; }
-
-        public long ClienteId { get; set; }
-
+        [Required]
         public long ContaId { get; set; }
+
+        public Conta? Conta { get; set; }
     }
 }
