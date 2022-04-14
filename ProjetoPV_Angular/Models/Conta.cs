@@ -19,9 +19,9 @@ namespace ProjetoPV_Angular.Models
         [Required]
         public long TipoContaId { get; set; }
 
-        public TipoConta TipoConta { get; set; }
+        public TipoConta? TipoConta { get; set; }
 
-        public List<Transacao> Transacoes { get; set; }
+        public List<Transacao>? Transacoes { get; set; }
 
     }
 }

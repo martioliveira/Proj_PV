@@ -9,16 +9,19 @@
         <th>Conta Id</th>
         <th>Descrição</th>
         <th>Saldo</th>
-        <th>Moeda</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let conta of contas">
+      <tr *ngFor="let conta of contas; let i = index" (click)="selectedAccountFillTransactions(conta.contaId)" class="colorRow">
         <td>{{ conta.contaId }}</td>
         <td>{{ conta.descricao }}</td>
-        <td>{{ conta.saldo }}</td>
-        <td>{{ conta.moeda }}</td>
+        <td>{{ conta.saldo }} {{ conta.moeda }}</td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<div>
+  <app-transacoes-list [transacoes]=transacoes></app-transacoes-list>
+</div>
+

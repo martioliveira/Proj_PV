@@ -18,6 +18,15 @@ namespace ProjetoPV_Angular.Data
         {
             base.OnModelCreating(builder);
 
+            //Popular Entidade Cliente
+            #region Dados Cliente
+            builder.Entity<Cliente>().HasData(
+                new Cliente {ClienteId = 1},
+                new Cliente {ClienteId = 2},
+                new Cliente {ClienteId = 3}
+                );
+            #endregion
+
             //Popular Entidade TipoConta
             #region Dados TipoConta
             builder.Entity<TipoConta>().HasData(
@@ -83,7 +92,7 @@ namespace ProjetoPV_Angular.Data
                     Descricao = "Conta 1",
                     Moeda = "EUR",
                     Saldo = 349,
-                    TipoContaId = 1
+                    TipoContaId = 1,
                 },
                 new Conta
                 {
@@ -151,6 +160,71 @@ namespace ProjetoPV_Angular.Data
                         Descricao = TipoTransacaoDescricao.Transacao
                     }
                     );
+            #endregion
+
+            //Popular Entidade Transacao
+            #region Dados Transacao
+            builder.Entity<Transacao>().HasData(
+                new Transacao
+                {
+                    TransacaoId = 1,
+                    ContaOrigemId = 1,
+                    ContaDestinoId = 2,
+                    Beneficiario = 254385938,
+                    Descricao = "Transacao 1",
+                    Moeda = "EUR",
+                    Valor = 500,
+                    TipoTransacaoId = 3,
+                    Anexo = "",
+                    DataCriacao = DateTime.Now,
+                    DataTransacao = DateTime.Now,
+                    ClienteId = 1
+                },
+                new Transacao
+                {
+                    TransacaoId = 2,
+                    ContaOrigemId = 2,
+                    ContaDestinoId = 1,
+                    Beneficiario = 254385938,
+                    Descricao = "Transacao 2",
+                    Moeda = "EUR",
+                    Valor = 300,
+                    TipoTransacaoId = 3,
+                    Anexo = "",
+                    DataCriacao = DateTime.Now,
+                    DataTransacao = DateTime.Now,
+                    ClienteId = 2
+                },
+                new Transacao
+                {
+                    TransacaoId = 3,
+                    ContaOrigemId = 2,
+                    ContaDestinoId = 1,
+                    Beneficiario = 254385938,
+                    Descricao = "Transacao 3",
+                    Moeda = "EUR",
+                    Valor = 900,
+                    TipoTransacaoId = 3,
+                    Anexo = "",
+                    DataCriacao = DateTime.Now,
+                    DataTransacao = DateTime.Now,
+                    ClienteId = 2
+                },
+                new Transacao
+                {
+                    TransacaoId = 4,
+                    ContaOrigemId = 2,
+                    ContaDestinoId = 1,
+                    Beneficiario = 254385938,
+                    Descricao = "Transacao 4",
+                    Moeda = "EUR",
+                    Valor = 1500,
+                    TipoTransacaoId = 3,
+                    Anexo = "",
+                    DataCriacao = DateTime.Now,
+                    DataTransacao = DateTime.Now,
+                    ClienteId = 2
+                });
             #endregion
         }
 
