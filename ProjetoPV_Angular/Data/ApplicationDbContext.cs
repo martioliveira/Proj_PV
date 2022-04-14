@@ -92,7 +92,7 @@ namespace ProjetoPV_Angular.Data
                     Descricao = "Conta 1",
                     Moeda = "EUR",
                     Saldo = 349,
-                    TipoContaId = 1,
+                    TipoContaId = 1
                 },
                 new Conta
                 {
