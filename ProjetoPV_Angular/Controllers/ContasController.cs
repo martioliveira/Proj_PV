@@ -82,6 +82,15 @@ namespace ProjetoPV_Angular.Controllers
             _context.Conta.Add(conta);
             await _context.SaveChangesAsync();
 
+            /*
+            ContaClientes contaClientes = new ContaClientes();
+            contaClientes.ClienteId = 1;
+            contaClientes.ContaId = conta.ContaId;
+
+            _context.ContaClientes.Add(contaClientes);
+            await _context.SaveChangesAsync();
+            */
+
             return CreatedAtAction("GetConta", new { id = conta.ContaId }, conta);
         }
 
