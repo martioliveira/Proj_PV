@@ -14,6 +14,8 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { ContaListComponent } from './conta/conta-list/conta-list.component';
 import { ContaCreateComponent } from './conta/conta-create/conta-create.component';
+import { TransacoesListComponent } from './transacoes/transacoes-list/transacoes-list.component';
+import { TransacoesCreateComponent } from './transacoes/transacoes-create/transacoes-create.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ContaCreateComponent } from './conta/conta-create/conta-create.componen
     CounterComponent,
     FetchDataComponent,
     ContaListComponent,
-    ContaCreateComponent
+    ContaCreateComponent,
+    TransacoesListComponent,
+    TransacoesCreateComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,6 +39,7 @@ import { ContaCreateComponent } from './conta/conta-create/conta-create.componen
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
       { path: 'conta-create', component: ContaCreateComponent },
+      { path: 'transacoes-create', component: TransacoesCreateComponent },
     ])
   ],
   providers: [

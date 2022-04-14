@@ -29,8 +29,9 @@ namespace ProjetoPV_Angular.Models
         public string Anexo { get; set; }
 
         [Required]
-        public Cliente Cliente { get; set; }
-        public TipoTransacao TipoTransacao { get; set; }
+        public long ClienteId { get; set; }
+        public TipoTransacao? TipoTransacao { get; set; }
 
+        public long TipoTransacaoId { get; set; }
     }
 }
