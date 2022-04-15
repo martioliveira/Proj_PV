@@ -1,0 +1,20 @@
+<p *ngIf="!tipocontas"><em>Não tem nenhuma conta registada...</em></p>
+
+<!--<a routerLink="/conta-create" class="btn btn-success">Criar Conta</a>-->
+
+<div *ngIf="tipocontas">
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th>Tipo de Conta Id</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tipoconta of tipocontas; let i = index" class="colorRow"> <!--(click)="selectedAccountFillTransactions(conta.contaId)"--> 
+        <td>{{ tipoconta.tipoContaId }}</td>
+        <td>{{ tipoconta.descricao }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
