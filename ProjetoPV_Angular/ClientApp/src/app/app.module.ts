@@ -14,6 +14,7 @@ import { ContaListComponent } from './conta/conta-list/conta-list.component';
 import { ContaCreateComponent } from './conta/conta-create/conta-create.component';
 import { TransacoesListComponent } from './transacoes/transacoes-list/transacoes-list.component';
 import { TransacoesCreateComponent } from './transacoes/transacoes-create/transacoes-create.component';
+import { TipoContaListComponent } from './tipo-conta/tipo-conta-list/tipo-conta-list.component';
 import { TransacoesDetailsComponent } from './transacoes/transacoes-details/transacoes-details.component';
 import { TransacoesEditComponent } from './transacoes/transacoes-edit/transacoes-edit.component';
 import { ContaDetailsComponent } from './conta/conta-details/conta-details.component';
@@ -28,6 +29,7 @@ import { ContaEditComponent } from './conta/conta-edit/conta-edit.component';
     ContaCreateComponent,
     TransacoesListComponent,
     TransacoesCreateComponent,
+    TipoContaListComponent,
     TransacoesDetailsComponent,
     TransacoesEditComponent,
     ContaDetailsComponent,
@@ -46,6 +48,7 @@ import { ContaEditComponent } from './conta/conta-edit/conta-edit.component';
       { path: 'transacoes-edit/:id', component: TransacoesEditComponent },
       { path: 'conta-details/:id', component: ContaDetailsComponent },
       { path: 'conta-edit/:id', component: ContaEditComponent },
+      { path: 'tipo-conta', component: TipoContaListComponent },
     ])
   ],
   providers: [

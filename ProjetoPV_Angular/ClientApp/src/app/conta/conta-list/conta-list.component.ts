@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Conta } from '../../models/conta.model';
 import { ContaService } from '../../models/models-services/conta.service';
-import { TipoConta, TipoContaDescricao } from '../../models/tipoconta.model';
+import { TipoConta } from '../../models/tipoconta.model';
 import { Transacao } from '../../models/transacao.model';
 
 @Component({
