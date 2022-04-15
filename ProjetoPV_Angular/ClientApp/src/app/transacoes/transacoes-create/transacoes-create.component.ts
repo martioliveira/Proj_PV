@@ -28,8 +28,7 @@ export class TransacoesCreateComponent implements OnInit {
 
   onSubmit(transacaoForm: NgForm) {
     this.service.createTransacao(transacaoForm.value).subscribe(res => {
-      console.log('Transação criada com sucesso.');
-      this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/');
     },
       error => {
         console.error(error);
