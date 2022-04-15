@@ -16,6 +16,7 @@ import { ContaListComponent } from './conta/conta-list/conta-list.component';
 import { ContaCreateComponent } from './conta/conta-create/conta-create.component';
 import { TransacoesListComponent } from './transacoes/transacoes-list/transacoes-list.component';
 import { TransacoesCreateComponent } from './transacoes/transacoes-create/transacoes-create.component';
+import { TipoContaListComponent } from './tipo-conta/tipo-conta-list/tipo-conta-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TransacoesCreateComponent } from './transacoes/transacoes-create/transa
     ContaListComponent,
     ContaCreateComponent,
     TransacoesListComponent,
-    TransacoesCreateComponent
+    TransacoesCreateComponent,
+    TipoContaListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -40,6 +42,7 @@ import { TransacoesCreateComponent } from './transacoes/transacoes-create/transa
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
       { path: 'conta-create', component: ContaCreateComponent },
       { path: 'transacoes-create', component: TransacoesCreateComponent },
+      { path: 'tipo-conta', component: TipoContaListComponent },
     ])
   ],
   providers: [
