@@ -7,8 +7,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
@@ -16,18 +14,24 @@ import { ContaListComponent } from './conta/conta-list/conta-list.component';
 import { ContaCreateComponent } from './conta/conta-create/conta-create.component';
 import { TransacoesListComponent } from './transacoes/transacoes-list/transacoes-list.component';
 import { TransacoesCreateComponent } from './transacoes/transacoes-create/transacoes-create.component';
+import { TransacoesDetailsComponent } from './transacoes/transacoes-details/transacoes-details.component';
+import { TransacoesEditComponent } from './transacoes/transacoes-edit/transacoes-edit.component';
+import { ContaDetailsComponent } from './conta/conta-details/conta-details.component';
+import { ContaEditComponent } from './conta/conta-edit/conta-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     ContaListComponent,
     ContaCreateComponent,
     TransacoesListComponent,
-    TransacoesCreateComponent
+    TransacoesCreateComponent,
+    TransacoesDetailsComponent,
+    TransacoesEditComponent,
+    ContaDetailsComponent,
+    ContaEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,10 +40,12 @@ import { TransacoesCreateComponent } from './transacoes/transacoes-create/transa
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
       { path: 'conta-create', component: ContaCreateComponent },
       { path: 'transacoes-create', component: TransacoesCreateComponent },
+      { path: 'transacoes-details/:id', component: TransacoesDetailsComponent },
+      { path: 'transacoes-edit/:id', component: TransacoesEditComponent },
+      { path: 'conta-details/:id', component: ContaDetailsComponent },
+      { path: 'conta-edit/:id', component: ContaEditComponent },
     ])
   ],
   providers: [

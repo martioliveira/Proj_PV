@@ -30,4 +30,12 @@ export class ContaListComponent implements OnInit {
     this.service.getTransacoesConta(contaId).subscribe((transacoes: Transacao[]) => this.transacoes = transacoes);
   }
 
+  onDeleteTransacao(id: string) {
+    if (confirm("Apagar a conta?")) {
+      this.service.deleteConta(id)
+        .subscribe(res => {
+          this.getContas();
+        });
+    }
+  }
 }

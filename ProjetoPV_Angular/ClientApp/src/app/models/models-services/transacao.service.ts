@@ -14,9 +14,24 @@ export class TransacaoService {
     return this.http.get<Transacao[]>(this.baseUrl + 'api/Transacaos');
   }
 
+  getTransacao(id: number): Observable<Transacao> {
+    return this.http.get<Transacao>(this.baseUrl + 'api/Transacaos/' + id);
+  }
+
   createTransacao(transacao: Transacao): Observable<Transacao> {
     return this.http.post<Transacao>(this.baseUrl + 'api/Transacaos', transacao);
   }
+
+  updateTransacao(transacao: Transacao): Observable<Transacao> {
+    return this.http.put<Transacao>(this.baseUrl + 'api/Transacaos/' + transacao.transacaoId, transacao);
+  }
+
+  deleteTransacao(id: string): Observable<Transacao> {
+    return this.http.delete<Transacao>(this.baseUrl + 'api/Transacaos/' + id);
+  }
+
+
+
 
 
 }
