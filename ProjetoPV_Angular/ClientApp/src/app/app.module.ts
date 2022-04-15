@@ -18,6 +18,8 @@ import { TransacoesListComponent } from './transacoes/transacoes-list/transacoes
 import { TransacoesCreateComponent } from './transacoes/transacoes-create/transacoes-create.component';
 import { TransacoesDetailsComponent } from './transacoes/transacoes-details/transacoes-details.component';
 import { TransacoesEditComponent } from './transacoes/transacoes-edit/transacoes-edit.component';
+import { ContaDetailsComponent } from './conta/conta-details/conta-details.component';
+import { ContaEditComponent } from './conta/conta-edit/conta-edit.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { TransacoesEditComponent } from './transacoes/transacoes-edit/transacoes
     TransacoesListComponent,
     TransacoesCreateComponent,
     TransacoesDetailsComponent,
-    TransacoesEditComponent
+    TransacoesEditComponent,
+    ContaDetailsComponent,
+    ContaEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -46,6 +50,8 @@ import { TransacoesEditComponent } from './transacoes/transacoes-edit/transacoes
       { path: 'transacoes-create', component: TransacoesCreateComponent },
       { path: 'transacoes-details/:id', component: TransacoesDetailsComponent },
       { path: 'transacoes-edit/:id', component: TransacoesEditComponent },
+      { path: 'conta-details/:id', component: ContaDetailsComponent },
+      { path: 'conta-edit/:id', component: ContaEditComponent },
     ])
   ],
   providers: [

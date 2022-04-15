@@ -11,12 +11,14 @@ import { Transacao } from '../../models/transacao.model';
 export class TransacoesListComponent implements OnInit {
 
   @Input() transacoes: Transacao[] = [];
-
-  constructor(private service: TransacaoService) { }
+  @Input() contaDetails: boolean = false;
+  
+  constructor(private service: TransacaoService) {
+  }
 
   ngOnInit(): void {
-    if (this.transacoes!=null)
-      this.getTransacoes();
+    if (this.transacoes != null && !this.contaDetails)
+          this.getTransacoes();
   }
 
   getTransacoes(): void {

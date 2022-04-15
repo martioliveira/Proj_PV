@@ -1,12 +1,11 @@
 <h4>Editar Transacao</h4>
 
-LOL -> {{transacao.descricao}}
-
 <form #transacaoForm="ngForm" (ngSubmit)="onSubmit(transacaoForm)">
   <div class="form-group>">
     <input type="hidden" name="transacaoId" id="transacaoId" [(ngModel)]="transacao.transacaoId" />
     <input type="hidden" name="clienteId" id="clienteId" [(ngModel)]="transacao.clienteId" />
     <input type="hidden" name="tipoTransacaoId" id="tipoTransacaoId" [(ngModel)]="transacao.tipoTransacaoId" />
+    <input type="hidden" name="dataCriacao" id="dataCriacao" [(ngModel)]="transacao.dataCriacao" />
 
     <div class="form-group>">
       <label for="descricao"> Descrição:</label>
@@ -38,13 +37,8 @@ LOL -> {{transacao.descricao}}
   </div>
 
   <div class="form-group>">
-    <label for="dataCriacao"> Data criacao:</label>
-    <input id="dataCriacao" name="dataCriacao" type="date" [(ngModel)]="transacao.dataCriacao" class="form-control" />
-  </div>
-
-  <div class="form-group>">
     <label for="dataTransacao"> Data transacao:</label>
-    <input id="dataTransacao" name="dataTransacao" type="date" [(ngModel)]="transacao.dataTransacao" class="form-control" />
+    <input id="dataTransacao" name="dataTransacao" type="text" [(ngModel)]="transacao.dataTransacao" class="form-control" />
   </div>
 
   <div class="form-group>">
@@ -53,7 +47,7 @@ LOL -> {{transacao.descricao}}
   </div>
 
   <div class="form-group">
-    <button class="btn-primary btn" type="submit">Guardar</button>
+    <button class="btn-success btn" type="submit">Guardar</button>
     <a routerLink="" class="btn btn-primary">Voltar</a>
   </div>
 </form>

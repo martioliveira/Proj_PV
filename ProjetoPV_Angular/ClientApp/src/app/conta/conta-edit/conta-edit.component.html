@@ -1,0 +1,34 @@
+<h4>Editar Conta</h4>
+
+<form #contaForm="ngForm" (ngSubmit)="onSubmit(contaForm)">
+  <div class="form-group>">
+    <input type="hidden" name="contaId" id="contaId" [(ngModel)]="conta.contaId" />
+    <input type="hidden" name="tipoConta" id="tipoConta" [(ngModel)]="conta.tipoConta" />
+    <input type="hidden" name="transacoes" id="transacoes" [(ngModel)]="conta.transacoes" />
+
+    <div class="form-group>">
+      <label for="descricao"> Descrição:</label>
+      <input id="descricao" name="descricao" type="text" [(ngModel)]="conta.descricao" class="form-control" />
+    </div>
+
+    <label for="saldo"> Saldo:</label>
+    <input id="saldo" name="saldo" type="number" [(ngModel)]="conta.saldo" class="form-control" />
+  </div>
+
+  <div class="form-group>">
+    <label for="moeda"> Moeda:</label>
+    <input id="moeda" name="moeda" type="text" [(ngModel)]="conta.moeda" class="form-control" />
+  </div>
+
+  <div class="form-group>">
+    <label for="tipoContaId"> Tipo Conta Id:</label>
+    <input id="tipoContaId" name="tipoContaId" type="number" [(ngModel)]="conta.tipoContaId" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <button class="btn-success btn" type="submit">Guardar</button>
+    <a routerLink="" class="btn btn-primary">Voltar</a>
+  </div>
+</form>
+
+

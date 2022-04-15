@@ -16,6 +16,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let transacao of transacoes" class="colorRow">
+        <td> {{ transacao.descricao }} </td>
         <td> {{ transacao.tipoTransacaoId }} </td>
         <td> {{ transacao.contaOrigemId }} </td>
         <td> {{ transacao.contaDestinoId }}</td>
