@@ -19,6 +19,11 @@ import { TransacoesDetailsComponent } from './transacoes/transacoes-details/tran
 import { TransacoesEditComponent } from './transacoes/transacoes-edit/transacoes-edit.component';
 import { ContaDetailsComponent } from './conta/conta-details/conta-details.component';
 import { ContaEditComponent } from './conta/conta-edit/conta-edit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -49,7 +54,12 @@ import { ContaEditComponent } from './conta/conta-edit/conta-edit.component';
       { path: 'conta-details/:id', component: ContaDetailsComponent },
       { path: 'conta-edit/:id', component: ContaEditComponent },
       { path: 'tipo-conta', component: TipoContaListComponent },
-    ])
+    ]),
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

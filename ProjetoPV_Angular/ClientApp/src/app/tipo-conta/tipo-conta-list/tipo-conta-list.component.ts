@@ -10,6 +10,8 @@ import { TipoConta } from '../../models/tipoconta.model';
 export class TipoContaListComponent implements OnInit {
 
   public tipocontas: TipoConta[] = [];
+  public displayedColumns: string[] = ['tipoContaId', 'descricao'];
+  value = 'Clear me';
 
   constructor(private service: TipocontaService) { }
 
