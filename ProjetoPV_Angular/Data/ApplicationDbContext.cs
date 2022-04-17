@@ -33,52 +33,52 @@ namespace ProjetoPV_Angular.Data
                     new TipoConta
                     {
                         TipoContaId = 1,
-                        Descricao = TipoContaDescricao.Geral
+                        Descricao = "Geral"
                     },
                     new TipoConta
                     {
                         TipoContaId = 2,
-                        Descricao = TipoContaDescricao.ContaAtual
+                        Descricao = "Conta Atual"
                     },
                     new TipoConta
                     {
                         TipoContaId = 3,
-                        Descricao = TipoContaDescricao.CartãoCrédito
+                        Descricao = "Cartão de Crédito"
                     },
                     new TipoConta
                     {
                         TipoContaId = 4,
-                        Descricao = TipoContaDescricao.Dinheiro
+                        Descricao = "Dinheiro"
                     },
                     new TipoConta
                     {
                         TipoContaId = 5,
-                        Descricao = TipoContaDescricao.Empréstimo
+                        Descricao = "Empréstimo"
                     },
                     new TipoConta
                     {
                         TipoContaId = 6,
-                        Descricao = TipoContaDescricao.Hipoteca
+                        Descricao = "Hipoteca"
                     },
                     new TipoConta
                     {
                         TipoContaId = 7,
-                        Descricao = TipoContaDescricao.Investimento
+                        Descricao = "Investimento"
                     },
                     new TipoConta
                     {
                         TipoContaId = 8,
-                        Descricao = TipoContaDescricao.Seguro
+                        Descricao = "Seguro"
                     },
                     new TipoConta
                     {
                         TipoContaId = 9,
-                        Descricao = TipoContaDescricao.Bónus
+                        Descricao = "Bónus"
                     },
                     new TipoConta
                     {
                         TipoContaId = 10,
-                        Descricao = TipoContaDescricao.ContaPoupança
+                        Descricao = "Conta-Poupança"
                     }
                     );
             #endregion

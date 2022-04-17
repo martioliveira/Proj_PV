@@ -17,7 +17,7 @@ export class ContaEditComponent implements OnInit {
     moeda: '',
     saldo: 0,
     tipoContaId: '0',
-    tipoConta: TipoConta,
+    tipoConta: null,
     transacoes: [],
   }
   constructor(private service: ContaService, private route: ActivatedRoute, private router: Router) { }
