@@ -226,6 +226,38 @@ namespace ProjetoPV_Angular.Data
                     ClienteId = 2
                 });
             #endregion
+
+            //Popular Entidade Orçamento
+            #region Dados Orçamento
+            builder.Entity<Orcamento>().HasData(
+                    new Orcamento
+                    {
+                        OrcamentoId = 1,
+                        DataFim = DateTime.Now.AddDays(12),
+                        DataInicio = DateTime.Now,
+                        Descricao = "Acabar mês com 2460€",
+                        Moeda = "EUR",
+                        Valor = 221,
+                    },
+                    new Orcamento
+                    {
+                        OrcamentoId = 2,
+                        DataFim = DateTime.Now.AddDays(12),
+                        DataInicio = DateTime.Now,
+                        Descricao = "Acabar mês com 2460€",
+                        Moeda = "EUR",
+                        Valor = 221,
+                    },
+                    new Orcamento
+                    {
+                        OrcamentoId = 3,
+                        DataFim = DateTime.Now.AddDays(12),
+                        DataInicio = DateTime.Now,
+                        Descricao = "Acabar mês com 2460€",
+                        Moeda = "EUR",
+                        Valor = 221,
+                    });
+            #endregion
         }
 
         public DbSet<Categoria> Categoria { get; set; }

@@ -13,11 +13,11 @@ namespace ProjetoPV_Angular.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrcamentoesController : ControllerBase
+    public class OrcamentosController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
 
-        public OrcamentoesController(ApplicationDbContext context)
+        public OrcamentosController(ApplicationDbContext context)
         {
             _context = context;
         }

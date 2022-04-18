@@ -25,6 +25,8 @@ import { PieChartComponent } from './graphs/pie-chart/pie-chart.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LineChartComponent } from './graphs/line-chart/line-chart.component';
+import { OrcamentoListComponent } from './orcamento/orcamento-list/orcamento-list.component';
+import { OrcamentoDetailsComponent } from './orcamento/orcamento-details/orcamento-details.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { LineChartComponent } from './graphs/line-chart/line-chart.component';
     ExportPageComponent,
     PieChartComponent,
     LineChartComponent,
+    OrcamentoListComponent,
+    OrcamentoDetailsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -61,6 +65,8 @@ import { LineChartComponent } from './graphs/line-chart/line-chart.component';
       { path: 'conta-edit/:id', component: ContaEditComponent },
       { path: 'tipo-conta', component: TipoContaListComponent },
       { path: 'export-page', component: ExportPageComponent },
+      { path: 'orcamento-list', component: OrcamentoListComponent },
+      { path: 'orcamento-details/:id', component: OrcamentoDetailsComponent },
     ])
   ],
   providers: [
