@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as XLSX from 'xlsx';
+import { Conta } from '../../models/conta.model';
+import { ContaService } from '../../models/models-services/conta.service';
 
 @Component({
   selector: 'app-export-page',
@@ -8,7 +10,9 @@ import * as XLSX from 'xlsx';
 })
 export class ExportPageComponent implements OnInit {
 
-  fileName = 'ExcelSheet.xlsx';
+  fileName = 'ProjetoPVExport ' + new Date().toLocaleString() + '.xlsx';
+
+  public contas: Conta[] = [];
 
   userList = [
     {
@@ -43,9 +47,14 @@ export class ExportPageComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(private contasService: ContaService) { }
 
   ngOnInit(): void {
+    this.getContas();
+  }
+
+  getContas(): void {
+    this.contasService.getContas().subscribe((contas: Conta[]) => this.contas = contas);
   }
 
   exportAllDummys() {

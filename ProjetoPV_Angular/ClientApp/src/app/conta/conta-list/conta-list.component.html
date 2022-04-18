@@ -16,7 +16,7 @@
       <tr *ngFor="let conta of contas" (click)="selectedAccountFillTransactions(conta.contaId)" class="colorRow" [class.highlighted]="conta.contaId === contaIdSelecionada">
         <td>{{ conta.contaId }}</td>
         <td>{{ conta.descricao }}</td>
-        <td>{{ conta.saldo }} {{ conta.moeda }}</td>
+        <td>{{ conta.saldo | currency:conta.moeda }}</td>
         <td>
           <a href="#" routerLink="/conta-details/{{conta.contaId}}" class="btn btn-info btn-sm">Detalhes</a>
 

@@ -21,8 +21,8 @@
         <td> {{ transacao.tipoTransacaoId }} </td>
         <td> {{ transacao.contaOrigemId }} </td>
         <td> {{ transacao.contaDestinoId }}</td>
-        <td> {{ transacao.valor }} {{ transacao.moeda}} </td>
-        <td> {{ transacao.dataTransacao }} </td>
+        <td> {{ transacao.valor | currency:transacao.moeda}} </td>
+        <td> {{ transacao.dataTransacao | date:'dd/mm/yyyy' }} </td>
         <td>
           <a href="#" routerLink="/transacoes-details/{{transacao.transacaoId}}" class="btn btn-info btn-sm">Detalhes</a>
 
