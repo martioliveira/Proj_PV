@@ -19,6 +19,8 @@ import { TransacoesDetailsComponent } from './transacoes/transacoes-details/tran
 import { TransacoesEditComponent } from './transacoes/transacoes-edit/transacoes-edit.component';
 import { ContaDetailsComponent } from './conta/conta-details/conta-details.component';
 import { ContaEditComponent } from './conta/conta-edit/conta-edit.component';
+import { OrcamentoListComponent } from './orcamento/orcamento-list/orcamento-list.component';
+import { OrcamentoDetailsComponent } from './orcamento/orcamento-details/orcamento-details.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ContaEditComponent } from './conta/conta-edit/conta-edit.component';
     TransacoesDetailsComponent,
     TransacoesEditComponent,
     ContaDetailsComponent,
-    ContaEditComponent
+    ContaEditComponent,
+    OrcamentoListComponent,
+    OrcamentoDetailsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -49,6 +53,8 @@ import { ContaEditComponent } from './conta/conta-edit/conta-edit.component';
       { path: 'conta-details/:id', component: ContaDetailsComponent },
       { path: 'conta-edit/:id', component: ContaEditComponent },
       { path: 'tipo-conta', component: TipoContaListComponent },
+      { path: 'orcamento-list', component: OrcamentoListComponent },
+      { path: 'orcamento-details/:id', component: OrcamentoDetailsComponent },
     ])
   ],
   providers: [
