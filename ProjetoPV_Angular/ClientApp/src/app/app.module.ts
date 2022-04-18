@@ -23,10 +23,18 @@ import { ExportPageComponent } from './export/export-page/export-page.component'
 import { PieChartComponent } from './graphs/pie-chart/pie-chart.component';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LineChartComponent } from './graphs/line-chart/line-chart.component';
 import { OrcamentoListComponent } from './orcamento/orcamento-list/orcamento-list.component';
 import { OrcamentoDetailsComponent } from './orcamento/orcamento-details/orcamento-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { TipoContaEditComponent } from './tipo-conta/tipo-conta-edit/tipo-conta-edit.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { TipoContaCreateComponent } from './tipo-conta/tipo-conta-create/tipo-conta-create.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +54,9 @@ import { OrcamentoDetailsComponent } from './orcamento/orcamento-details/orcamen
     PieChartComponent,
     LineChartComponent,
     OrcamentoListComponent,
-    OrcamentoDetailsComponent
+    OrcamentoDetailsComponent,
+    TipoContaEditComponent,
+    TipoContaCreateComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -67,7 +77,16 @@ import { OrcamentoDetailsComponent } from './orcamento/orcamento-details/orcamen
       { path: 'export-page', component: ExportPageComponent },
       { path: 'orcamento-list', component: OrcamentoListComponent },
       { path: 'orcamento-details/:id', component: OrcamentoDetailsComponent },
-    ])
+      { path: 'tipo-conta-edit/:id', component: TipoContaEditComponent },
+      { path: 'tipo-conta-create', component: TipoContaCreateComponent },
+    ]),
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    MatDividerModule,
+    MatFormFieldModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
