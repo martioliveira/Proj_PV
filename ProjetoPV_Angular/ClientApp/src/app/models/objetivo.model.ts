@@ -1,5 +1,5 @@
 export class Objetivo {
-  constructor( ObjetivoId: bigint,
+  constructor( ObjetivoId: string,
                DataInicio: string,
                   DataFim: string,
                 Descricao: string,

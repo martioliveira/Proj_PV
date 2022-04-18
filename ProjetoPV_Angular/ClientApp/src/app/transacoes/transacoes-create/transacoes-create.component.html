@@ -1,0 +1,51 @@
+<h4>Criar Transacao</h4>
+
+<form #transacaoForm="ngForm" (ngSubmit)="onSubmit(transacaoForm)">
+  <div class="form-group>">
+    <label for="contaOrigemId">Id Conta origem:</label>
+    <input ngModel name="contaOrigemId" #contaOrigemId="ngModel" id="contaOrigemId" type="number" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="contaDestinoId">Id Conta destino:</label>
+    <input ngModel name="contaDestinoId" id="contaDestinoId" #contaDestinoId="ngModel" type="number" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="tipoTransacaoId">Tipo Transação:</label>
+    <select ngModel name="tipoTransacaoId" id="tipoTransacaoId" #tipoTransacaoId="ngModel" class="form-control">
+      <option *ngFor="let tipo of tipotransacao | keyvalue" [value]="tipo.key">{{tipo.value}}</option>
+    </select>
+  </div>
+  <div class="form-group>">
+    <label for="descricao">Descrição:</label>
+    <input ngModel name="descricao" #descricao="ngModel" id="descricao" type="text" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="valor">Valor:</label>
+    <input ngModel name="valor" id="valor" #valor="ngModel" type="number" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="moeda">Moeda:</label>
+    <input ngModel name="moeda" id="moeda" #moeda="ngModel" type="text" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="beneficiario">Beneficiario:</label>
+    <input ngModel name="beneficiario" id="beneficiario" #beneficiario="ngModel" type="number" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="anexo">Anexo:</label>
+    <input ngModel name="anexo" id="anexo" #anexo="ngModel" type="text" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="dataTransacao">Data transação:</label>
+    <input ngModel name="dataTransacao" id="dataTransacao" #dataTransacao="ngModel" type="date" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="clienteId">Cliente Id:</label>
+    <input ngModel name="clienteId" id="clienteId" #clienteId="ngModel" type="number" class="form-control" />
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success">Criar</button>
+    <a routerLink="" class="btn btn-primary">Voltar</a>
+  </div>
+
+</form>

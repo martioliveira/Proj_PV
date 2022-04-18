@@ -1,0 +1,55 @@
+<h4>Editar Transacao</h4>
+
+<form #transacaoForm="ngForm" (ngSubmit)="onSubmit(transacaoForm)">
+  <div class="form-group>">
+    <input type="hidden" name="transacaoId" id="transacaoId" [(ngModel)]="transacao.transacaoId" />
+    <input type="hidden" name="clienteId" id="clienteId" [(ngModel)]="transacao.clienteId" />
+    <input type="hidden" name="tipoTransacaoId" id="tipoTransacaoId" [(ngModel)]="transacao.tipoTransacaoId" />
+    <input type="hidden" name="dataCriacao" id="dataCriacao" [(ngModel)]="transacao.dataCriacao" />
+
+    <div class="form-group>">
+      <label for="descricao"> Descrição:</label>
+      <input id="descricao" name="descricao" type="text" [(ngModel)]="transacao.descricao" class="form-control" />
+    </div>
+
+    <label for="contaOrigemId"> Conta origem Id:</label>
+    <input id="contaOrigemId" name="contaOrigemId" type="text" [(ngModel)]="transacao.contaOrigemId" class="form-control" />
+    </div>
+
+  <div class="form-group>">
+    <label for="contaDestinoId"> Conta destino Id:</label>
+    <input id="contaDestinoId" name="contaDestinoId" type="text" [(ngModel)]="transacao.contaDestinoId" class="form-control" />
+  </div>
+
+  <div class="form-group>">
+    <label for="valor"> Valor:</label>
+    <input id="valor" name="valor" type="number" [(ngModel)]="transacao.valor" class="form-control" />
+  </div>
+
+  <div class="form-group>">
+    <label for="moeda"> Moeda:</label>
+    <input id="moeda" name="moeda" type="text" [(ngModel)]="transacao.moeda" class="form-control" />
+  </div>
+
+  <div class="form-group>">
+    <label for="beneficiario"> Beneficiario:</label>
+    <input id="beneficiario" name="beneficiario" type="text" [(ngModel)]="transacao.beneficiario" class="form-control" />
+  </div>
+
+  <div class="form-group>">
+    <label for="dataTransacao"> Data transacao:</label>
+    <input id="dataTransacao" name="dataTransacao" type="text" [(ngModel)]="transacao.dataTransacao" class="form-control" />
+  </div>
+
+  <div class="form-group>">
+    <label for="anexo"> Anexo:</label>
+    <input id="anexo" name="anexo" type="text" [(ngModel)]="transacao.anexo" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <button class="btn-success btn" type="submit">Guardar</button>
+    <a routerLink="" class="btn btn-primary">Voltar</a>
+  </div>
+</form>
+
+

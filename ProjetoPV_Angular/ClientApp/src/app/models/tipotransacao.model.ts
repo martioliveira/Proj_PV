@@ -1,5 +1,5 @@
 export class TipoTransacao {
- constructor( TipoTransacaoId: bigint,
+ constructor( TipoTransacaoId: string,
                     Descricao: TipoTransacaoDescricao ) { }
 }
 

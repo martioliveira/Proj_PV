@@ -7,8 +7,6 @@ namespace ProjetoPV_Angular.Models
         [Key]
         public long TransacaoId { get; set; }
 
-        // Adicionar tipo de transacão
-
         public long ContaOrigemId { get; set; }
         public long ContaDestinoId { get; set; }
 
@@ -31,8 +29,9 @@ namespace ProjetoPV_Angular.Models
         public string Anexo { get; set; }
 
         [Required]
-        public Cliente Cliente { get; set; }
-        public TipoTransacao TipoTransacao { get; set; }
+        public long ClienteId { get; set; }
+        public TipoTransacao? TipoTransacao { get; set; }
 
+        public long TipoTransacaoId { get; set; }
     }
 }

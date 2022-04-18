@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjetoPV_Angular", "ProjetoPV_Angular.csproj", "{C703D72B-2DB4-4291-A2B0-7B6568716960}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoPV_Test", "..\ProjetoPV_Test\ProjetoPV_Test.csproj", "{7D071C60-8893-43EB-9B3B-66E72EEBBC7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C703D72B-2DB4-4291-A2B0-7B6568716960}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C703D72B-2DB4-4291-A2B0-7B6568716960}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C703D72B-2DB4-4291-A2B0-7B6568716960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D071C60-8893-43EB-9B3B-66E72EEBBC7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D071C60-8893-43EB-9B3B-66E72EEBBC7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D071C60-8893-43EB-9B3B-66E72EEBBC7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D071C60-8893-43EB-9B3B-66E72EEBBC7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

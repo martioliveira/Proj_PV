@@ -1,5 +1,5 @@
 export class Orcamento {
-  constructor( OrcamentoId: bigint,
+  constructor( OrcamentoId: string,
                 DataInicio: string,
                    DataFim: string,
                  Descricao: string,

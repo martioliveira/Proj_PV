@@ -1,0 +1,8 @@
+.colorRow:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.highlighted {
+  background-color: lightyellow;
+}
