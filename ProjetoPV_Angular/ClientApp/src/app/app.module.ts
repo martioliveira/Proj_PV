@@ -24,6 +24,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { TipoContaEditComponent } from './tipo-conta/tipo-conta-edit/tipo-conta-edit.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { TipoContaCreateComponent } from './tipo-conta/tipo-conta-create/tipo-conta-create.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,9 @@ import { MatIconModule } from '@angular/material/icon';
     TransacoesDetailsComponent,
     TransacoesEditComponent,
     ContaDetailsComponent,
-    ContaEditComponent
+    ContaEditComponent,
+    TipoContaEditComponent,
+    TipoContaCreateComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -54,12 +60,16 @@ import { MatIconModule } from '@angular/material/icon';
       { path: 'conta-details/:id', component: ContaDetailsComponent },
       { path: 'conta-edit/:id', component: ContaEditComponent },
       { path: 'tipo-conta', component: TipoContaListComponent },
+      { path: 'tipo-conta-edit/:id', component: TipoContaEditComponent },
+      { path: 'tipo-conta-create', component: TipoContaCreateComponent },
     ]),
     BrowserAnimationsModule,
     MatTableModule,
     MatButtonModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatDividerModule,
+    MatFormFieldModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

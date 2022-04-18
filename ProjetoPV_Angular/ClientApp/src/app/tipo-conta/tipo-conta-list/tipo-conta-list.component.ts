@@ -10,8 +10,7 @@ import { TipoConta } from '../../models/tipoconta.model';
 export class TipoContaListComponent implements OnInit {
 
   public tipocontas: TipoConta[] = [];
-  public displayedColumns: string[] = ['tipoContaId', 'descricao'];
-  value = 'Clear me';
+  public displayedColumns: string[] = ['descricao', 'acao'];
 
   constructor(private service: TipocontaService) { }
 
@@ -21,6 +20,15 @@ export class TipoContaListComponent implements OnInit {
 
   getTipoContas(): void {
     this.service.getTipoContas().subscribe((tipocontas: TipoConta[]) => this.tipocontas = tipocontas);
+  }
+
+  onDeleteTipoConta(id: string) {
+    if (confirm("Apagar o Tipo de Conta?")) {
+      this.service.deleteTipoConta(id)
+        .subscribe(res => {
+          this.getTipoContas();
+        });
+    }
   }
 
 }

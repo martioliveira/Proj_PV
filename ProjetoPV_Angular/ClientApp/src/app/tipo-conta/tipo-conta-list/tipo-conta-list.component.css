@@ -1,5 +1,9 @@
 [class*="mat-column"] {
-  width: 32px;
+  width: auto;
   padding-right: 24px;
   text-align: center;
+}
+
+.mat-header-row {
+  background-color: var(--bs-gray-100);
 }

@@ -13,4 +13,20 @@ export class TipocontaService {
   getTipoContas(): Observable<TipoConta[]> {
     return this.http.get<TipoConta[]>(this.baseUrl + 'api/TipoContas');
   }
+
+  getTipoConta(id: number): Observable<TipoConta> {
+    return this.http.get<TipoConta>(this.baseUrl + 'api/TipoContas/' + id);
+  }
+
+  createTipoConta(tipoconta: TipoConta): Observable<TipoConta> {
+    return this.http.post<TipoConta>(this.baseUrl + 'api/TipoContas', tipoconta);
+  }
+
+  deleteTipoConta(id: string): Observable<TipoConta> {
+    return this.http.delete<TipoConta>(this.baseUrl + 'api/TipoContas/' + id);
+  }
+
+  updateTipoConta(tipoconta: TipoConta): Observable<TipoConta> {
+    return this.http.put<TipoConta>(this.baseUrl + 'api/TipoContas/' + tipoconta.tipoContaId, tipoconta);
+  }
 }
