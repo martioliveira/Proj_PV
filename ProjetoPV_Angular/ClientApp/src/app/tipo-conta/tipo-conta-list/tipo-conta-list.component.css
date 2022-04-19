@@ -1,0 +1,17 @@
+[class*="mat-column"] {
+  width: auto;
+  padding-right: 24px;
+  text-align: center;
+}
+
+.mat-header-row {
+  background-color: var(--bs-gray-100);
+}
+
+.mat-column-descricao {
+  text-align: left;
+}
+
+.mat-column-acao {
+  width:150px;
+}

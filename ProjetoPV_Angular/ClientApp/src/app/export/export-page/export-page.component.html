@@ -1,0 +1,21 @@
+<button class="btn-primary btn" (click)="exportAllDummys()">Exportar Dummys</button>
+
+<div>
+  
+
+  <table id="excel-table">
+    <tr>
+      <th>Conta Id</th>
+      <th>Descricao</th>
+      <th>Saldo</th>
+    </tr>
+    <tr *ngFor="let conta of contas">
+      <td>{{ conta.contaId }}</td>
+      <td>{{ conta.descricao }}</td>
+      <td>{{ conta.saldo | currency:conta.moeda}}</td>
+    </tr>
+  </table>
+</div>
+
+
+
