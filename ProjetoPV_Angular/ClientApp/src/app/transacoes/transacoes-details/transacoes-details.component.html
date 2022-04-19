@@ -4,10 +4,10 @@
     <p><strong>Id: </strong> {{transacao.transacaoId}} </p>
     <p><strong>ContaOrigemId: </strong> {{transacao.contaOrigemId}} </p>
     <p><strong>ContaDestinoId: </strong> {{transacao.contaDestinoId}} </p>
-    <p><strong>Montante: </strong> {{transacao.valor}} {{transacao.moeda}} </p>
+    <p><strong>Montante: </strong> {{transacao.valor | currency:transacao.moeda}} </p>
     <p><strong>Beneficiario: </strong> {{transacao.beneficiario}} </p>
-    <p><strong>Data Criacao: </strong> {{transacao.dataCriacao}} </p>
-    <p><strong>Data Transacao: </strong> {{transacao.dataTransacao}} </p>
+    <p><strong>Data Criacao: </strong> {{transacao.dataCriacao | date:'dd/mm/yyyy'}} </p>
+    <p><strong>Data Transacao: </strong> {{transacao.dataTransacao | date:'dd/mm/yyyy'}} </p>
     <p><strong>Anexo: </strong> {{transacao.anexo}} </p>
   </div>
 
