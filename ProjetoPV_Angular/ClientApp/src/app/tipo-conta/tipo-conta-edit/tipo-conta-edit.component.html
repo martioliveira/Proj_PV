@@ -1,0 +1,17 @@
+<h1>Editar Tipo de Conta</h1>
+<mat-divider></mat-divider>
+
+<form #tipoContaForm="ngForm" (ngSubmit)="onSubmit(tipoContaForm)" class="py-2">
+  <input type="hidden" name="tipoContaId" id="tipoContaId" [(ngModel)]="tipoconta.tipoContaId" />
+
+    <mat-form-field appearance="outline" class="form-group">
+      <mat-label>Descrição</mat-label>
+      <input matInput id="descricao" name="descricao" type="text" [(ngModel)]="tipoconta.descricao">
+      <mat-hint>Descrição do Tipo de Conta</mat-hint>
+    </mat-form-field>
+
+    <div class="form-group">
+      <button mat-raised-button type="submit">Guardar</button>
+      <a mat-raised-button routerLink="/tipo-conta">Voltar</a>
+    </div>
+</form>
