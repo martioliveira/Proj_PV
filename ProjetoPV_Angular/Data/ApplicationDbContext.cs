@@ -234,28 +234,53 @@ namespace ProjetoPV_Angular.Data
                     {
                         OrcamentoId = 1,
                         DataFim = DateTime.Now.AddDays(12),
-                        DataInicio = DateTime.Now,
+                        DataInicio = DateTime.Now.AddDays(-12),
                         Descricao = "Acabar mês com 2460€",
                         Moeda = "EUR",
-                        Valor = 221,
+                        Valor = 1000,
                     },
                     new Orcamento
                     {
                         OrcamentoId = 2,
-                        DataFim = DateTime.Now.AddDays(12),
-                        DataInicio = DateTime.Now,
-                        Descricao = "Acabar mês com 2460€",
+                        DataFim = DateTime.Now.AddDays(43),
+                        DataInicio = DateTime.Now.AddDays(-12),
+                        Descricao = "Despesas Carro 50€",
                         Moeda = "EUR",
-                        Valor = 221,
+                        Valor = 2000,
                     },
                     new Orcamento
                     {
                         OrcamentoId = 3,
                         DataFim = DateTime.Now.AddDays(12),
-                        DataInicio = DateTime.Now,
-                        Descricao = "Acabar mês com 2460€",
+                        DataInicio = DateTime.Now.AddDays(-12),
+                        Descricao = "Poupar para férias 350€",
                         Moeda = "EUR",
-                        Valor = 221,
+                        Valor = 3000,
+                    });
+            #endregion
+
+            //Popular Entidade Orçamento Contas
+            #region Dados Orçamento Contas
+            builder.Entity<OrcamentoContas>().HasData(
+                    new OrcamentoContas
+                    {
+                        OrcamentoContasId = 1,
+                        OrcamentoId = 1,
+                        ContaId = 1,
+                    },
+                    
+                    new OrcamentoContas
+                    {
+                        OrcamentoContasId = 2,
+                        OrcamentoId = 2,
+                        ContaId = 1,
+                    },
+                    
+                    new OrcamentoContas
+                    {
+                        OrcamentoContasId = 3,
+                        OrcamentoId = 3,
+                        ContaId = 2,
                     });
             #endregion
         }
