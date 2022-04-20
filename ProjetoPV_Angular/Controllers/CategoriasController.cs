@@ -1,5 +1,6 @@
 ﻿#nullable disable
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +12,14 @@ using ProjetoPV_Angular.Models;
 
 namespace ProjetoPV_Angular.Controllers
 {
+    public class CustomCategoria : Categoria
+    {
+        public string MyProperty { get; set; }
+        public CustomCategoria() : base()
+        {
+        }
+    }
+
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriasController : ControllerBase
@@ -20,6 +29,27 @@ namespace ProjetoPV_Angular.Controllers
         public CategoriasController(ApplicationDbContext context)
         {
             _context = context;
+        }
+
+        // GET: api/Categorias/Ext
+        [HttpGet("Ext")]
+        public ActionResult<IEnumerable<CustomCategoria>> GetCategoriaExt()
+        {
+            var categorias = _context.Categoria.ToList();
+            var categoriasExt = new List<CustomCategoria>();
+            foreach (var c in categorias)
+            {
+                categoriasExt.Add(new CustomCategoria()
+                {
+                    CategoriaId = c.CategoriaId,
+                    Nome = c.Nome,
+                    Cliente = c.Cliente,
+                    Descricao = c.Descricao,
+                    MyProperty = _context.Transacao.Sum(d => d.Valor).ToString(),
+                });
+            }
+            
+            return categoriasExt.ToList();
         }
 
         // GET: api/Categorias
