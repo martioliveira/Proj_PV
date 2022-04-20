@@ -1,1 +1,23 @@
-<p>orcamento-details works!</p>
+<div>
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Inicio</th>
+        <th>Fim</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ orcamento.descricao }}</td>
+        <td>
+          {{ orcamento.valor | currency:orcamento.moeda }}
+          <br>Gasto:{{ orcamento.gasto | currency:orcamento.moeda }} | Restante:{{ orcamento.restante | currency:orcamento.moeda }}
+        </td>
+        <td>{{ orcamento.dataInicio | date:'dd/MM/yyyy' }}</td>
+        <td>{{ orcamento.dataFim | date:'dd/MM/yyyy' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
