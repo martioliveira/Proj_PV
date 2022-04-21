@@ -23,6 +23,7 @@ export class ContaListComponent implements OnInit {
 
   getContas(): void {
     this.service.getContas().subscribe((contas: Conta[]) => this.contas = contas);
+    console.log(this.contas.toString);
   }
 
   selectedAccountFillTransactions(contaId: string) {

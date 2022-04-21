@@ -26,9 +26,20 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\app\pagTransacoes\transacoes-list\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\app\pagTransacoes\transacoes-list\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\pagTransacoes\transacoes-list\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\src\app\pagTransacoes\transacoes-list\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\pagTransacoes\transacoes-list\transacoes-list.component.css" />
+    <None Remove="ClientApp\src\app\pagTransacoes\transacoes-list\transacoes-list.component.html" />
+    <None Remove="ClientApp\src\app\pagTransacoes\transacoes-list\transacoes-list.component.spec.ts" />
+    <None Remove="ClientApp\src\app\pagTransacoes\transacoes-list\transacoes-list.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
