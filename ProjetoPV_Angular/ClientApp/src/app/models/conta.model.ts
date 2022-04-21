@@ -7,7 +7,7 @@ export class Conta {
                public saldo: number,
                public moeda: string,
                public tipoContaId: string,
-               public tipoConta: TipoConta | null,
+               public tipoConta: TipoConta,
                public transacoes: Transacao[]
              ) {}
 }

@@ -15,7 +15,11 @@
   </div>
   <div class="form-group">
     <label for="tipoContaId">Tipo de conta:</label>
-    <input ngModel name="tipoContaId" id="tipoContaId" #tipoContaId="ngModel" type="text" class="form-control" />
+    <select ngModel name="tipoContaId" id="tipoContaId" #tipoContaId="ngModel" class="form-control">
+      <option *ngFor="let tipoConta of tipoContas" [value]="tipoConta.tipoContaId">
+        {{ tipoConta.descricao }}
+      </option>
+    </select>
   </div>
   <div class="form-group">
     <button class="btn btn-success">Criar</button>
