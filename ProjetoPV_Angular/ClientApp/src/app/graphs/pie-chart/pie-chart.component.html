@@ -1,4 +1,4 @@
-<table>
+<table *ngIf="contas.length > 0">
   <!--
   <tr>
     <td>
@@ -19,7 +19,7 @@
     -->
   <tr>
     <td>
-      <ngx-charts-advanced-pie-chart [results]="productSales"
+      <ngx-charts-advanced-pie-chart [results]="contasToGraphFormat"
                                      [view]="view"
                                      [scheme]="colorScheme"
                                      [gradient]="gradient"
@@ -29,4 +29,4 @@
       </ngx-charts-advanced-pie-chart>
     </td>
   </tr>
-</table>
+  </table>
