@@ -18,4 +18,8 @@ export class OrcamentoService {
   getCustomOrcamentos(): Observable<OrcamentoTb2[]> {
     return this.http.get<OrcamentoTb2[]>(this.baseUrl + 'api/Orcamentos/Tb2');
   }
+
+  getCustomOrcamentoId(id: string): Observable<OrcamentoTb2> {
+    return this.http.get<OrcamentoTb2>(this.baseUrl + 'api/Orcamentos/Tb2/' + id);
+  }
 }
