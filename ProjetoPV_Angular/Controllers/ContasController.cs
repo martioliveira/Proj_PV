@@ -31,14 +31,14 @@ namespace ProjetoPV_Angular.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Conta>>> GetConta()
         {
-            return await _context.Conta.ToListAsync();
+            return await _context.Conta.Include(c => c.TipoConta).ToListAsync();
         }
 
         // GET: api/Contas/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Conta>> GetConta(long id)
         {
-            var conta = await _context.Conta.FindAsync(id);
+            var conta = await _context.Conta.Include(c => c.TipoConta).FirstAsync(c => c.ContaId == id);
 
             if (conta == null)
             {
@@ -100,21 +100,26 @@ namespace ProjetoPV_Angular.Controllers
         // POST: api/Contas
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [Authorize]
         public async Task<ActionResult<Conta>> PostConta(Conta conta)
         {
             _context.Conta.Add(conta);
             await _context.SaveChangesAsync();
 
-            var user = await _userManager.FindByIdAsync(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            if (user != null)
+            var userClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userClaim != null)
             {
-                ContaClientes contaClientes = new ContaClientes()
-                { ContaId = conta.ContaId,
-                  ApplicationUserId = user.Id
-                };
-                _context.ContaClientes.Add(contaClientes);
-                await _context.SaveChangesAsync();
+                var userId = userClaim.Value;
+                var user = await _userManager.FindByIdAsync(userId);
+                if (user != null)
+                {
+                    ContaClientes contaClientes = new ContaClientes()
+                    {
+                        ContaId = conta.ContaId,
+                        ApplicationUserId = user.Id
+                    };
+                    _context.ContaClientes.Add(contaClientes);
+                    await _context.SaveChangesAsync();
+                }
             }
 
             return CreatedAtAction("GetConta", new { id = conta.ContaId }, conta);
