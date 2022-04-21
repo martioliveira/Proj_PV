@@ -2,22 +2,23 @@
   <table class='table table-striped' aria-labelledby="tableLabel">
     <thead>
       <tr>
-        <th>Descrição</th>
-        <th>Valor</th>
-        <th>Inicio</th>
-        <th>Fim</th>
+        <th width="70%">Descrição</th>
+        <th width="10%">Valor</th>
+        <th width="10%">Inicio</th>
+        <th width="10%">Fim</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>{{ orcamento.descricao }}</td>
-        <td>
-          {{ orcamento.valor | currency:orcamento.moeda }}
-          <br>Gasto:{{ orcamento.gasto | currency:orcamento.moeda }} | Restante:{{ orcamento.restante | currency:orcamento.moeda }}
-        </td>
-        <td>{{ orcamento.dataInicio | date:'dd/MM/yyyy' }}</td>
-        <td>{{ orcamento.dataFim | date:'dd/MM/yyyy' }}</td>
+        <td width="70%">{{ orcamento.descricao }}</td>
+        <td width="10%">{{ orcamento.valor | currency:orcamento.moeda }}</td>
+        <td width="10%">{{ orcamento.dataInicio | date:'dd/MM/yyyy' }}</td>
+        <td width="10%">{{ orcamento.dataFim | date:'dd/MM/yyyy' }}</td>
       </tr>
     </tbody>
   </table>
+  <mat-progress-bar mode="determinate" [value]="orcamento.percentagem"></mat-progress-bar>
+    <p style="text-align: left; width: 33%; display: inline-block;">Gasto: {{ orcamento.gasto | currency:orcamento.moeda }}</p>
+    <p style="text-align: center; width: 33%; display: inline-block;">{{ orcamento.percentagem }}%</p>
+    <p style="text-align: right; width: 33%; display: inline-block;">Restante: {{ orcamento.restante | currency:orcamento.moeda }}</p>
 </div>

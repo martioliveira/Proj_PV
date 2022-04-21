@@ -19,6 +19,8 @@ export class OrcamentoDetailsComponent implements OnInit {
     valor: 0,
     gasto: 0,
     restante: 0,
+    percentagem: 0,
+    percentager: 0,
     moeda: ' '
   };
 
@@ -32,5 +34,4 @@ export class OrcamentoDetailsComponent implements OnInit {
   getOrcamentoId(id: string) {
     this.service.getCustomOrcamentoId(id).subscribe((orcamento: OrcamentoTb2) => this.orcamento = orcamento);
   }
-
 }

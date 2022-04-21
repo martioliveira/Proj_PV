@@ -35,6 +35,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { TipoContaEditComponent } from './tipo-conta/tipo-conta-edit/tipo-conta-edit.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { TipoContaCreateComponent } from './tipo-conta/tipo-conta-create/tipo-conta-create.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { TipoContaCreateComponent } from './tipo-conta/tipo-conta-create/tipo-co
     MatInputModule,
     MatIconModule,
     MatDividerModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatProgressBarModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

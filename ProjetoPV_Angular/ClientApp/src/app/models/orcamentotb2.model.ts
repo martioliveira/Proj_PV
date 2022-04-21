@@ -7,6 +7,8 @@ export class OrcamentoTb2 {
                public       moeda: string,
                public    restante: number,
                public       gasto: number,
+               public percentagem: number,
+               public percentager: number,
 
   ) { }
 }

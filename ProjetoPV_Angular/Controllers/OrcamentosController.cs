@@ -15,6 +15,8 @@ namespace ProjetoPV_Angular.Controllers
     {
         public double Restante { get; set; }
         public double Gasto { get; set; }
+        public double Percentagem { get; set; }
+        public double Percentager { get; set; }
         public CustomOrcamento() : base() { }
     }
 
@@ -76,7 +78,8 @@ namespace ProjetoPV_Angular.Controllers
                     Moeda       = c.Moeda,
                     Restante    = c.Valor - orcamentoGasto,
                     Gasto       = orcamentoGasto,
-                });
+                    Percentager = 100 - (((1 * orcamentoGasto) / c.Valor) * 100),
+            });
             }
 
             return orcamentos.ToList();
@@ -135,6 +138,8 @@ namespace ProjetoPV_Angular.Controllers
             transacaoConta = transacaoConta.Where(t => t.tranDt >= t.orcaIn && t.tranDt < t.orcaFi);
             // Calcular o valor já gasto do orçamento com o somatório de todas as transações
             var orcamentoGasto = transacaoConta.Where(o => o.orcaId == orcamento.OrcamentoId).Sum(d => d.tranVa);
+            var orcamentoResta = orcamento.Valor - orcamentoGasto;
+            var percentagem    = ((1 * orcamentoGasto) / orcamento.Valor) * 100;
                 // Mapeamento da tabela interna
                 var orcamentoCustom = new CustomOrcamento { OrcamentoId = orcamento.OrcamentoId,
                                                             DataInicio  = orcamento.DataInicio,
@@ -142,8 +147,11 @@ namespace ProjetoPV_Angular.Controllers
                                                             Descricao   = orcamento.Descricao,
                                                             Valor       = orcamento.Valor,
                                                             Moeda       = orcamento.Moeda,
-                                                            Restante    = orcamento.Valor - orcamentoGasto,
-                                                            Gasto       = orcamentoGasto };
+                                                            Restante    = orcamentoResta,
+                                                            Gasto       = orcamentoGasto,
+                                                            Percentagem = percentagem };
+
+            //               Console.WriteLine("{0} {1} {2} {3}", orcamentoCustom.Restante ,orcamentoCustom.Gasto ,orcamentoCustom.Percentagem, orcamentoCustom.Percentager);
 
             return orcamentoCustom;
         }
