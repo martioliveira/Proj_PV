@@ -17,6 +17,8 @@
           {{ orcamento.dataInicio | date:'dd/mm/yyyy' }} - {{ orcamento.dataFim | date:'dd/mm/yyyy' }}
         </td>
         <td>{{ orcamento.valor | currency:orcamento.moeda }}</td>
+        <td>{{ orcamento.restante | currency:orcamento.moeda }}</td>
+        <td>{{ orcamento.gasto | currency:orcamento.moeda }}</td>
       </tr>
     </tbody>
   </table>
