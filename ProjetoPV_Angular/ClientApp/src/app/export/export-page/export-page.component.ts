@@ -12,10 +12,12 @@ import { Transacao } from '../../models/transacao.model';
 })
 export class ExportPageComponent implements OnInit {
 
-  fileName = 'ProjetoPVExport ' + new Date().toLocaleString() + '.xlsx';
+  fileName = 'ProjetoPVExport_' + new Date().toLocaleString() + '.xlsx';
 
   public contas: Conta[] = [];
   public transacoes: Transacao[] = [];
+  public transacoesAccount: Transacao[] = [];
+  selectedAccountId: any;
 
   constructor(private contasService: ContaService, private transacaoService: TransacaoService) { }
 
@@ -24,12 +26,21 @@ export class ExportPageComponent implements OnInit {
     this.getTransacaoes();
   }
 
+  getSelectedAccount() {
+    this.getTransacoesConta();
+  }
+
   getContas(): void {
     this.contasService.getContas().subscribe((contas: Conta[]) => this.contas = contas);
   }
 
   getTransacaoes(): void {
     this.transacaoService.getTransacoes().subscribe((transacoes: Transacao[]) => this.transacoes = transacoes);
+  }
+
+  getTransacoesConta() {
+    if (this.selectedAccountId != null)
+          this.contasService.getTransacoesConta(this.selectedAccountId).subscribe((transacoes: Transacao[]) => this.transacoesAccount = transacoes);
   }
 
   exportAll(tableId: string) {
