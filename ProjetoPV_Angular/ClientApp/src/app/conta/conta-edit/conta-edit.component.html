@@ -11,22 +11,22 @@
       <input id="descricao" name="descricao" type="text" [(ngModel)]="conta.descricao" class="form-control" />
     </div>
 
+    <div class="form-group>">
+      <label for="tipoContaId"> Tipo Conta Id:</label>
+      <select id="tipoContaId" name="tipoContaId" [(ngModel)]="conta.tipoContaId" class="form-control">
+        <option *ngFor="let tipoConta of tipoContas" [value]="tipoConta.tipoContaId">
+          {{ tipoConta.descricao }}
+        </option>
+      </select>
+    </div>
+
     <label for="saldo"> Saldo:</label>
     <input id="saldo" name="saldo" type="number" [(ngModel)]="conta.saldo" class="form-control" />
-  </div>
 
-  <div class="form-group>">
-    <label for="moeda"> Moeda:</label>
-    <input id="moeda" name="moeda" type="text" [(ngModel)]="conta.moeda" class="form-control" />
-  </div>
-
-  <div class="form-group>">
-    <label for="tipoContaId"> Tipo Conta Id:</label>
-    <select id="tipoContaId" name="tipoContaId" [(ngModel)]="conta.tipoContaId" class="form-control">
-      <option *ngFor="let tipoConta of tipoContas" [value]="tipoConta.tipoContaId">
-        {{ tipoConta.descricao }}
-      </option>
-    </select>
+    <div class="form-group>">
+      <label for="moeda"> Moeda:</label>
+      <input id="moeda" name="moeda" type="text" [(ngModel)]="conta.moeda" class="form-control" />
+    </div>
   </div>
 
   <div class="form-group">
