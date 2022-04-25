@@ -36,7 +36,9 @@ import { TipoContaEditComponent } from './tipo-conta/tipo-conta-edit/tipo-conta-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { TipoContaCreateComponent } from './tipo-conta/tipo-conta-create/tipo-conta-create.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ObjetivosListComponent } from './objetivos/objetivos-list/objetivos-list.component';
 import { PagTransacoesListComponent } from './pagTransacoes/pag-transacoes-list/pag-transacoes-list.component';
+
 
 
 @NgModule({
@@ -60,6 +62,7 @@ import { PagTransacoesListComponent } from './pagTransacoes/pag-transacoes-list/
     OrcamentoDetailsComponent,
     TipoContaEditComponent,
     TipoContaCreateComponent,
+    ObjetivosListComponent,
     PagTransacoesListComponent
   ],
   imports: [
@@ -83,6 +86,7 @@ import { PagTransacoesListComponent } from './pagTransacoes/pag-transacoes-list/
       { path: 'orcamento-details/:id', component: OrcamentoDetailsComponent },
       { path: 'tipo-conta-edit/:id', component: TipoContaEditComponent },
       { path: 'tipo-conta-create', component: TipoContaCreateComponent },
+      { path: 'objetivos-list', component: ObjetivosListComponent },
       { path: 'pag-transacoes', component: PagTransacoesListComponent },
     ]),
     BrowserAnimationsModule,
