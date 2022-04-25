@@ -1,0 +1,61 @@
+<a routerLink="/transacoes-create" class="btn btn-success">Criar Transacao</a>
+
+<div class="filtros">
+
+  <div>
+    Transações da conta:
+    <select [(ngModel)]="selectedAccountId" (change)="onChangedFilters()">
+      <option value="all">Todas</option>
+      <option *ngFor="let conta of contas" [value]="conta.contaId">
+        {{ conta.descricao }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    Tipo de transação:
+    <select [(ngModel)]="selectedTipoTransacaoId" (change)="onChangedFilters()">
+      <option value="all">Todas</option>
+      <option *ngFor="let tipo of tipotransacao | keyvalue" [value]="tipo.key">
+        {{ tipo.value }}
+      </option>
+    </select>
+  </div>
+
+</div>
+
+<p *ngIf="transacoes.length == 0"><em>Não tem nenhuma transacão registada...</em></p>
+
+<div *ngIf="transacoes.length > 0">
+
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Tipo Transacao Id</th>
+        <th>Conta origem</th>
+        <th>Conta destino</th>
+        <th>Valor</th>
+        <th>Data</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transacao of transacoes" class="colorRow">
+        <td> {{ transacao.descricao }} </td>
+        <td> {{ transacao.tipoTransacaoId }} </td>
+        <td> {{ transacao.contaOrigemId }} </td>
+        <td> {{ transacao.contaDestinoId }}</td>
+        <td> {{ transacao.valor | currency:transacao.moeda}} </td>
+        <td> {{ transacao.dataTransacao | date:'dd/mm/yyyy' }} </td>
+        <td>
+          <a href="#" routerLink="/transacoes-details/{{transacao.transacaoId}}" class="btn btn-info btn-sm">Detalhes</a>
+
+          <a href="#" routerLink="/transacoes-edit/{{transacao.transacaoId}}" class="btn btn-primary btn-sm">Editar</a>
+
+          <button type="button" routerLink="" (click)="onDeleteTransacao(transacao.transacaoId)" class="btn btn-danger btn-sm">Remover</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

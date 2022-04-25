@@ -4,19 +4,20 @@
   <table class='table table-striped' aria-labelledby="tableLabel">
     <thead>
       <tr>
-        <th>ID Orçamento</th>
-        <th>Descrição</th>
-        <th>Valor</th>
+        <th width="60%">Descrição</th>
+        <th width="10%">Valor</th>
+        <th width="10%">% Restante</th>
+        <th width="10%">Inicio</th>
+        <th width="10%">Fim</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let orcamento of orcamentos" (click)="onClickOrcamento(orcamento.orcamentoId)">
-        <td>{{ orcamento.orcamentoId }}</td>
-        <td>
-          {{ orcamento.descricao }}<br>
-          {{ orcamento.dataInicio | date:'dd/mm/yyyy' }} - {{ orcamento.dataFim | date:'dd/mm/yyyy' }}
-        </td>
-        <td>{{ orcamento.valor | currency:orcamento.moeda }}</td>
+        <td width="60%">{{ orcamento.descricao }}</td>
+        <td width="10%">{{ orcamento.valor | currency:orcamento.moeda }}</td>
+        <td width="10%">{{ orcamento.percentager }}%</td>
+        <td width="10%">{{ orcamento.dataInicio | date:'dd/MM/yyyy' }}</td>
+        <td width="10%">{{ orcamento.dataFim | date:'dd/MM/yyyy' }}</td>
       </tr>
     </tbody>
   </table>

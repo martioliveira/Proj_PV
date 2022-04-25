@@ -35,7 +35,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { TipoContaEditComponent } from './tipo-conta/tipo-conta-edit/tipo-conta-edit.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { TipoContaCreateComponent } from './tipo-conta/tipo-conta-create/tipo-conta-create.component';
-import { ObjetivosListComponent } from './objetivos/objetivos-list/objetivos-list.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { PagTransacoesListComponent } from './pagTransacoes/pag-transacoes-list/pag-transacoes-list.component';
+
 
 @NgModule({
   declarations: [
@@ -58,7 +60,7 @@ import { ObjetivosListComponent } from './objetivos/objetivos-list/objetivos-lis
     OrcamentoDetailsComponent,
     TipoContaEditComponent,
     TipoContaCreateComponent,
-    ObjetivosListComponent
+    PagTransacoesListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -81,7 +83,7 @@ import { ObjetivosListComponent } from './objetivos/objetivos-list/objetivos-lis
       { path: 'orcamento-details/:id', component: OrcamentoDetailsComponent },
       { path: 'tipo-conta-edit/:id', component: TipoContaEditComponent },
       { path: 'tipo-conta-create', component: TipoContaCreateComponent },
-      { path: 'objetivos-list', component: ObjetivosListComponent },
+      { path: 'pag-transacoes', component: PagTransacoesListComponent },
     ]),
     BrowserAnimationsModule,
     MatTableModule,
@@ -89,7 +91,8 @@ import { ObjetivosListComponent } from './objetivos/objetivos-list/objetivos-lis
     MatInputModule,
     MatIconModule,
     MatDividerModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatProgressBarModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

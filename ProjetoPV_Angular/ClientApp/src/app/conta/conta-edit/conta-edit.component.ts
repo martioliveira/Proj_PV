@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Conta } from '../../models/conta.model';
 import { ContaService } from '../../models/models-services/conta.service';
+import { TipocontaService } from '../../models/models-services/tipoconta.service';
 import { TipoConta } from '../../models/tipoconta.model';
 
 @Component({
@@ -17,10 +18,14 @@ export class ContaEditComponent implements OnInit {
     moeda: '',
     saldo: 0,
     tipoContaId: '0',
-    tipoConta: null,
+    tipoConta: {
+      tipoContaId: '0',
+      descricao: ''
+    },
     transacoes: [],
   }
-  constructor(private service: ContaService, private route: ActivatedRoute, private router: Router) { }
+  tipoContas: TipoConta[] = [];
+  constructor(private service: ContaService, private route: ActivatedRoute, private router: Router, private tipoContaService: TipocontaService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -30,6 +35,7 @@ export class ContaEditComponent implements OnInit {
       error => {
         console.error(error);
       });
+    this.getTipoContas();
   }
 
   onSubmit(contaForm: NgForm) {
@@ -39,6 +45,10 @@ export class ContaEditComponent implements OnInit {
       error => {
         console.error(error);
       });
+  }
+
+  getTipoContas() {
+    this.tipoContaService.getTipoContas().subscribe((tipoContas: TipoConta[]) => this.tipoContas = tipoContas);
   }
 
 }
