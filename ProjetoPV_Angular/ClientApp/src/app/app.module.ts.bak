@@ -67,14 +67,17 @@ import { CategoriaCreateComponent } from './categorias/categoria-create/categori
     OrcamentoDetailsComponent,
     TipoContaEditComponent,
     TipoContaCreateComponent,
+<<<<<<< HEAD
     PagTransacoesListComponent,
     PagContaListComponent,
     CategoriaListComponent,
     CategoriaDetailsComponent,
     CategoriaEditComponent,
-    CategoriaCreateComponent,
+    CategoriaCreateComponent
+=======
     ObjetivosListComponent,
     PagTransacoesListComponent
+>>>>>>> develop
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
