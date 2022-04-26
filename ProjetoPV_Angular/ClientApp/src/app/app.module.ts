@@ -38,6 +38,10 @@ import { TipoContaCreateComponent } from './tipo-conta/tipo-conta-create/tipo-co
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { PagTransacoesListComponent } from './pagTransacoes/pag-transacoes-list/pag-transacoes-list.component';
 import { PagContaListComponent } from './pagConta/pag-conta-list/pag-conta-list.component';
+import { CategoriaListComponent } from './categorias/categoria-list/categoria-list.component';
+import { CategoriaDetailsComponent } from './categorias/categoria-details/categoria-details.component';
+import { CategoriaEditComponent } from './categorias/categoria-edit/categoria-edit.component';
+import { CategoriaCreateComponent } from './categorias/categoria-create/categoria-create.component';
 
 
 @NgModule({
@@ -62,7 +66,11 @@ import { PagContaListComponent } from './pagConta/pag-conta-list/pag-conta-list.
     TipoContaEditComponent,
     TipoContaCreateComponent,
     PagTransacoesListComponent,
-    PagContaListComponent
+    PagContaListComponent,
+    CategoriaListComponent,
+    CategoriaDetailsComponent,
+    CategoriaEditComponent,
+    CategoriaCreateComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -87,6 +95,12 @@ import { PagContaListComponent } from './pagConta/pag-conta-list/pag-conta-list.
       { path: 'tipo-conta-create', component: TipoContaCreateComponent },
       { path: 'pag-transacoes', component: PagTransacoesListComponent },
       { path: 'pag-contas', component: PagContaListComponent },
+      { path: 'categoria-list', component: CategoriaListComponent },
+      { path: 'categoria-details/:id', component: CategoriaDetailsComponent },
+      { path: 'categoria-edit/:id', component: CategoriaEditComponent },
+      { path: 'categoria-create', component: CategoriaCreateComponent },
+
+
     ]),
     BrowserAnimationsModule,
     MatTableModule,
