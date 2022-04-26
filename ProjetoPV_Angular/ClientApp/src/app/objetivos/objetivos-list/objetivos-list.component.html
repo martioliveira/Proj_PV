@@ -1,0 +1,24 @@
+<p *ngIf="!objetivos"><em>Não tem nenhum objetivo registado...</em></p>
+
+<div *ngIf="objetivos">
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th width="60%">Descrição do Objetivo</th>
+        <th width="10%">Valor Acumulado</th>
+        <th width="10%">Valor a Atingir</th>
+        <th width="10%">Início</th>
+        <th width="10%">Fim</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let objetivo of objetivos" class="colorRow">
+        <td width="40%">{{ objetivo.descricao }}</td>
+        <td width="20%">{{ objetivo.valorAtingir | currency:objetivo.moeda }}</td>
+        <td width="20%">{{ objetivo.valorAcumulado | currency:objetivo.moeda }}%</td>
+        <td width="10%">{{ objetivo.dataInicio | date:'dd/MM/yyyy' }}</td>
+        <td width="10%">{{ objetivo.dataFim | date:'dd/MM/yyyy' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

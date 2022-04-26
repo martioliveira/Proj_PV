@@ -1,9 +1,9 @@
 export class Objetivo {
-  constructor( ObjetivoId: string,
-               DataInicio: string,
-                  DataFim: string,
-                Descricao: string,
-             ValorAtingir: number,
-           ValorAcumulado: number,
-                    Moeda: string ) { }
+  constructor(public objetivoId: string,
+              public dataInicio: string,
+              public dataFim: string,
+              public descricao: string,
+              public valorAtingir: number,
+              public valorAcumulado: number,
+              public moeda: string ) { }
 }

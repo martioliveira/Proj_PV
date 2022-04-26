@@ -1,9 +1,37 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Objetivo } from '../objetivo.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ObjetivoService {
 
-  constructor() { }
+  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
+
+  getObjetivos(): Observable<Objetivo[]> {
+    return this.http.get<Objetivo[]>(this.baseUrl + 'api/Objetivos');
+  }
+
+  getObjetivo(id: number): Observable<Objetivo> {
+    return this.http.get<Objetivo>(this.baseUrl + 'api/Objetivos/' + id);
+  }
+
+  createObjetivo(objetivo: Objetivo): Observable<Objetivo> {
+    return this.http.post<Objetivo>(this.baseUrl + 'api/Objetivos', objetivo);
+  }
+
+  updateObjetivo(objetivo: Objetivo): Observable<Objetivo> {
+    return this.http.put<Objetivo>(this.baseUrl + 'api/Objetivos/' + objetivo.objetivoId, Objetivo);
+  }
+
+  deleteObjetivo(id: string): Observable<Objetivo> {
+    return this.http.delete<Objetivo>(this.baseUrl + 'api/Objetivos/' + id);
+  }
+
+
+
+
+
 }

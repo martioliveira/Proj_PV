@@ -36,12 +36,14 @@ import { TipoContaEditComponent } from './tipo-conta/tipo-conta-edit/tipo-conta-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { TipoContaCreateComponent } from './tipo-conta/tipo-conta-create/tipo-conta-create.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ObjetivosListComponent } from './objetivos/objetivos-list/objetivos-list.component';
 import { PagTransacoesListComponent } from './pagTransacoes/pag-transacoes-list/pag-transacoes-list.component';
 import { PagContaListComponent } from './pagConta/pag-conta-list/pag-conta-list.component';
 import { CategoriaListComponent } from './categorias/categoria-list/categoria-list.component';
 import { CategoriaDetailsComponent } from './categorias/categoria-details/categoria-details.component';
 import { CategoriaEditComponent } from './categorias/categoria-edit/categoria-edit.component';
 import { CategoriaCreateComponent } from './categorias/categoria-create/categoria-create.component';
+
 
 
 @NgModule({
@@ -71,6 +73,8 @@ import { CategoriaCreateComponent } from './categorias/categoria-create/categori
     CategoriaDetailsComponent,
     CategoriaEditComponent,
     CategoriaCreateComponent
+    ObjetivosListComponent,
+    PagTransacoesListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -93,6 +97,7 @@ import { CategoriaCreateComponent } from './categorias/categoria-create/categori
       { path: 'orcamento-details/:id', component: OrcamentoDetailsComponent },
       { path: 'tipo-conta-edit/:id', component: TipoContaEditComponent },
       { path: 'tipo-conta-create', component: TipoContaCreateComponent },
+      { path: 'objetivos-list', component: ObjetivosListComponent },
       { path: 'pag-transacoes', component: PagTransacoesListComponent },
       { path: 'pag-contas', component: PagContaListComponent },
       { path: 'categoria-list', component: CategoriaListComponent },
