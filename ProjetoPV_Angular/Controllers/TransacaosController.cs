@@ -26,14 +26,14 @@ namespace ProjetoPV_Angular.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Transacao>>> GetTransacao()
         {
-            return await _context.Transacao.Include("TipoTransacao").ToListAsync();
+            return await _context.Transacao.Include("TipoTransacao").Include(t => t.Categoria).ToListAsync();
         }
 
         // GET: api/Transacaos/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Transacao>> GetTransacao(long id)
         {
-            var transacao = await _context.Transacao.FindAsync(id);
+            var transacao = await _context.Transacao.Include(t => t.Categoria).FirstAsync(c => c.TransacaoId == id);
 
             if (transacao == null)
             {
