@@ -1,5 +1,5 @@
 <p *ngIf="!contas"><em>Não tem nenhuma conta registada...</em></p>
-
+<h1 style="text-align: center"><b>Contas</b></h1>
 <a routerLink="/conta-create" class="btn btn-success">Criar Conta</a>  |  <a routerLink="/tipo-conta" class="btn btn-primary">Ver tipos de Conta</a>
 <br />
 <br />
@@ -9,26 +9,22 @@
   <table class='table table-striped' aria-labelledby="tableLabel">
     <thead>
       <tr>
-        <th>Conta Id</th>
-        <th>Descrição</th>
-        <th>Tipo Conta</th>
-        <th>Saldo</th>
-        <th>Ações</th>
+        <!--<th>Conta Id</th>-->
+        <th width="40%">Descrição</th>
+        <th width="55%">Ações</th>
+        <th width="5%">Saldo</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let conta of contas" class="colorRow">
-        <td>{{ conta.contaId }}</td>
-        <td>{{ conta.descricao }}</td>
-        <td>{{ conta.tipoConta.descricao}} </td>
-        <td>{{ conta.saldo | currency:conta.moeda }}</td>
-        <td>
+        <!--<td>{{ conta.contaId }}</td>-->
+        <td width="40%">{{ conta.descricao }}</td>
+        <td width="55%">
           <a href="#" routerLink="/conta-details/{{conta.contaId}}" class="btn btn-info btn-sm">Detalhes</a>
-
           <a href="#" routerLink="/conta-edit/{{conta.contaId}}" class="btn btn-primary btn-sm">Editar</a>
-
           <button type="button" routerLink="" (click)="onDeleteTransacao(conta.contaId)" class="btn btn-danger btn-sm">Remover</button>
         </td>
+        <td width="5%" align="right">{{ conta.saldo | currency:conta.moeda }}</td>
       </tr>
     </tbody>
   </table>
