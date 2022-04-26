@@ -1,4 +1,9 @@
+<h1 style="text-align: center"><b>Orçamentos</b></h1>
 <p *ngIf="!orcamentos"><em>Não tem nenhum orçamento registado...</em></p>
+
+<div class="info">
+  <p style="text-align: center;"><strong>Informação</strong> | Para visualizar o detalhe dos orçamentos, clique nos mesmos!</p>
+</div>
 
 <div *ngIf="orcamentos">
   <table class='table table-striped' aria-labelledby="tableLabel">
@@ -15,7 +20,7 @@
       <tr *ngFor="let orcamento of orcamentos" (click)="onClickOrcamento(orcamento.orcamentoId)">
         <td width="60%">{{ orcamento.descricao }}</td>
         <td width="10%">{{ orcamento.valor | currency:orcamento.moeda }}</td>
-        <td width="10%">{{ orcamento.percentager }}%</td>
+        <td width="10%">{{ orcamento.percentager | number:'2.2-2' }}%</td>
         <td width="10%">{{ orcamento.dataInicio | date:'dd/MM/yyyy' }}</td>
         <td width="10%">{{ orcamento.dataFim | date:'dd/MM/yyyy' }}</td>
       </tr>

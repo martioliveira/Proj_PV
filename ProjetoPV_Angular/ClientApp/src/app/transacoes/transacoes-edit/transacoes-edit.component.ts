@@ -23,7 +23,12 @@ export class TransacoesEditComponent implements OnInit {
     descricao: '',
     anexo: '',
     valor: 0,
-    beneficiario: 0
+    beneficiario: 0,
+    categoria: {
+      categoriaId: '',
+      nome: '',
+      cliente: '',
+      descricao: ''},
   }
 
   constructor(private service: TransacaoService, private route: ActivatedRoute, private router: Router) { }

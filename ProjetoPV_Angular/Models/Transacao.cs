@@ -35,5 +35,7 @@ namespace ProjetoPV_Angular.Models
         public long TipoTransacaoId { get; set; }
 
         public long CategoriaId { get; set; }
+
+        public Categoria? Categoria { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+import { AfterContentInit } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Conta } from '../../models/conta.model';
 import { ContaService } from '../../models/models-services/conta.service';
@@ -9,7 +10,7 @@ import { Transacao } from '../../models/transacao.model';
   templateUrl: './conta-list.component.html',
   styleUrls: ['./conta-list.component.css']
 })
-export class ContaListComponent implements OnInit {
+export class ContaListComponent implements OnInit, AfterContentInit {
 
   contaIdSelecionada: string | undefined;
   public contas: Conta[] = [];
@@ -18,16 +19,23 @@ export class ContaListComponent implements OnInit {
   constructor(private service: ContaService) { }
 
   ngOnInit() {
-    this.getContas();
   }
 
+  ngAfterContentInit() {
+    this.getContas();
+  }
+ 
   getContas(): void {
-    this.service.getContas().subscribe((contas: Conta[]) => this.contas = contas);
+    this.service.getContas().subscribe((contas: Conta[]) => {
+      this.contas = contas;
+      this.selectedAccountFillTransactions(this.contas[0].contaId);
+    });
+    console.log(this.contas.toString);
   }
 
   selectedAccountFillTransactions(contaId: string) {
     this.contaIdSelecionada = contaId;
-    this.service.getTransacoesConta(contaId).subscribe((transacoes: Transacao[]) => this.transacoes = transacoes);
+    this.service.getTransacoesConta(contaId).subscribe((transacoes: Transacao[]) => this.transacoes = transacoes.slice(0,5));
   }
 
   onDeleteTransacao(id: string) {
