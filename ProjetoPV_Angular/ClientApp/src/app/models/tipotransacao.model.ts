@@ -1,6 +1,6 @@
 export class TipoTransacao {
- constructor( public tipoTransacaoId: string,
-                    public descricao: TipoTransacaoDescricao ) { }
+  tipoTransacaoId: string = '';
+  descricao: string = '';
 }
 
 enum TipoTransacaoDescricao {

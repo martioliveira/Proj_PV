@@ -3,20 +3,18 @@ import { Cliente } from "./cliente.model";
 import { TipoTransacao } from "./tipotransacao.model";
 
 export class Transacao {
-  constructor( public transacaoId: string,
-               public contaOrigemId: number,
-               public contaDestinoId: number,
-               public clienteId: number,
-               public descricao: string,
-               public beneficiario: number,
-               public valor: number,
-               public moeda: string,
-               public dataTransacao: string,
-               public dataCriacao: string,
-               public anexo: string,
-               public tipoTransacaoId: number,
-               public categoriaId: number,
-               public categoria: Categoria,
-  )
-  { }
+  transacaoId: string = '';
+  contaOrigemId: number = 0;
+  contaDestinoId: number = 0;
+  clienteId: number = 0;
+  descricao: string = '';
+  beneficiario: number = 0;
+  valor: number = 0;
+  moeda: string = '';
+  dataTransacao: string = '';
+  dataCriacao: string = '';
+  anexo: string = '';
+  tipoTransacaoId: number = 0;
+  categoriaId: number = 0;
+  categoria: Categoria = new Categoria();
 }
