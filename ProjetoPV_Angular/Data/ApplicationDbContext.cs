@@ -138,7 +138,33 @@ namespace ProjetoPV_Angular.Data
                         CategoriaId = 4,
                         Nome = "Habitação",
                         Descricao = "Categoria destinada a gastos com a habitação."
-                    });
+                    },
+                    new Categoria
+                    {
+                        CategoriaId = 5,
+                        Nome = "Geral",
+                        Descricao = "Gastos gerais."
+                    },
+                    new Categoria
+                    {
+                        CategoriaId = 6,
+                        Nome = "Investimentos",
+                        Descricao = "Investimentos."
+                    },
+                    new Categoria
+                    {
+                        CategoriaId = 7,
+                        Nome = "Juros",
+                        Descricao = "Juros."
+                    },
+                    new Categoria
+                    {
+                        CategoriaId = 8,
+                        Nome = "Lazer",
+                        Descricao = "Lazer."
+                    }
+                    );
+
             #endregion
 
             //Popular Entidade TipoTransacao
@@ -178,7 +204,8 @@ namespace ProjetoPV_Angular.Data
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
-                    ClienteId = 1
+                    ClienteId = 1,
+                    CategoriaId = 1
                 },
                 new Transacao
                 {
@@ -193,7 +220,8 @@ namespace ProjetoPV_Angular.Data
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
-                    ClienteId = 2
+                    ClienteId = 2,
+                    CategoriaId = 2
                 },
                 new Transacao
                 {
@@ -208,7 +236,8 @@ namespace ProjetoPV_Angular.Data
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
-                    ClienteId = 2
+                    ClienteId = 2,
+                    CategoriaId = 3
                 },
                 new Transacao
                 {
@@ -223,8 +252,74 @@ namespace ProjetoPV_Angular.Data
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
-                    ClienteId = 2
-                });
+                    ClienteId = 2,
+                    CategoriaId = 4
+                },
+                new Transacao
+                {
+                    TransacaoId = 5,
+                    ContaOrigemId = 3,
+                    ContaDestinoId = 1,
+                    Beneficiario = 254385938,
+                    Descricao = "Transacao 5",
+                    Moeda = "EUR",
+                    Valor = 321,
+                    TipoTransacaoId = 3,
+                    Anexo = "",
+                    DataCriacao = DateTime.Now,
+                    DataTransacao = DateTime.Now,
+                    ClienteId = 2,
+                    CategoriaId = 5
+                },
+                new Transacao
+                {
+                    TransacaoId = 6,
+                    ContaOrigemId = 3,
+                    ContaDestinoId = 2,
+                    Beneficiario = 254385938,
+                    Descricao = "Transacao 6",
+                    Moeda = "EUR",
+                    Valor = 117,
+                    TipoTransacaoId = 3,
+                    Anexo = "",
+                    DataCriacao = DateTime.Now,
+                    DataTransacao = DateTime.Now,
+                    ClienteId = 3,
+                    CategoriaId = 6
+                },
+                new Transacao
+                {
+                    TransacaoId = 7,
+                    ContaOrigemId = 1,
+                    ContaDestinoId = 3,
+                    Beneficiario = 254385938,
+                    Descricao = "Transacao 7",
+                    Moeda = "EUR",
+                    Valor = 443,
+                    TipoTransacaoId = 3,
+                    Anexo = "",
+                    DataCriacao = DateTime.Now,
+                    DataTransacao = DateTime.Now,
+                    ClienteId = 2,
+                    CategoriaId = 7
+                },
+                new Transacao
+                {
+                    TransacaoId = 3,
+                    ContaOrigemId = 2,
+                    ContaDestinoId = 3,
+                    Beneficiario = 254385938,
+                    Descricao = "Transacao 8",
+                    Moeda = "EUR",
+                    Valor = 1789,
+                    TipoTransacaoId = 3,
+                    Anexo = "",
+                    DataCriacao = DateTime.Now,
+                    DataTransacao = DateTime.Now,
+                    ClienteId = 2,
+                    CategoriaId = 8
+                }
+                );
             #endregion
 
             //Popular Entidade Orçamento

@@ -13,5 +13,8 @@ export class Transacao {
                public dataTransacao: string,
                public dataCriacao: string,
                public anexo: string,
-               public tipoTransacaoId: number ) { }
+               public tipoTransacaoId: number,
+               public categoriaId: number
+  )
+  { }
 }
