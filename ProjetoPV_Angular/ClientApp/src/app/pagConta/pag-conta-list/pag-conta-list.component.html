@@ -11,6 +11,7 @@
       <tr>
         <th>Conta Id</th>
         <th>Descrição</th>
+        <th>Tipo Conta</th>
         <th>Saldo</th>
         <th>Ações</th>
       </tr>
@@ -19,6 +20,7 @@
       <tr *ngFor="let conta of contas" class="colorRow">
         <td>{{ conta.contaId }}</td>
         <td>{{ conta.descricao }}</td>
+        <td>{{ conta.tipoConta.descricao}} </td>
         <td>{{ conta.saldo | currency:conta.moeda }}</td>
         <td>
           <a href="#" routerLink="/conta-details/{{conta.contaId}}" class="btn btn-info btn-sm">Detalhes</a>

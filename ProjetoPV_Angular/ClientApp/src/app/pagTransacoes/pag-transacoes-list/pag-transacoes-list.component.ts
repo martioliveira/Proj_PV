@@ -16,7 +16,7 @@ export class PagTransacoesListComponent implements OnInit {
   public transacoes: Transacao[] = [];
   public contas: Conta[] = [];
 
-  tipotransacao = {
+  tipotransacao: any = {
     "1": "Receita",
     "2": "Despesa",
     "3": "Transação"

@@ -19,6 +19,12 @@ export class ExportPageComponent implements OnInit {
   public transacoesAccount: Transacao[] = [];
   selectedAccountId: any;
 
+  tipotransacao: any = {
+    "1": "Receita",
+    "2": "Despesa",
+    "3": "Transação"
+  }
+
   constructor(private contasService: ContaService, private transacaoService: TransacaoService) { }
 
   ngOnInit(): void {

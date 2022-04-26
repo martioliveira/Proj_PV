@@ -7,6 +7,7 @@
         <tr>
           <th>Conta Id</th>
           <th>Descrição</th>
+          <th>Tipo Conta</th>
           <th>Saldo</th>
         </tr>
       </thead>
@@ -14,6 +15,7 @@
         <tr *ngFor="let conta of contas" class="colorRow">
           <td>{{ conta.contaId }}</td>
           <td>{{ conta.descricao }}</td>
+          <td>{{ conta.tipoConta.descricao}} </td>
           <td>{{ conta.saldo | currency:conta.moeda }}</td>
         </tr>
       </tbody>
@@ -31,6 +33,7 @@
         <tr>
           <th>Descrição</th>
           <th>Tipo Transacao Id</th>
+          <th>Categoria</th>
           <th>Conta origem</th>
           <th>Conta destino</th>
           <th>Valor</th>
@@ -40,7 +43,8 @@
       <tbody>
         <tr *ngFor="let transacao of transacoes" class="colorRow">
           <td> {{ transacao.descricao }} </td>
-          <td> {{ transacao.tipoTransacaoId }} </td>
+          <td> {{ tipotransacao[transacao.tipoTransacaoId] }} </td>
+          <td> {{ transacao.categoria.nome }}</td>
           <td> {{ transacao.contaOrigemId }} </td>
           <td> {{ transacao.contaDestinoId }}</td>
           <td> {{ transacao.valor | currency:transacao.moeda}} </td>
@@ -69,7 +73,7 @@
       <thead>
         <tr>
           <th>Descrição</th>
-          <th>Tipo Transacao Id</th>
+          <th>Tipo Transacao</th>
           <th>Conta origem</th>
           <th>Conta destino</th>
           <th>Valor</th>
@@ -79,7 +83,7 @@
       <tbody>
         <tr *ngFor="let transacao of transacoesAccount" class="colorRow">
           <td> {{ transacao.descricao }} </td>
-          <td> {{ transacao.tipoTransacaoId }} </td>
+          <td> {{ transacao.categoria.nome}}</td>
           <td> {{ transacao.contaOrigemId }} </td>
           <td> {{ transacao.contaDestinoId }}</td>
           <td> {{ transacao.valor | currency:transacao.moeda}} </td>
