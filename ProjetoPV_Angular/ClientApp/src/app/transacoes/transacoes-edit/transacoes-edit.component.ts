@@ -12,6 +12,7 @@ export class TransacoesEditComponent implements OnInit {
   id: number = 0;
   transacao: Transacao = {
     transacaoId: '',
+    categoriaId: 0,
     clienteId: 0,
     contaDestinoId: 0,
     contaOrigemId: 0,

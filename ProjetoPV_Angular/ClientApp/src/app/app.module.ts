@@ -37,6 +37,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { TipoContaCreateComponent } from './tipo-conta/tipo-conta-create/tipo-conta-create.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { PagTransacoesListComponent } from './pagTransacoes/pag-transacoes-list/pag-transacoes-list.component';
+import { PagContaListComponent } from './pagConta/pag-conta-list/pag-conta-list.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { PagTransacoesListComponent } from './pagTransacoes/pag-transacoes-list/
     OrcamentoDetailsComponent,
     TipoContaEditComponent,
     TipoContaCreateComponent,
-    PagTransacoesListComponent
+    PagTransacoesListComponent,
+    PagContaListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -84,6 +86,7 @@ import { PagTransacoesListComponent } from './pagTransacoes/pag-transacoes-list/
       { path: 'tipo-conta-edit/:id', component: TipoContaEditComponent },
       { path: 'tipo-conta-create', component: TipoContaCreateComponent },
       { path: 'pag-transacoes', component: PagTransacoesListComponent },
+      { path: 'pag-contas', component: PagContaListComponent },
     ]),
     BrowserAnimationsModule,
     MatTableModule,

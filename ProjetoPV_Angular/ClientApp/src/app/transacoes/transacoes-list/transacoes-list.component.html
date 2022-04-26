@@ -8,7 +8,8 @@
       <thead>
         <tr>
           <th>Descrição</th>
-          <th>Tipo Transacao Id</th>
+          <th>Tipo Transacao</th>
+          <th>Categoria</th>
           <th>Conta origem</th>
           <th>Conta destino</th>
           <th>Valor</th>
@@ -19,7 +20,9 @@
       <tbody>
         <tr *ngFor="let transacao of transacoes" class="colorRow">
           <td> {{ transacao.descricao }} </td>
-          <td> {{ transacao.tipoTransacaoId }} </td>
+          <td> {{ tipotransacao[transacao.tipoTransacaoId] }} </td>
+          <!--<td> {{ categorias[transacao.categoriaId].nome }} </td>-->
+          <td> {{ transacao.categoriaId}}</td>
           <td> {{ transacao.contaOrigemId }} </td>
           <td> {{ transacao.contaDestinoId }}</td>
           <td> {{ transacao.valor | currency:transacao.moeda}} </td>
