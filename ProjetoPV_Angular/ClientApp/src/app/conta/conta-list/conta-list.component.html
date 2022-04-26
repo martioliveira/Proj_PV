@@ -37,7 +37,7 @@
   </div>
 
   <h1 style="text-align: center"><b>Transações</b></h1>
-  <div>
+  <div *ngIf="transacoes">
     <app-transacoes-list [transacoes]=transacoes [contaDetails]="false"></app-transacoes-list>
   </div>
 
