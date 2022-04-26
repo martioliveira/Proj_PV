@@ -3,7 +3,8 @@
 <p *ngIf="transacoes.length == 0"><em>Não tem nenhuma transacão registada...</em></p>
 
 <div *ngIf="transacoes.length > 0">
-  <div style="width:100%; max-height: 300px; overflow-y:scroll;">
+  <!--<div style="width:100%; max-height: 300px; overflow-y:scroll;">-->
+  <div style="width:100%; max-height: 300px;">
     <table class='table table-striped' aria-labelledby="tableLabel">
       <thead>
         <tr>
@@ -14,7 +15,7 @@
           <th>Conta destino</th>
           <th>Valor</th>
           <th>Data</th>
-          <th>Ações</th>
+<!--          <th>Ações</th>-->
         </tr>
       </thead>
       <tbody>
@@ -22,18 +23,18 @@
           <td> {{ transacao.descricao }} </td>
           <td> {{ tipotransacao[transacao.tipoTransacaoId] }} </td>
           <!-- <td> {{ categorias[transacao.categoriaId].nome }} </td> -->
-          <td> {{ transacao.categoriaId}}</td>
+          <td> {{ transacao.categoria.nome}}</td>
           <td> {{ transacao.contaOrigemId }} </td>
           <td> {{ transacao.contaDestinoId }}</td>
           <td> {{ transacao.valor | currency:transacao.moeda}} </td>
-          <td> {{ transacao.dataTransacao | date:'dd/mm/yyyy' }} </td>
-          <td>
+          <td> {{ transacao.dataTransacao | date:'dd/MM/yyyy' }} </td>
+          <!--<td>
             <a href="#" routerLink="/transacoes-details/{{transacao.transacaoId}}" class="btn btn-info btn-sm">Detalhes</a>
 
             <a href="#" routerLink="/transacoes-edit/{{transacao.transacaoId}}" class="btn btn-primary btn-sm">Editar</a>
 
             <button type="button" routerLink="" (click)="onDeleteTransacao(transacao.transacaoId)" class="btn btn-danger btn-sm">Remover</button>
-          </td>
+          </td>-->
         </tr>
       </tbody>
     </table>

@@ -61,7 +61,7 @@ namespace ProjetoPV_Angular.Controllers
             }
 
             var transacoes = await _context.Transacao.
-                Where(t => t.ContaOrigemId == id || t.ContaDestinoId == id).ToListAsync();
+                Where(t => t.ContaOrigemId == id || t.ContaDestinoId == id).Include(t=>t.Categoria).ToListAsync();
 
             return transacoes;
         }

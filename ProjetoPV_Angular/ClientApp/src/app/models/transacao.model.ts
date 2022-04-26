@@ -1,3 +1,4 @@
+import { Categoria } from "./categoria.model";
 import { Cliente } from "./cliente.model";
 import { TipoTransacao } from "./tipotransacao.model";
 
@@ -14,7 +15,8 @@ export class Transacao {
                public dataCriacao: string,
                public anexo: string,
                public tipoTransacaoId: number,
-               public categoriaId: number
+               public categoriaId: number,
+               public categoria: Categoria,
   )
   { }
 }

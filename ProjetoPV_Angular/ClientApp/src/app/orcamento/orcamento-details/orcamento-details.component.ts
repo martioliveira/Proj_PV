@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { OrcamentoService } from '../../models/models-services/orcamento.service';
 import { Orcamento } from '../../models/orcamento.model';
 import { OrcamentoTb2 } from '../../models/orcamentotb2.model';
+import { Transacao } from '../../models/transacao.model';
 
 @Component({
   selector: 'app-orcamento-details',
@@ -21,8 +22,15 @@ export class OrcamentoDetailsComponent implements OnInit {
     restante: 0,
     percentagem: 0,
     percentager: 0,
-    moeda: ' '
+    moeda: ' ',
+    transorca: [],
   };
+
+  tipotransacao: any = {
+    "1": "Receita",
+    "2": "Despesa",
+    "3": "Transação"
+  }
 
   constructor(private service: OrcamentoService, private route: ActivatedRoute) { }
 

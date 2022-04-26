@@ -1,3 +1,5 @@
+import { Transacao } from "./transacao.model";
+
 export class OrcamentoTb2 {
   constructor( public orcamentoId: string,
                public  dataInicio: string,
@@ -9,6 +11,6 @@ export class OrcamentoTb2 {
                public       gasto: number,
                public percentagem: number,
                public percentager: number,
-
+               public   transorca: Transacao[],
   ) { }
 }
