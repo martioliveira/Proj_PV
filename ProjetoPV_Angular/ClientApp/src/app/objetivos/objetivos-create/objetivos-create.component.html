@@ -26,13 +26,19 @@
     <input ngModel name="dataInicio" id="dataInicio" #dataInicio="ngModel" type="date" class="form-control" />
   </div>
   <div class="form-group">
-    <label for="dataFim">Data de Inicio:</label> 
+    <label for="dataFim">Data Final:</label>
     <input ngModel name="dataFim" id="dataFim" #dataFim="ngModel" type="date" class="form-control" />
   </div>
 
   <div class="form-group">
     <button class="btn btn-success">Criar</button>
-    <a routerLink="" class="btn btn-primary">Voltar</a>
+    <a routerLink="/objetivos-list" class="btn btn-primary">Voltar</a>
   </div>
 
+  <!--
+  <div class="form-group" style="margin-left:37%">
+    <button mat-raised-button type="submit">Criar</button>
+    <button mat-raised-button type="button" routerLink="/objetivos-list">Voltar</button>
+  </div>
+    -->
 </form>

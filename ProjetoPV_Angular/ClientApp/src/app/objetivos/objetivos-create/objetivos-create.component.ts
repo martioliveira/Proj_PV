@@ -10,8 +10,6 @@ import { ObjetivoService } from '../../models/models-services/objetivo.service';
 })
 export class ObjetivosCreateComponent implements OnInit {
 
-  objetivoSelecionado = null;
-
   constructor(private service: ObjetivoService, private router: Router) {
   }
 

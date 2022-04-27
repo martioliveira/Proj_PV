@@ -1,6 +1,10 @@
+<h1 style="text-align: center"><b>Objetivos</b></h1>
 <p *ngIf="!objetivos"><em>Não tem nenhum objetivo registado...</em></p>
 
-<a routerLink="objetivos/objetivos-create" class="btn btn-success">Criar Objetivo</a>
+<div class="info">
+  <!-- <p style="text-align: center;"><strong>Informação</strong> | Para visualizar o detalhe dos objetivos, clique nos mesmos!</!--p> -->
+</div>
+<div style="text-align:center"><p routerLink="/objetivos-create" class="btn btn-success">Criar Objetivo</p></div>
 
 
 <div *ngIf="objetivos">

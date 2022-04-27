@@ -106,6 +106,7 @@ import { OrcamentoEditComponent } from './orcamento/orcamento-edit/orcamento-edi
       { path: 'tipo-conta-edit/:id', component: TipoContaEditComponent },
       { path: 'tipo-conta-create', component: TipoContaCreateComponent },
       { path: 'objetivos-list', component: ObjetivosListComponent },
+      { path: 'objetivos-create', component: ObjetivosCreateComponent },
       { path: 'pag-transacoes', component: PagTransacoesListComponent },
       { path: 'pag-contas', component: PagContaListComponent },
       { path: 'categoria-list', component: CategoriaListComponent },

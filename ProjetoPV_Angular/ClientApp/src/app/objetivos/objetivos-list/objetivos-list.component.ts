@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { empty } from 'rxjs';
 import { ObjetivoService } from '../../models/models-services/objetivo.service';
+import { Router } from '@angular/router';
 import { Objetivo } from '../../models/objetivo.model';
 
 
@@ -11,13 +12,14 @@ import { Objetivo } from '../../models/objetivo.model';
 })
 export class ObjetivosListComponent implements OnInit {
 
-  @Input() objetivos: Objetivo[] = [];
+  // @Input() objetivos: Objetivo[] = [];
+  public objetivos: Objetivo[] = [];
 
-  constructor(private service: ObjetivoService) {
+  constructor(private service: ObjetivoService,
+              private router: Router  ) {
   }
 
   ngOnInit(): void {
-    if (this.objetivos != null)
       this.getObjetivos();
   }
 
