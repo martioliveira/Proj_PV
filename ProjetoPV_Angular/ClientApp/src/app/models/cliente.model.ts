@@ -1,3 +1,3 @@
 export class Cliente {
-  constructor( ClienteId: string ) { }
+  clienteId: string = '';
 }

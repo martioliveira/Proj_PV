@@ -1,16 +1,15 @@
 import { Transacao } from "./transacao.model";
 
 export class OrcamentoTb2 {
-  constructor( public orcamentoId: string,
-               public  dataInicio: string,
-               public     dataFim: string,
-               public   descricao: string,
-               public       valor: number,
-               public       moeda: string,
-               public    restante: number,
-               public       gasto: number,
-               public percentagem: number,
-               public percentager: number,
-               public   transorca: Transacao[],
-  ) { }
+  orcamentoId: string = '';
+  dataInicio: string = '';
+  dataFim: string = '';
+  descricao: string = '';
+  valor: number = 0;
+  moeda: string = '';
+  restante: number = 0;
+  gasto: number = 0;
+  percentagem: number = 0;
+  percentager: number = 0;
+  transorca: Transacao[] = [];
 }

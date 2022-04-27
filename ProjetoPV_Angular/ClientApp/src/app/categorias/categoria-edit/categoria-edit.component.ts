@@ -11,12 +11,7 @@ import { CategoriaService } from '../../models/models-services/categoria.service
 })
 export class CategoriaEditComponent implements OnInit {
   id: number = 0;
-  categoria: Categoria = {
-    categoriaId : '',
-    cliente : 0,
-    descricao : '',
-    nome : ''
-  }
+  categoria: Categoria = new Categoria();
   constructor(private service: CategoriaService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {

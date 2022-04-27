@@ -12,19 +12,7 @@ import { Transacao } from '../../models/transacao.model';
 })
 export class OrcamentoDetailsComponent implements OnInit {
   id: string = "";
-  orcamento: OrcamentoTb2 = {
-    orcamentoId: '0',
-    descricao: ' ',
-    dataInicio: ' ',
-    dataFim: ' ',
-    valor: 0,
-    gasto: 0,
-    restante: 0,
-    percentagem: 0,
-    percentager: 0,
-    moeda: ' ',
-    transorca: [],
-  };
+  orcamento: OrcamentoTb2 = new OrcamentoTb2();
 
   tipotransacao: any = {
     "1": "Receita",

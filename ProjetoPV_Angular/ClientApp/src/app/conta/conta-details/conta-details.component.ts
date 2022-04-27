@@ -9,7 +9,7 @@ import { Transacao } from '../../models/transacao.model';
   templateUrl: './conta-details.component.html'
 })
 export class ContaDetailsComponent implements OnInit {
-  conta: Conta | undefined;
+  conta?: Conta;
   id: number = 0;
   public transacoes: Transacao[] = [];
 

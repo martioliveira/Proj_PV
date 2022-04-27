@@ -12,18 +12,7 @@ import { TipoConta } from '../../models/tipoconta.model';
 })
 export class ContaEditComponent implements OnInit {
   id: number = 0;
-  conta: Conta = {
-    contaId: '0',
-    descricao: '',
-    moeda: '',
-    saldo: 0,
-    tipoContaId: '0',
-    tipoConta: {
-      tipoContaId: '0',
-      descricao: ''
-    },
-    transacoes: [],
-  }
+  conta: Conta = new Conta();
   tipoContas: TipoConta[] = [];
   constructor(private service: ContaService, private route: ActivatedRoute, private router: Router, private tipoContaService: TipocontaService) { }
 
