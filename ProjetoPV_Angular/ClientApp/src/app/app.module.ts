@@ -38,6 +38,7 @@ import { TipoContaCreateComponent } from './tipo-conta/tipo-conta-create/tipo-co
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ObjetivosListComponent } from './objetivos/objetivos-list/objetivos-list.component';
 import { PagTransacoesListComponent } from './pagTransacoes/pag-transacoes-list/pag-transacoes-list.component';
+import { ObjetivosCreateComponent } from './objetivos/objetivos-create/objetivos-create.component';
 
 
 
@@ -63,7 +64,8 @@ import { PagTransacoesListComponent } from './pagTransacoes/pag-transacoes-list/
     TipoContaEditComponent,
     TipoContaCreateComponent,
     ObjetivosListComponent,
-    PagTransacoesListComponent
+    PagTransacoesListComponent,
+    ObjetivosCreateComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

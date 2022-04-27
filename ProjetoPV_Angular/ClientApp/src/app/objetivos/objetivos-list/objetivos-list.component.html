@@ -1,12 +1,15 @@
 <p *ngIf="!objetivos"><em>Não tem nenhum objetivo registado...</em></p>
 
+<a routerLink="objetivos/objetivos-create" class="btn btn-success">Criar Objetivo</a>
+
+
 <div *ngIf="objetivos">
   <table class='table table-striped' aria-labelledby="tableLabel">
     <thead>
       <tr>
-        <th width="60%">Descrição do Objetivo</th>
-        <th width="10%">Valor Acumulado</th>
-        <th width="10%">Valor a Atingir</th>
+        <th width="40%">Descrição do Objetivo</th>
+        <th width="20%">Valor Acumulado</th>
+        <th width="20%">Valor a Atingir</th>
         <th width="10%">Início</th>
         <th width="10%">Fim</th>
       </tr>

@@ -283,6 +283,41 @@ namespace ProjetoPV_Angular.Data
                         ContaId = 2,
                     });
             #endregion
+
+            //Popular Entidade Objetivo
+            #region Dados Objetivo
+            builder.Entity<Objetivo>().HasData(
+                    new Objetivo
+                    {
+                        ObjetivoId = 1,
+                        DataFim = DateTime.Now.AddDays(12),
+                        DataInicio = DateTime.Now.AddDays(-12),
+                        Descricao = "Férias - 500€ e pouco",
+                        Moeda = "EUR",
+                        ValorAtingir = 520,
+                        ValorAcumulado = 10,
+                    },
+                    new Objetivo
+                    {
+                        ObjetivoId = 2,
+                        DataFim = DateTime.Now.AddDays(15),
+                        DataInicio = DateTime.Now.AddDays(-15),
+                        Descricao = "Operação de 700 euros",
+                        Moeda = "EUR",
+                        ValorAtingir = 700,
+                        ValorAcumulado = 35,
+                    },
+                    new Objetivo
+                    {
+                        ObjetivoId = 3,
+                        DataFim = DateTime.Now.AddDays(4),
+                        DataInicio = DateTime.Now.AddDays(-4),
+                        Descricao = "Carro ou mota",
+                        Moeda = "EUR",
+                        ValorAtingir = 3000,
+                        ValorAcumulado = 1510,
+                    });
+            #endregion
         }
 
         public DbSet<Categoria> Categoria { get; set; }
