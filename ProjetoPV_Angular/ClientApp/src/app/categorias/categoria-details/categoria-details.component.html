@@ -1,0 +1,10 @@
+<div *ngIf="categoria">
+  <h2><strong>Categoria: {{categoria.nome}}</strong></h2>
+  <div>
+    <p><strong>Id: </strong> {{categoria.categoriaId}} </p>
+    <p><strong>Nome: </strong> {{categoria.nome}} </p>
+    <p><strong>Descrição: </strong> {{categoria.descricao}} </p>
+  </div>
+
+  <a routerLink="/categoria-list" class="btn btn-primary">Voltar</a>
+</div>

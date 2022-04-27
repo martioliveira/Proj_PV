@@ -1,4 +1,4 @@
-<a routerLink="/transacoes-create" class="btn btn-success">Criar Transacao</a>
+<a routerLink="/transacoes-create" class="btn btn-success">Criar Transacao</a> | <a routerLink="/categoria-list" class="btn btn-primary">Ver Categorias</a>
 
 <div class="filtros">
 
@@ -22,6 +22,23 @@
     </select>
   </div>
 
+  <div>
+    Categoria:
+    <select [(ngModel)]="selectedTipoTransacaoId" (change)="onChangedFilters()">
+      <option value="all">Todas</option>
+      <option *ngFor="let tipo of tipotransacao | keyvalue" [value]="tipo.key">
+        {{ tipo.value }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    Data Inicio:
+    <input type="date" id="dataInicio" />
+    Data Fim:
+    <input type="date" id="dataFim" />
+  </div>
+
 </div>
 
 <p *ngIf="transacoes.length == 0"><em>Não tem nenhuma transacão registada...</em></p>
@@ -33,6 +50,7 @@
       <tr>
         <th>Descrição</th>
         <th>Tipo Transacao Id</th>
+        <th>Categoria</th>
         <th>Conta origem</th>
         <th>Conta destino</th>
         <th>Valor</th>
@@ -44,6 +62,7 @@
       <tr *ngFor="let transacao of transacoes" class="colorRow">
         <td> {{ transacao.descricao }} </td>
         <td> {{ transacao.tipoTransacaoId }} </td>
+        <td> {{ transacao.categoriaId }} </td>
         <td> {{ transacao.contaOrigemId }} </td>
         <td> {{ transacao.contaDestinoId }}</td>
         <td> {{ transacao.valor | currency:transacao.moeda}} </td>

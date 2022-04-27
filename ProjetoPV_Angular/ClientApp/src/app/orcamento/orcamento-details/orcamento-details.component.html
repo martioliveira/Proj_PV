@@ -1,5 +1,7 @@
+<h1 style="text-align: center"><b>Informações</b></h1>
+<div><p routerLink="/orcamento-list" class="btn btn-success btnLeft">Voltar</p><p routerLink="/orcamento-edit/{{orcamento.orcamentoId}}" class="btn btn-success btnRight">Editar Orçamento</p></div>
 <div>
-  <table class='table table-striped' aria-labelledby="tableLabel">
+<table class='table table-striped' aria-labelledby="tableLabel">
     <thead>
       <tr>
         <th width="70%">Descrição</th>
@@ -17,8 +19,46 @@
       </tr>
     </tbody>
   </table>
-  <mat-progress-bar mode="determinate" [value]="orcamento.percentagem"></mat-progress-bar>
-    <p style="text-align: left; width: 33%; display: inline-block;">Gasto: {{ orcamento.gasto | currency:orcamento.moeda }}</p>
-    <p style="text-align: center; width: 33%; display: inline-block;">{{ orcamento.percentagem }}%</p>
-    <p style="text-align: right; width: 33%; display: inline-block;">Restante: {{ orcamento.restante | currency:orcamento.moeda }}</p>
 </div>
+<br><br><br>
+<h1 style="text-align: center"><b>Progresso</b></h1>
+<div>
+  <mat-progress-bar mode="determinate" [value]="orcamento.percentagem"></mat-progress-bar>
+  <p style="text-align: left; width: 33%; display: inline-block;">Gasto: {{ orcamento.gasto | currency:orcamento.moeda }}</p>
+  <p style="text-align: center; width: 33%; display: inline-block;">{{ orcamento.percentagem | number:'2.2-2'}}%</p>
+  <p style="text-align: right; width: 33%; display: inline-block;">Restante: {{ orcamento.restante | currency:orcamento.moeda }}</p>
+</div>
+<br><br><br>
+<h1 style="text-align: center"><b>Transações</b></h1>
+<div *ngIf="orcamento.transorca.length > 0">
+  <div style="width:100%; max-height: 300px;">
+    <table class='table table-striped' aria-labelledby="tableLabel">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Tipo Transacao</th>
+          <th>Categoria</th>
+          <th>Conta origem</th>
+          <th>Conta destino</th>
+          <th>Valor</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transacao of orcamento.transorca" class="colorRow">
+          <td> {{ transacao.descricao }} </td>
+          <td> {{ tipotransacao[transacao.tipoTransacaoId] }} </td> 
+          <td> {{ transacao.categoria.nome}}</td>
+          <td> {{ transacao.contaOrigemId }} </td>
+          <td> {{ transacao.contaDestinoId }}</td>
+          <td> {{ transacao.valor | currency:transacao.moeda}} </td>
+          <td> {{ transacao.dataTransacao | date:'dd/MM/yyyy' }} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--<div>
+  <app-transacoes-list [transacoes]=transacoes [contaDetails]="false"></app-transacoes-list>
+</div>-->

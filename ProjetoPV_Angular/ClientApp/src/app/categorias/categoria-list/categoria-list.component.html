@@ -1,0 +1,25 @@
+<a routerLink="/categoria-create" class="btn btn-success">Criar Categoria</a> | <a routerLink="/pag-transacoes" class="btn btn-primary">Voltar</a>
+
+<div *ngIf="categorias.length > 0">
+    <table class='table table-striped' aria-labelledby="tableLabel">
+      <thead>
+        <tr>
+          <th>Categoria Id</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let categoria of categorias" class="colorRow">
+          <td> {{ categoria.categoriaId }} </td>
+          <td> {{ categoria.nome }} </td>
+          <td> {{ categoria.descricao }} </td>
+          <td>
+            <a href="#" routerLink="/categoria-details/{{categoria.categoriaId}}" class="btn btn-info btn-sm">Detalhes</a>
+
+            <a href="#" routerLink="/categoria-edit/{{categoria.categoriaId}}" class="btn btn-primary btn-sm">Editar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

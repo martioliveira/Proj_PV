@@ -11,10 +11,7 @@ import { TipoConta } from '../../models/tipoconta.model';
 })
 export class TipoContaEditComponent implements OnInit {
   id: number = 0;
-  tipoconta: TipoConta = {
-    tipoContaId: '0',
-    descricao: ''
-  }
+  tipoconta: TipoConta = new TipoConta();
   constructor(private service: TipocontaService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {

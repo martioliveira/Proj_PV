@@ -1,7 +1,8 @@
 <div *ngIf="transacao">
-  <h4>Detalhes da Transação: {{transacao.descricao}}</h4>
+  <h2><strong>Detalhes da Transação: {{transacao.descricao}}</strong></h2>
   <div>
     <p><strong>Id: </strong> {{transacao.transacaoId}} </p>
+    <p><strong>Categoria: </strong> {{transacao.categoriaId}} </p>
     <p><strong>ContaOrigemId: </strong> {{transacao.contaOrigemId}} </p>
     <p><strong>ContaDestinoId: </strong> {{transacao.contaDestinoId}} </p>
     <p><strong>Montante: </strong> {{transacao.valor | currency:transacao.moeda}} </p>

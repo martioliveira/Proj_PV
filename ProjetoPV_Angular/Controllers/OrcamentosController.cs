@@ -17,6 +17,7 @@ namespace ProjetoPV_Angular.Controllers
         public double Gasto { get; set; }
         public double Percentagem { get; set; }
         public double Percentager { get; set; }
+        public Transacao[] Transorca { get; set; }
         public CustomOrcamento() : base() { }
     }
 
@@ -134,6 +135,14 @@ namespace ProjetoPV_Angular.Controllers
                                                            orcaIn = orcamentoConta.orcaIn,
                                                            orcaFi = orcamentoConta.orcaFi });
 
+            //var transacaoOrcam = transacaoConta.Join(_context.Transacao,
+            //                                            traCo => traCo.tranId,
+            //                                            trans => trans.TransacaoId,
+            //                                            trans => new { });
+
+            var transacaoOrcam = _context.Transacao.Where(x => transacaoConta.Any(y => x.TransacaoId == y.tranId));
+
+
             // Apanhar as transações apenas dentro das datas de Inicio de Fim de Orçamento
             transacaoConta = transacaoConta.Where(t => t.tranDt >= t.orcaIn && t.tranDt < t.orcaFi);
             // Calcular o valor já gasto do orçamento com o somatório de todas as transações
@@ -149,7 +158,8 @@ namespace ProjetoPV_Angular.Controllers
                                                             Moeda       = orcamento.Moeda,
                                                             Restante    = orcamentoResta,
                                                             Gasto       = orcamentoGasto,
-                                                            Percentagem = percentagem };
+                                                            Percentagem = percentagem,
+                                                            Transorca   = transacaoOrcam.Include(t=>t.Categoria).ToArray() };
 
             //               Console.WriteLine("{0} {1} {2} {3}", orcamentoCustom.Restante ,orcamentoCustom.Gasto ,orcamentoCustom.Percentagem, orcamentoCustom.Percentager);
 

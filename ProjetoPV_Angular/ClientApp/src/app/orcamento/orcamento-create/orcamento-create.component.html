@@ -1,0 +1,67 @@
+<h1 style="text-align: center"><b>Criar Orçamento</b></h1>
+
+<form #orcamentoForm="ngForm" class="example-form" (ngSubmit)="onSubmit(orcamentoForm)">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Data de Começo</mat-label>
+    <input ngModel name="dataInicio" #dataInicio="ngModel" id="dataInicio" matInput type="date" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Data de Termino</mat-label>
+    <input ngModel name="dataFim" id="dataFim" #dataFim="ngModel" matInput type="date" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Descrição</mat-label>
+    <textarea ngModel name="descricao" #descricao="ngModel" id="descricao" matInput placeholder="Qual a finalidade do orçamento?" required></textarea>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Valor</mat-label>
+    <input ngModel name="valor" id="valor" #valor="ngModel" min="0" matInput type="number" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Moeda</mat-label>
+    <input ngModel name="moeda" id="moeda" #moeda="ngModel" placeholder="EUR" matInput type="text" required>
+  </mat-form-field>
+  <!-- <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Conta</mat-label>
+    <mat-select>
+      <mat-option value="option">TESTE</mat-option>
+    </mat-select>
+  </mat-form-field>-->
+  <div class="form-group" style="margin-left:37%">
+    <button mat-raised-button type="submit">Criar</button>
+    <button mat-raised-button type="button" routerLink="/orcamento-list">Voltar</button>
+  </div>
+
+  <!--<div class="form-group>">
+      <label for="dataInicio">Data Inicio:</label>
+      <input ngModel name="dataInicio" #dataInicio="ngModel" id="dataInicio" type="date" class="form-control" />
+    </div>
+
+        <div class="form-group">
+      <label for="dataFim">Data Fim:</label>
+      <input ngModel name="dataFim" id="dataFim" #dataFim="ngModel" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group>">
+      <label for="descricao">Descrição:</label>
+      <input ngModel name="descricao" #descricao="ngModel" id="descricao" type="text" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="valor">Valor:</label>
+      <input ngModel name="valor" id="valor" #valor="ngModel" type="number" min="0" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="moeda">Moeda:</label>
+      <input ngModel name="moeda" id="moeda" #moeda="ngModel" type="text" class="form-control" />
+    </div>
+        <div class="form-group">
+    <button class="btn btn-success">Criar</button>
+    <a routerLink="" class="btn btn-primary">Voltar</a>
+  </div>
+      -->
+</form>

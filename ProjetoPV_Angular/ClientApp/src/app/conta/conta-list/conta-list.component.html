@@ -1,41 +1,43 @@
 <p *ngIf="!contas"><em>Não tem nenhuma conta registada...</em></p>
-
+<h1 style="text-align: center"><b>Contas</b></h1>
 <a routerLink="/conta-create" class="btn btn-success">Criar Conta</a>
 
 <div *ngIf="contas">
-  <div style="width:100%; max-height: 170px; overflow-y:scroll;">
+  <!--<div style="width:100%; max-height: 170px; overflow-y:scroll;">-->
+  <div style="width:100%; max-height: 170px;">
     <table class='table table-striped' aria-labelledby="tableLabel">
       <thead>
         <tr>
-          <th>Conta Id</th>
-          <th>Descrição</th>
-          <th>Saldo</th>
-          <th>Ações</th>
+          <!--<th>Conta Id</th>-->
+          <th width="95%">Descrição</th>
+          <th width="5%">Saldo</th>
+          <!--<th>Ações</th>-->
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let conta of contas" (click)="selectedAccountFillTransactions(conta.contaId)" class="colorRow" [class.highlighted]="conta.contaId === contaIdSelecionada">
-          <td>{{ conta.contaId }}</td>
-          <td>{{ conta.descricao }}</td>
-          <td>{{ conta.saldo | currency:conta.moeda }}</td>
-          <td>
+          <!--<td>{{ conta.contaId }}</td>-->
+          <td width="90%">{{ conta.descricao }}</td>
+          <td width="10%" align="right">{{ conta.saldo | currency:conta.moeda }}</td>
+          <!--<td>
             <a href="#" routerLink="/conta-details/{{conta.contaId}}" class="btn btn-info btn-sm">Detalhes</a>
 
             <a href="#" routerLink="/conta-edit/{{conta.contaId}}" class="btn btn-primary btn-sm">Editar</a>
 
             <button type="button" routerLink="" (click)="onDeleteTransacao(conta.contaId)" class="btn btn-danger btn-sm">Remover</button>
-          </td>
+          </td>-->
         </tr>
       </tbody>
     </table>
     </div>
   </div>
-
+<h1 style="text-align: center"><b>Estatísticas</b></h1>
   <div>
     <app-pie-chart></app-pie-chart>
   </div>
 
-  <div>
+  <h1 style="text-align: center"><b>Transações</b></h1>
+  <div *ngIf="transacoes">
     <app-transacoes-list [transacoes]=transacoes [contaDetails]="false"></app-transacoes-list>
   </div>
 

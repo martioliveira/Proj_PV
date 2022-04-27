@@ -38,7 +38,13 @@ import { TipoContaCreateComponent } from './tipo-conta/tipo-conta-create/tipo-co
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ObjetivosListComponent } from './objetivos/objetivos-list/objetivos-list.component';
 import { PagTransacoesListComponent } from './pagTransacoes/pag-transacoes-list/pag-transacoes-list.component';
-import { ObjetivosCreateComponent } from './objetivos/objetivos-create/objetivos-create.component';
+import { PagContaListComponent } from './pagConta/pag-conta-list/pag-conta-list.component';
+import { CategoriaListComponent } from './categorias/categoria-list/categoria-list.component';
+import { CategoriaDetailsComponent } from './categorias/categoria-details/categoria-details.component';
+import { CategoriaEditComponent } from './categorias/categoria-edit/categoria-edit.component';
+import { CategoriaCreateComponent } from './categorias/categoria-create/categoria-create.component';
+import { OrcamentoCreateComponent } from './orcamento/orcamento-create/orcamento-create.component';
+import { OrcamentoEditComponent } from './orcamento/orcamento-edit/orcamento-edit.component';
 
 
 
@@ -63,9 +69,16 @@ import { ObjetivosCreateComponent } from './objetivos/objetivos-create/objetivos
     OrcamentoDetailsComponent,
     TipoContaEditComponent,
     TipoContaCreateComponent,
+    PagTransacoesListComponent,
+    PagContaListComponent,
+    CategoriaListComponent,
+    CategoriaDetailsComponent,
+    CategoriaEditComponent,
+    CategoriaCreateComponent,
     ObjetivosListComponent,
     PagTransacoesListComponent,
-    ObjetivosCreateComponent
+    OrcamentoCreateComponent,
+    OrcamentoEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -85,11 +98,20 @@ import { ObjetivosCreateComponent } from './objetivos/objetivos-create/objetivos
       { path: 'tipo-conta', component: TipoContaListComponent },
       { path: 'export-page', component: ExportPageComponent },
       { path: 'orcamento-list', component: OrcamentoListComponent },
+      { path: 'orcamento-create', component: OrcamentoCreateComponent },
+      { path: 'orcamento-edit/:id', component: OrcamentoEditComponent },
       { path: 'orcamento-details/:id', component: OrcamentoDetailsComponent },
       { path: 'tipo-conta-edit/:id', component: TipoContaEditComponent },
       { path: 'tipo-conta-create', component: TipoContaCreateComponent },
       { path: 'objetivos-list', component: ObjetivosListComponent },
       { path: 'pag-transacoes', component: PagTransacoesListComponent },
+      { path: 'pag-contas', component: PagContaListComponent },
+      { path: 'categoria-list', component: CategoriaListComponent },
+      { path: 'categoria-details/:id', component: CategoriaDetailsComponent },
+      { path: 'categoria-edit/:id', component: CategoriaEditComponent },
+      { path: 'categoria-create', component: CategoriaCreateComponent },
+
+
     ]),
     BrowserAnimationsModule,
     MatTableModule,
