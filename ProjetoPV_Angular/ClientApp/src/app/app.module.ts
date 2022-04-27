@@ -43,6 +43,8 @@ import { CategoriaListComponent } from './categorias/categoria-list/categoria-li
 import { CategoriaDetailsComponent } from './categorias/categoria-details/categoria-details.component';
 import { CategoriaEditComponent } from './categorias/categoria-edit/categoria-edit.component';
 import { CategoriaCreateComponent } from './categorias/categoria-create/categoria-create.component';
+import { OrcamentoCreateComponent } from './orcamento/orcamento-create/orcamento-create.component';
+import { OrcamentoEditComponent } from './orcamento/orcamento-edit/orcamento-edit.component';
 
 
 
@@ -74,7 +76,9 @@ import { CategoriaCreateComponent } from './categorias/categoria-create/categori
     CategoriaEditComponent,
     CategoriaCreateComponent,
     ObjetivosListComponent,
-    PagTransacoesListComponent
+    PagTransacoesListComponent,
+    OrcamentoCreateComponent,
+    OrcamentoEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -94,6 +98,8 @@ import { CategoriaCreateComponent } from './categorias/categoria-create/categori
       { path: 'tipo-conta', component: TipoContaListComponent },
       { path: 'export-page', component: ExportPageComponent },
       { path: 'orcamento-list', component: OrcamentoListComponent },
+      { path: 'orcamento-create', component: OrcamentoCreateComponent },
+      { path: 'orcamento-edit/:id', component: OrcamentoEditComponent },
       { path: 'orcamento-details/:id', component: OrcamentoDetailsComponent },
       { path: 'tipo-conta-edit/:id', component: TipoContaEditComponent },
       { path: 'tipo-conta-create', component: TipoContaCreateComponent },

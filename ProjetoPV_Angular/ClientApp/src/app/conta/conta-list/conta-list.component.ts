@@ -10,7 +10,7 @@ import { Transacao } from '../../models/transacao.model';
   templateUrl: './conta-list.component.html',
   styleUrls: ['./conta-list.component.css']
 })
-export class ContaListComponent implements OnInit {
+export class ContaListComponent implements OnInit{
 
   contaIdSelecionada: string | undefined;
   public contas: Conta[] = [];
@@ -19,7 +19,6 @@ export class ContaListComponent implements OnInit {
   constructor(private service: ContaService) { }
 
   ngOnInit() {
-    this.getContas();
   }
  
   getContas(): void {

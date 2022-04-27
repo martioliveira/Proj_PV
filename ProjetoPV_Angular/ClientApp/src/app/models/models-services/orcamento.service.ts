@@ -22,4 +22,12 @@ export class OrcamentoService {
   getCustomOrcamentoId(id: string): Observable<OrcamentoTb2> {
     return this.http.get<OrcamentoTb2>(this.baseUrl + 'api/Orcamentos/Tb2/' + id);
   }
+
+  createOrcamento(orcamento: Orcamento): Observable<Orcamento> {
+    return this.http.post<Orcamento>(this.baseUrl + 'api/Orcamentos', orcamento);
+  }
+
+  updateOrcamento(orcamento: Orcamento): Observable<Orcamento> {
+    return this.http.put<Orcamento>(this.baseUrl + 'api/Orcamentos/' + orcamento.orcamentoId, orcamento);
+  }
 }
