@@ -9,7 +9,7 @@ import { CategoriaService } from '../../models/models-services/categoria.service
   styleUrls: ['./categoria-details.component.css']
 })
 export class CategoriaDetailsComponent implements OnInit {
-  categoria: Categoria | undefined;
+  categoria?: Categoria;
   id: number = 0;
 
   constructor(private service: CategoriaService, private route: ActivatedRoute) { }

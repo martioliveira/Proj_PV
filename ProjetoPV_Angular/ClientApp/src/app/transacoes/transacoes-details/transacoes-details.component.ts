@@ -8,7 +8,7 @@ import { Transacao } from '../../models/transacao.model';
   templateUrl: './transacoes-details.component.html'
 })
 export class TransacoesDetailsComponent implements OnInit {
-  transacao: Transacao | undefined;
+  transacao?: Transacao;
   id: number = 0;
   constructor(private service: TransacaoService, private route: ActivatedRoute) { }
 

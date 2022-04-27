@@ -10,26 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class TransacoesEditComponent implements OnInit {
   id: number = 0;
-  transacao: Transacao = {
-    transacaoId: '',
-    categoriaId: 0,
-    clienteId: 0,
-    contaDestinoId: 0,
-    contaOrigemId: 0,
-    dataCriacao: '',
-    dataTransacao: '',
-    moeda: '',
-    tipoTransacaoId: 0,
-    descricao: '',
-    anexo: '',
-    valor: 0,
-    beneficiario: 0,
-    categoria: {
-      categoriaId: '',
-      nome: '',
-      cliente: '',
-      descricao: ''},
-  }
+  transacao: Transacao = new Transacao();
 
   constructor(private service: TransacaoService, private route: ActivatedRoute, private router: Router) { }
 

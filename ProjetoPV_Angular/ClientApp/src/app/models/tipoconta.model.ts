@@ -1,4 +1,4 @@
 export class TipoConta {
-  constructor(public tipoContaId: string,
-              public descricao: string ) { }
+  tipoContaId: string = '';
+  descricao: string = '';
 }
