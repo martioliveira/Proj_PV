@@ -10,15 +10,14 @@ import { ObjetivoService } from '../../models/models-services/objetivo.service';
 })
 export class ObjetivosCreateComponent implements OnInit {
 
-  constructor(private service: ObjetivoService, private router: Router) {
-  }
+  constructor(private serviceObjetivo: ObjetivoService, private router: Router) { }
 
   ngOnInit(): void {
 
   }
 
   onSubmit(objetivoForm: NgForm) {
-    this.service.createObjetivo(objetivoForm.value).subscribe(res => {
+    this.serviceObjetivo.createObjetivo(objetivoForm.value).subscribe(res => {
       this.router.navigateByUrl('/');
     },
       error => {
