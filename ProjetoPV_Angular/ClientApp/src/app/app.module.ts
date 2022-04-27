@@ -37,6 +37,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { TipoContaCreateComponent } from './tipo-conta/tipo-conta-create/tipo-conta-create.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ObjetivosListComponent } from './objetivos/objetivos-list/objetivos-list.component';
+import { ObjetivosCreateComponent } from './objetivos/objetivos-create/objetivos-create.component';
 import { PagTransacoesListComponent } from './pagTransacoes/pag-transacoes-list/pag-transacoes-list.component';
 import { PagContaListComponent } from './pagConta/pag-conta-list/pag-conta-list.component';
 import { CategoriaListComponent } from './categorias/categoria-list/categoria-list.component';
@@ -76,6 +77,7 @@ import { OrcamentoEditComponent } from './orcamento/orcamento-edit/orcamento-edi
     CategoriaEditComponent,
     CategoriaCreateComponent,
     ObjetivosListComponent,
+    ObjetivosCreateComponent,
     PagTransacoesListComponent,
     OrcamentoCreateComponent,
     OrcamentoEditComponent
