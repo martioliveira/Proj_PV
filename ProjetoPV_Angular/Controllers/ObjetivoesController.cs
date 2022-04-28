@@ -74,6 +74,32 @@ namespace ProjetoPV_Angular.Controllers
             return NoContent();
         }
 
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchObjetivo(long id, [FromBody] double valorAdd)
+        {
+            if (valorAdd <= 0)
+            {
+                return BadRequest();
+            }
+
+            var objetivo = await _context.Objetivo.FindAsync(id);
+
+            if (objetivo == null)
+            {
+                return NotFound();
+            }
+
+            objetivo.ValorAcumulado += valorAdd;
+
+            _context.Entry(objetivo).State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+            
+            return NoContent();
+        }
+
+
         // POST: api/Objetivoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]

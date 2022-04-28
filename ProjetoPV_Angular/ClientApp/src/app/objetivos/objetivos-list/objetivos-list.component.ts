@@ -27,6 +27,10 @@ export class ObjetivosListComponent implements OnInit {
     this.service.getObjetivos().subscribe((objetivos: Objetivo[]) => this.objetivos = objetivos);
   }
 
+  onClickObjetivo(id: string) {
+    this.router.navigateByUrl('/objetivos-details/' + id);
+  }
+
   onDeleteObjetivo(id: string) {
     if (confirm("Apagar o Objetivo?")) {
       this.service.deleteObjetivo(id)

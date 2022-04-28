@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Objetivo } from '../objetivo.model';
@@ -29,4 +29,17 @@ export class ObjetivoService {
   deleteObjetivo(id: string): Observable<Objetivo> {
     return this.http.delete<Objetivo>(this.baseUrl + 'api/Objetivoes' + id);
   }
+
+  getCustomObjetivoId(id: string): Observable<Objetivo> {
+    return this.http.get<Objetivo>(this.baseUrl + 'api/Objetivoes/' + id);
+  }
+
+  patchObjetivo(id: string, valorAdd: number): Observable<Objetivo> {
+
+   // const params = new HttpParams()
+     // .set('valorAdd', valorAdd);
+
+    return this.http.patch<Objetivo>(this.baseUrl + 'api/Objetivoes/' + id, valorAdd );
+  }
+
 }
