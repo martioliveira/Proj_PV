@@ -11,6 +11,11 @@ using ProjetoPV_Angular.Models;
 
 namespace ProjetoPV_Angular.Controllers
 {
+    public class PatchStructure
+    {
+        public double ValorAdd { get; set; }
+    }
+
     [Route("api/[controller]")]
     [ApiController]
     public class ObjetivoesController : ControllerBase
@@ -76,9 +81,9 @@ namespace ProjetoPV_Angular.Controllers
 
 
         [HttpPatch("{id}")]
-        public async Task<IActionResult> PatchObjetivo(long id, [FromBody] double valorAdd)
+        public async Task<IActionResult> PatchObjetivo(long id, PatchStructure patchStructure)
         {
-            if (valorAdd <= 0)
+            if (patchStructure.ValorAdd <= 0)
             {
                 return BadRequest();
             }
@@ -90,7 +95,7 @@ namespace ProjetoPV_Angular.Controllers
                 return NotFound();
             }
 
-            objetivo.ValorAcumulado += valorAdd;
+            objetivo.ValorAcumulado += patchStructure.ValorAdd;
 
             _context.Entry(objetivo).State = EntityState.Modified;
 
