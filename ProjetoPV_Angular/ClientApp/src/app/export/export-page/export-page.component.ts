@@ -22,7 +22,7 @@ export class ExportPageComponent implements OnInit {
   tipotransacao: any = {
     "1": "Receita",
     "2": "Despesa",
-    "3": "Transação"
+    "3": "Tranferência"
   }
 
   constructor(private contasService: ContaService, private transacaoService: TransacaoService) { }

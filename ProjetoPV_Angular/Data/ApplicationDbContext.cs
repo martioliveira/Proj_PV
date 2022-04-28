@@ -183,7 +183,7 @@ namespace ProjetoPV_Angular.Data
                     new TipoTransacao
                     {
                         TipoTransacaoId = 3,
-                        Descricao = TipoTransacaoDescricao.Transacao
+                        Descricao = TipoTransacaoDescricao.Tranferência
                     }
                     );
             #endregion
@@ -200,7 +200,7 @@ namespace ProjetoPV_Angular.Data
                     Descricao = "Transacao 1",
                     Moeda = "EUR",
                     Valor = 500,
-                    TipoTransacaoId = 3,
+                    TipoTransacaoId = 1,
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
@@ -216,7 +216,7 @@ namespace ProjetoPV_Angular.Data
                     Descricao = "Transacao 2",
                     Moeda = "EUR",
                     Valor = 300,
-                    TipoTransacaoId = 3,
+                    TipoTransacaoId = 2,
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
@@ -232,7 +232,7 @@ namespace ProjetoPV_Angular.Data
                     Descricao = "Transacao 3",
                     Moeda = "EUR",
                     Valor = 900,
-                    TipoTransacaoId = 3,
+                    TipoTransacaoId = 2,
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
@@ -280,7 +280,7 @@ namespace ProjetoPV_Angular.Data
                     Descricao = "Transacao 6",
                     Moeda = "EUR",
                     Valor = 117,
-                    TipoTransacaoId = 3,
+                    TipoTransacaoId = 1,
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
@@ -296,7 +296,7 @@ namespace ProjetoPV_Angular.Data
                     Descricao = "Transacao 7",
                     Moeda = "EUR",
                     Valor = 443,
-                    TipoTransacaoId = 3,
+                    TipoTransacaoId = 1,
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
@@ -312,7 +312,7 @@ namespace ProjetoPV_Angular.Data
                     Descricao = "Transacao 8",
                     Moeda = "EUR",
                     Valor = 1789,
-                    TipoTransacaoId = 3,
+                    TipoTransacaoId = 2,
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,

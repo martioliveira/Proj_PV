@@ -6,7 +6,7 @@ namespace ProjetoPV_Angular.Models
     {
         Receita,
         Despesa,
-        Transacao
+        Tranferência
     }
     public class TipoTransacao
     {
