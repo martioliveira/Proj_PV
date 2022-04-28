@@ -37,6 +37,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { TipoContaCreateComponent } from './tipo-conta/tipo-conta-create/tipo-conta-create.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ObjetivosListComponent } from './objetivos/objetivos-list/objetivos-list.component';
+import { ObjetivosCreateComponent } from './objetivos/objetivos-create/objetivos-create.component';
 import { PagTransacoesListComponent } from './pagTransacoes/pag-transacoes-list/pag-transacoes-list.component';
 import { PagContaListComponent } from './pagConta/pag-conta-list/pag-conta-list.component';
 import { CategoriaListComponent } from './categorias/categoria-list/categoria-list.component';
@@ -45,6 +46,8 @@ import { CategoriaEditComponent } from './categorias/categoria-edit/categoria-ed
 import { CategoriaCreateComponent } from './categorias/categoria-create/categoria-create.component';
 import { OrcamentoCreateComponent } from './orcamento/orcamento-create/orcamento-create.component';
 import { OrcamentoEditComponent } from './orcamento/orcamento-edit/orcamento-edit.component';
+import { ObjetivosDetailsComponent } from './objetivos/objetivos-details/objetivos-details.component';
+import { ObjetivosEditComponent } from './objetivos/objetivos-edit/objetivos-edit.component';
 
 
 
@@ -76,9 +79,12 @@ import { OrcamentoEditComponent } from './orcamento/orcamento-edit/orcamento-edi
     CategoriaEditComponent,
     CategoriaCreateComponent,
     ObjetivosListComponent,
+    ObjetivosCreateComponent,
     PagTransacoesListComponent,
     OrcamentoCreateComponent,
-    OrcamentoEditComponent
+    OrcamentoEditComponent,
+    ObjetivosDetailsComponent,
+    ObjetivosEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -104,6 +110,8 @@ import { OrcamentoEditComponent } from './orcamento/orcamento-edit/orcamento-edi
       { path: 'tipo-conta-edit/:id', component: TipoContaEditComponent },
       { path: 'tipo-conta-create', component: TipoContaCreateComponent },
       { path: 'objetivos-list', component: ObjetivosListComponent },
+      { path: 'objetivos-create', component: ObjetivosCreateComponent },
+      { path: 'objetivos-details/:id', component: ObjetivosDetailsComponent },
       { path: 'pag-transacoes', component: PagTransacoesListComponent },
       { path: 'pag-contas', component: PagContaListComponent },
       { path: 'categoria-list', component: CategoriaListComponent },

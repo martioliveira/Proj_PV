@@ -1,0 +1,56 @@
+<h1 style="text-align: center"><b>Informações</b></h1>
+<div><p routerLink="/objetivos-list" class="btn btn-success btnLeft">Voltar</p><p routerLink="/objetivos-edit/{{objetivo.objetivoId}}" class="btn btn-success btnRight">Editar Objetivo</p></div>
+<div>
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th width="40%">Descrição do Objetivo</th>
+        <th width="20%">Valor Acumulado</th>
+        <th width="20%">Valor a Atingir</th>
+        <th width="10%">Início</th>
+        <th width="10%">Fim</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td width="40%">{{ objetivo.descricao }}</td>
+        <td width="20%">{{ objetivo.valorAtingir | currency:objetivo.moeda }}</td>
+        <td width="20%">{{ objetivo.valorAcumulado | currency:objetivo.moeda }}</td>
+        <td width="10%">{{ objetivo.dataInicio | date:'dd/MM/yyyy' }}</td>
+        <td width="10%">{{ objetivo.dataFim | date:'dd/MM/yyyy' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br>
+<br>
+<br>
+
+<h1 style="text-align: center"><b>Progresso</b></h1>
+<div>
+  <mat-progress-bar mode="determinate" [value]="objetivoPercentagem"></mat-progress-bar>
+  <p style="text-align: left; width: 33%; display: inline-block;">Gasto: {{ objetivo.valorAcumulado | currency:objetivo.moeda }}</p>
+  <p style="text-align: center; width: 33%; display: inline-block;">{{ objetivoPercentagem | number:'2.2-2'}}%</p>
+  <p style="text-align: right; width: 33%; display: inline-block;">Restante: {{ objetivo.valorAtingir | currency:objetivo.moeda }}</p>
+  <br>
+  <br>
+  <h3 style="text-align: left">Quantia mínima (mensal) para atingir o Objetivo: {{ objetivoQtMensal | currency:objetivo.moeda }}</h3>
+</div>
+
+<br>
+<br>
+<br>
+
+<h1 style="text-align: center"><b>Adicionar saldo ao Objetivo:</b></h1>
+<form #objetivoForm="ngForm" (ngSubmit)="onSubmit(objetivoForm)">
+  <div class="form-group">
+    <label for="valorAdd">Saldo a inserir:</label>
+    <input ngModel name="valorAdd" id="valorAdd" #valorAdd="ngModel" type="number" class="form-control"/>
+  </div>
+  <div class="form-group">
+    <br>
+    <br>
+    <button mat-raised-button type="submit">Adicionar</button>
+  </div>
+</form>
