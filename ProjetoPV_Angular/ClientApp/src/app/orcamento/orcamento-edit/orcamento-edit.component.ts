@@ -10,15 +10,8 @@ import { Orcamento } from '../../models/orcamento.model';
   styleUrls: ['./orcamento-edit.component.css']
 })
 export class OrcamentoEditComponent implements OnInit {
-  id: string = '0';  
-  orcamento: Orcamento = {
-    orcamentoId: '',
-    dataInicio: '',
-    dataFim: '',
-    descricao: '',
-    moeda: '',
-    valor: 0,
-  };
+  id: string = '';  
+  orcamento: Orcamento = new Orcamento();
 
   constructor(private service: OrcamentoService, private route: ActivatedRoute, private router: Router) { }
 
@@ -34,7 +27,7 @@ export class OrcamentoEditComponent implements OnInit {
 
   onSubmit(orcamentoForm: NgForm) {
     this.service.updateOrcamento(orcamentoForm.value).subscribe(res => {
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/orcamento-list');
     },
       error => {
         console.error(error);
