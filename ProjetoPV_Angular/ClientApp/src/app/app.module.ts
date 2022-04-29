@@ -112,6 +112,7 @@ import { ObjetivosEditComponent } from './objetivos/objetivos-edit/objetivos-edi
       { path: 'objetivos-list', component: ObjetivosListComponent },
       { path: 'objetivos-create', component: ObjetivosCreateComponent },
       { path: 'objetivos-details/:id', component: ObjetivosDetailsComponent },
+      { path: 'objetivos-edit/:id', component: ObjetivosEditComponent },
       { path: 'pag-transacoes', component: PagTransacoesListComponent },
       { path: 'pag-contas', component: PagContaListComponent },
       { path: 'categoria-list', component: CategoriaListComponent },

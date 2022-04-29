@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ObjetivoService } from '../../models/models-services/objetivo.service';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Objetivo } from '../../models/objetivo.model';
 
 @Component({
   selector: 'app-objetivos-edit',
@@ -7,9 +11,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ObjetivosEditComponent implements OnInit {
 
-  constructor() { }
+  id: string = '0';
+  objetivo: Objetivo = {
+    objetivoId: '',
+    valorAcumulado: 0,
+    valorAtingir: 0,
+    dataInicio: '',
+    dataFim: '',
+    descricao: '',
+    moeda: '',
+  };
+
+  constructor(private service: ObjetivoService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    this.service.getCustomObjetivoId(this.id).subscribe((objetivo: Objetivo) => {
+      this.objetivo = objetivo;
+    },
+      error => {
+        console.error(error);
+      });
   }
 
+  onSubmit(objetivoForm: NgForm) {
+    this.service.updateObjetivo(objetivoForm.value).subscribe(res => {
+      this.router.navigateByUrl('/');
+    },
+      error => {
+        console.error(error);
+      });
+  }
 }
