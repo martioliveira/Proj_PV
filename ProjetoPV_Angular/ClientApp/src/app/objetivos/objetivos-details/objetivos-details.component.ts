@@ -49,7 +49,7 @@ getMonthDifference(dataInicio: string, dataFim: string) {
 
   onSubmit(objetivoForm: NgForm) {
     this.serviceObjetivo.patchObjetivo(this.id , objetivoForm.value).subscribe(res => {
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/objetivos-list');
     },
       error => {
         console.error(error);

@@ -18,7 +18,7 @@ export class ObjetivosCreateComponent implements OnInit {
 
   onSubmit(objetivoForm: NgForm) {
     this.serviceObjetivo.createObjetivo(objetivoForm.value).subscribe(res => {
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/objetivos-list');
     },
       error => {
         console.error(error);

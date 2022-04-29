@@ -11,16 +11,8 @@ import { Objetivo } from '../../models/objetivo.model';
 })
 export class ObjetivosEditComponent implements OnInit {
 
-  id: string = '0';
-  objetivo: Objetivo = {
-    objetivoId: '',
-    valorAcumulado: 0,
-    valorAtingir: 0,
-    dataInicio: '',
-    dataFim: '',
-    descricao: '',
-    moeda: '',
-  };
+  id: string = '';
+  objetivo: Objetivo = new Objetivo();
 
   constructor(private service: ObjetivoService, private route: ActivatedRoute, private router: Router) { }
 
@@ -36,7 +28,7 @@ export class ObjetivosEditComponent implements OnInit {
 
   onSubmit(objetivoForm: NgForm) {
     this.service.updateObjetivo(objetivoForm.value).subscribe(res => {
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/objetivos-list');
     },
       error => {
         console.error(error);

@@ -15,7 +15,7 @@ export class ObjetivoService {
   }
 
   getObjetivo(id: number): Observable<Objetivo> {
-    return this.http.get<Objetivo>(this.baseUrl + 'api/Objetivoes' + id);
+    return this.http.get<Objetivo>(this.baseUrl + 'api/Objetivoes/' + id);
   }
 
   createObjetivo(objetivo: Objetivo): Observable<Objetivo> {
@@ -23,11 +23,11 @@ export class ObjetivoService {
   }
 
   updateObjetivo(objetivo: Objetivo): Observable<Objetivo> {
-    return this.http.put<Objetivo>(this.baseUrl + 'api/Objetivoes' + objetivo.objetivoId, Objetivo);
+    return this.http.put<Objetivo>(this.baseUrl + 'api/Objetivoes/' + objetivo.objetivoId, objetivo);
   }
 
   deleteObjetivo(id: string): Observable<Objetivo> {
-    return this.http.delete<Objetivo>(this.baseUrl + 'api/Objetivoes' + id);
+    return this.http.delete<Objetivo>(this.baseUrl + 'api/Objetivoes/' + id);
   }
 
   getCustomObjetivoId(id: string): Observable<Objetivo> {

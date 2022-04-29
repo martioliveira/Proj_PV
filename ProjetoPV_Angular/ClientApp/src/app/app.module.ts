@@ -48,6 +48,9 @@ import { OrcamentoCreateComponent } from './orcamento/orcamento-create/orcamento
 import { OrcamentoEditComponent } from './orcamento/orcamento-edit/orcamento-edit.component';
 import { ObjetivosDetailsComponent } from './objetivos/objetivos-details/objetivos-details.component';
 import { ObjetivosEditComponent } from './objetivos/objetivos-edit/objetivos-edit.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatNativeDateModule, MatRippleModule, MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 
@@ -130,9 +133,14 @@ import { ObjetivosEditComponent } from './objetivos/objetivos-edit/objetivos-edi
     MatDividerModule,
     MatFormFieldModule,
     MatProgressBarModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatNativeDateModule,
+    MatRippleModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-PT' },
   ],
   bootstrap: [AppComponent]
 })
