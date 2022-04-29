@@ -24,19 +24,19 @@
 
   <div>
     Categoria:
-    <select [(ngModel)]="selectedTipoTransacaoId" (change)="onChangedFilters()">
+    <select [(ngModel)]="selectedCategoriaId" (change)="onChangedFilters()">
       <option value="all">Todas</option>
-      <option *ngFor="let tipo of tipotransacao | keyvalue" [value]="tipo.key">
-        {{ tipo.value }}
+      <option *ngFor="let categoria of categorias" [value]="categoria.categoriaId">
+        {{ categoria.nome }}
       </option>
     </select>
   </div>
 
   <div>
     Data Inicio:
-    <input type="date" id="dataInicio" />
+    <input type="date" id="dataInicio" [(ngModel)]="selectedDataInicio" (change)="onChangedFilters()" />
     Data Fim:
-    <input type="date" id="dataFim" />
+    <input type="date" id="dataFim" [(ngModel)]="selectedDataFim" (change)="onChangedFilters()" />
   </div>
 
 </div>
@@ -66,7 +66,7 @@
         <td> {{ transacao.contaOrigemId }} </td>
         <td> {{ transacao.contaDestinoId }}</td>
         <td> {{ transacao.valor | currency:transacao.moeda}} </td>
-        <td> {{ transacao.dataTransacao | date:'dd/mm/yyyy' }} </td>
+        <td> {{ transacao.dataTransacao | date:'dd/MM/yyyy' }} </td>
         <td>
           <a href="#" routerLink="/transacoes-details/{{transacao.transacaoId}}" class="btn btn-info btn-sm">Detalhes</a>
 
