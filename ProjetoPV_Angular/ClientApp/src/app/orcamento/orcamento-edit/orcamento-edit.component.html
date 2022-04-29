@@ -1,61 +1,38 @@
 <h1 style="text-align: center"><b>Editar Orçamento</b></h1>
-  <form #orcamentoForm="ngForm" class="example-form" (ngSubmit)="onSubmit(orcamentoForm)">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Data de Começo</mat-label>
-      <input ngModel name="dataInicio" [(ngModel)]="orcamento.dataInicio" id="dataInicio" matInput type="date" required>
-    </mat-form-field>
-    <br>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Data de Termino</mat-label>
-      <input ngModel name="dataFim" id="dataFim" [(ngModel)]="orcamento.dataFim" matInput type="date" required>
-    </mat-form-field>
-    <br>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Descrição</mat-label>
-      <textarea ngModel name="descricao" [(ngModel)]="orcamento.descricao" id="descricao" matInput placeholder="Qual a finalidade do orçamento?" required></textarea>
-    </mat-form-field>
-    <br>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Valor</mat-label>
-      <input ngModel name="valor" id="valor" [(ngModel)]="orcamento.valor" min="0" matInput type="number" required>
-    </mat-form-field>
-    <br>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Moeda</mat-label>
-      <input ngModel name="moeda" id="moeda" [(ngModel)]="orcamento.moeda" placeholder="EUR" matInput type="text" required>
-    </mat-form-field>
-    <div class="form-group" style="margin-left:37%">
-      <button mat-raised-button type="submit">Editar</button>
-      <button mat-raised-button type="button" routerLink="/orcamento-details/{{orcamento.orcamentoId}}">Voltar</button>
-    </div>
-  </form>
-
-  <!--<form #orcamentoForm="ngForm" class="example-form" (ngSubmit)="onSubmit(orcamentoForm)">
-    <div class="form-group">
-      <label for="dataInicio">Data Inicio:</label>
-      <input id="dataInicio" name="dataInicio" type="date" [(ngModel)]="orcamento.dataInicio" class="form-control" />
-    </div>
-
-    <div class="form-group">
-      <label for="dataFim">Data Fim:</label>
-      <input id="dataFim" name="dataFim" type="date" [(ngModel)]="orcamento.dataFim" class="form-control" />
-    </div>
-
-    <div class="form-group>">
-      <label for="descricao">Descrição:</label>
-      <input id="descricao" name="descricao" type="text" [(ngModel)]="orcamento.descricao" class="form-control" />
-    </div>
-
-    <div class="form-group">
-      <label for="valor">Valor:</label>
-      <input id="valor" name="valor" type="number" [(ngModel)]="orcamento.valor" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label for="moeda">Moeda:</label>
-      <input id="moeda" name="moeda" type="text" [(ngModel)]="orcamento.moeda" class="form-control" />
-    </div>
-    <div class="form-group">
-      <button mat-raised-button type="submit">Editar</button>
-      <button mat-raised-button type="button" routerLink="/orcamento-list">Voltar</button>
-    </div>
-  </form>-->
+<form #orcamentoForm="ngForm" class="example-form" (ngSubmit)="onSubmit(orcamentoForm)">
+  <input type="hidden" name="orcamentoId" id="orcamentoId" [(ngModel)]="orcamento.orcamentoId" />
+  <mat-form-field appearance="fill">
+    <mat-label>Data de Início</mat-label>
+    <input matInput [matDatepicker]="pickerInicio" id="dataInicio" name="dataInicio" [(ngModel)]="orcamento.dataInicio" required>
+    <mat-hint>DD/MM/AAAA</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+    <mat-datepicker #pickerInicio></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Data de Fim</mat-label>
+    <input matInput [matDatepicker]="pickerFim" id="dataFim" name="dataFim" [(ngModel)]="orcamento.dataFim" required>
+    <mat-hint>DD/MM/AAAA</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="pickerFim"></mat-datepicker-toggle>
+    <mat-datepicker #pickerFim></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Descrição</mat-label>
+    <textarea ngModel name="descricao" [(ngModel)]="orcamento.descricao" id="descricao" matInput placeholder="Qual a finalidade do orçamento?" required></textarea>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Valor</mat-label>
+    <input ngModel name="valor" id="valor" [(ngModel)]="orcamento.valor" min="0" matInput type="number" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Moeda</mat-label>
+    <input ngModel name="moeda" id="moeda" [(ngModel)]="orcamento.moeda" placeholder="EUR" matInput type="text" required>
+  </mat-form-field>
+  <div class="form-group" style="margin-left:37%">
+    <button mat-raised-button type="submit">Editar</button>
+    <button mat-raised-button type="button" routerLink="/orcamento-details/{{orcamento.orcamentoId}}">Voltar</button>
+  </div>
+</form>
