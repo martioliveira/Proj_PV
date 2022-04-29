@@ -1,21 +1,26 @@
+<h1 style="text-align: center"><b>Objetivos</b></h1>
 <p *ngIf="!objetivos"><em>Não tem nenhum objetivo registado...</em></p>
 
+<div class="info">
+  <p style="text-align: center;"><strong>Informação</strong> | Para visualizar o detalhe dos objetivos, clique nos mesmos!</p>
+</div>
+<div style="text-align:center"><p routerLink="/objetivos-create" class="btn btn-success">Criar Objetivo</p></div>
 <div *ngIf="objetivos">
   <table class='table table-striped' aria-labelledby="tableLabel">
     <thead>
       <tr>
-        <th width="60%">Descrição do Objetivo</th>
-        <th width="10%">Valor Acumulado</th>
-        <th width="10%">Valor a Atingir</th>
+        <th width="40%">Descrição do Objetivo</th>
+        <th width="20%">Valor Acumulado</th>
+        <th width="20%">Valor a Atingir</th>
         <th width="10%">Início</th>
         <th width="10%">Fim</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let objetivo of objetivos" class="colorRow">
+      <tr *ngFor="let objetivo of objetivos" (click)="onClickObjetivo(objetivo.objetivoId)">
         <td width="40%">{{ objetivo.descricao }}</td>
         <td width="20%">{{ objetivo.valorAtingir | currency:objetivo.moeda }}</td>
-        <td width="20%">{{ objetivo.valorAcumulado | currency:objetivo.moeda }}%</td>
+        <td width="20%">{{ objetivo.valorAcumulado | currency:objetivo.moeda }}</td>
         <td width="10%">{{ objetivo.dataInicio | date:'dd/MM/yyyy' }}</td>
         <td width="10%">{{ objetivo.dataFim | date:'dd/MM/yyyy' }}</td>
       </tr>

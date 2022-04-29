@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Transacao } from '../transacao.model';
@@ -30,8 +30,13 @@ export class TransacaoService {
     return this.http.delete<Transacao>(this.baseUrl + 'api/Transacaos/' + id);
   }
 
-
-
-
-
+  getTransacoesComFiltros(contaId: string, tipoTransacaoId: string, categoriaId: string, dataInicio: string, dataFim: string): Observable<Transacao[]> {
+    var params = new HttpParams();
+    params = params.set("ContaId", contaId);
+    params = params.set("TipoTransacaoId", tipoTransacaoId);
+    params = params.set("CategoriaId", categoriaId);
+    params = params.set("DataInicio", dataInicio);
+    params = params.set("DataFim", dataFim);
+    return this.http.get<Transacao[]>(this.baseUrl + 'api/Transacaos', { params: params });
+  }
 }

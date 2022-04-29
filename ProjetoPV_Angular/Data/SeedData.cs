@@ -20,7 +20,7 @@ namespace ProjetoPV_Angular.Data
             if (userManager.FindByNameAsync("teste@ips.pt").Result == null)
             {
                 ApplicationUser user = new() { UserName = "teste@ips.pt", Email = "teste@ips.pt", EmailConfirmed = true};
-                IdentityResult result = await userManager.CreateAsync(user, "Teste1234!");
+                IdentityResult result = await userManager.CreateAsync(user, "123456");
                 System.Console.WriteLine($"Creating user: {user.UserName} - Succeeded: {result.Succeeded}");
 
                 if (result.Succeeded)
@@ -33,7 +33,7 @@ namespace ProjetoPV_Angular.Data
             if (userManager.FindByNameAsync("admin@ips.pt").Result == null)
             {
                 ApplicationUser user = new() { UserName = "admin@ips.pt", Email = "admin@ips.pt", EmailConfirmed = true };
-                IdentityResult result = await userManager.CreateAsync(user, "Teste1234!");
+                IdentityResult result = await userManager.CreateAsync(user, "123456");
                 System.Console.WriteLine($"Creating user: {user.UserName} - Succeeded: {result.Succeeded}");
 
                 if (result.Succeeded)

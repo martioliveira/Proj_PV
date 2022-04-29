@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Objetivo } from '../objetivo.model';
@@ -11,27 +11,35 @@ export class ObjetivoService {
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
   getObjetivos(): Observable<Objetivo[]> {
-    return this.http.get<Objetivo[]>(this.baseUrl + 'api/Objetivos');
+    return this.http.get<Objetivo[]>(this.baseUrl + 'api/Objetivoes');
   }
 
   getObjetivo(id: number): Observable<Objetivo> {
-    return this.http.get<Objetivo>(this.baseUrl + 'api/Objetivos/' + id);
+    return this.http.get<Objetivo>(this.baseUrl + 'api/Objetivoes/' + id);
   }
 
   createObjetivo(objetivo: Objetivo): Observable<Objetivo> {
-    return this.http.post<Objetivo>(this.baseUrl + 'api/Objetivos', objetivo);
+    return this.http.post<Objetivo>(this.baseUrl + 'api/Objetivoes', objetivo);
   }
 
   updateObjetivo(objetivo: Objetivo): Observable<Objetivo> {
-    return this.http.put<Objetivo>(this.baseUrl + 'api/Objetivos/' + objetivo.objetivoId, Objetivo);
+    return this.http.put<Objetivo>(this.baseUrl + 'api/Objetivoes/' + objetivo.objetivoId, objetivo);
   }
 
   deleteObjetivo(id: string): Observable<Objetivo> {
-    return this.http.delete<Objetivo>(this.baseUrl + 'api/Objetivos/' + id);
+    return this.http.delete<Objetivo>(this.baseUrl + 'api/Objetivoes/' + id);
   }
 
+  getCustomObjetivoId(id: string): Observable<Objetivo> {
+    return this.http.get<Objetivo>(this.baseUrl + 'api/Objetivoes/' + id);
+  }
 
+  patchObjetivo(id: string, valorAdd: number): Observable<Objetivo> {
 
+   // const params = new HttpParams()
+     // .set('valorAdd', valorAdd);
 
+    return this.http.patch<Objetivo>(this.baseUrl + 'api/Objetivoes/' + id, valorAdd );
+  }
 
 }

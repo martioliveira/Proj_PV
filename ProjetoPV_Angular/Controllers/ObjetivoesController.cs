@@ -11,6 +11,11 @@ using ProjetoPV_Angular.Models;
 
 namespace ProjetoPV_Angular.Controllers
 {
+    public class PatchStructure
+    {
+        public double ValorAdd { get; set; }
+    }
+
     [Route("api/[controller]")]
     [ApiController]
     public class ObjetivoesController : ControllerBase
@@ -73,6 +78,32 @@ namespace ProjetoPV_Angular.Controllers
 
             return NoContent();
         }
+
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchObjetivo(long id, PatchStructure patchStructure)
+        {
+            if (patchStructure.ValorAdd <= 0)
+            {
+                return BadRequest();
+            }
+
+            var objetivo = await _context.Objetivo.FindAsync(id);
+
+            if (objetivo == null)
+            {
+                return NotFound();
+            }
+
+            objetivo.ValorAcumulado += patchStructure.ValorAdd;
+
+            _context.Entry(objetivo).State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+            
+            return NoContent();
+        }
+
 
         // POST: api/Objetivoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
