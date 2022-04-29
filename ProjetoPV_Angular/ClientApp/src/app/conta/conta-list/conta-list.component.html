@@ -29,6 +29,9 @@
 
   <h1 style="text-align: center"><b>Transações</b></h1>
   <div *ngIf="transacoes">
+
     <app-transacoes-list [transacoes]=transacoes [contaDetails]="false"></app-transacoes-list>
+    <a routerLink="/conta-details/{{contaIdSelecionada}}" class="btn btn-info">Ver mais</a>
   </div>
+<br />
 
