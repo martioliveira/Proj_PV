@@ -51,6 +51,7 @@ import { ObjetivosEditComponent } from './objetivos/objetivos-edit/objetivos-edi
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule, MatRippleModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { HomePageWithoutLoginComponent } from './home-page-without-login/home-page-without-login.component';
 
 
 
@@ -87,7 +88,8 @@ import { MatNativeDateModule, MatRippleModule, MAT_DATE_LOCALE } from '@angular/
     OrcamentoCreateComponent,
     OrcamentoEditComponent,
     ObjetivosDetailsComponent,
-    ObjetivosEditComponent
+    ObjetivosEditComponent,
+    HomePageWithoutLoginComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
