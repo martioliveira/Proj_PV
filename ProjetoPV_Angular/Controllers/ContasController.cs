@@ -100,11 +100,11 @@ namespace ProjetoPV_Angular.Controllers
         // POST: api/Contas
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<Conta>> PostConta(Conta conta)
         {
             _context.Conta.Add(conta);
             await _context.SaveChangesAsync();
-
             var userClaim = User.FindFirst(ClaimTypes.NameIdentifier);
             if (userClaim != null)
             {

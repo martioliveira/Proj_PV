@@ -1,1 +1,2 @@
-<app-conta-list></app-conta-list>
+<p *ngIf="!isAuthenticated">Bu sta dodo</p>
+<app-conta-list *ngIf="isAuthenticated"></app-conta-list>

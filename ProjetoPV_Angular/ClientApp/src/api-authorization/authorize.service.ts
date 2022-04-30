@@ -31,6 +31,7 @@ export enum AuthenticationResultStatus {
 
 export interface IUser {
   name?: string;
+  ['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']?: string;
 }
 
 @Injectable({
@@ -43,6 +44,14 @@ export class AuthorizeService {
   private popUpDisabled = true;
   private userManager?: UserManager;
   private userSubject: BehaviorSubject<IUser | null> = new BehaviorSubject<IUser | null>(null);
+
+  public isAdmin(): Observable<boolean> {
+    return this.getUser().pipe(map(u => u?.['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] === 'Admin'));
+  }
+
+  public isUser(): Observable<boolean> {
+    return this.getUser().pipe(map(u => u?.['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] === 'User'));
+  }
 
   public isAuthenticated(): Observable<boolean> {
     return this.getUser().pipe(map(u => !!u));
