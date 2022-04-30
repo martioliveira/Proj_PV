@@ -63,9 +63,9 @@
         <td> {{ transacao.descricao }} </td>
         <td> {{ tipotransacao[transacao.tipoTransacaoId] }} </td>
         <td> {{ transacao.categoria.nome}}</td>
-        <td> {{ transacao.contaOrigemId }} </td>
-        <td> {{ transacao.contaDestinoId }}</td>
-        <td> {{ transacao.valor | currency:transacao.moeda}} </td>
+        <td><a [routerLink]="['/conta-details/' + transacao.contaOrigem.contaId]">{{ transacao.contaOrigem.descricao }}</a></td>
+        <td><a [routerLink]="['/conta-details/' + transacao.contaDestino.contaId]">{{ transacao.contaDestino.descricao }}</a></td>
+        <td> {{ transacao.valor | currency:transacao.moeda }} </td>
         <td> {{ transacao.dataTransacao | date:'dd/MM/yyyy' }} </td>
         <td>
           <a href="#" routerLink="/transacoes-details/{{transacao.transacaoId}}" class="btn btn-info btn-sm">Detalhes</a>

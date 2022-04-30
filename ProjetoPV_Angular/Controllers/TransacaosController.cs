@@ -74,14 +74,24 @@ namespace ProjetoPV_Angular.Controllers
                 }
             }
 
-            return await query.Include(t => t.TipoTransacao).Include(t => t.Categoria).ToListAsync();
+            return await query
+                .Include(t => t.TipoTransacao)
+                .Include(t => t.Categoria)
+                .Include(t => t.ContaOrigem)
+                .Include(t => t.ContaDestino)
+                .ToListAsync();
         }
 
         // GET: api/Transacaos/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Transacao>> GetTransacao(long id)
         {
-            var transacao = await _context.Transacao.Include(t => t.Categoria).FirstAsync(c => c.TransacaoId == id);
+            var transacao = await _context.Transacao
+                .Include(t => t.TipoTransacao)
+                .Include(t => t.Categoria)
+                .Include(t => t.ContaOrigem)
+                .Include(t => t.ContaDestino)
+                .FirstAsync(c => c.TransacaoId == id);
 
             if (transacao == null)
             {

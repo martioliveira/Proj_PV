@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjetoPV_Angular.Models
 {
@@ -8,7 +9,11 @@ namespace ProjetoPV_Angular.Models
         public long TransacaoId { get; set; }
 
         public long ContaOrigemId { get; set; }
+        [ForeignKey("ContaOrigemId")]
+        public Conta ContaOrigem { get; set; }
         public long ContaDestinoId { get; set; }
+        [ForeignKey("ContaDestinoId")]
+        public Conta ContaDestino { get; set; }
 
         [Required, Display(Name = "Descrição da Transação")]
         public string Descricao { get; set; }

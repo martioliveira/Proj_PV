@@ -21,7 +21,5 @@ namespace ProjetoPV_Angular.Models
 
         public TipoConta TipoConta { get; set; }
 
-        public List<Transacao> Transacoes { get; set; }
-
     }
 }

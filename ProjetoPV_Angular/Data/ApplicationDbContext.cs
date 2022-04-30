@@ -18,6 +18,16 @@ namespace ProjetoPV_Angular.Data
         {
             base.OnModelCreating(builder);
 
+            builder.Entity<Transacao>()
+                    .HasOne(t => t.ContaOrigem)
+                    .WithMany()
+                    .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Transacao>()
+                    .HasOne(t => t.ContaDestino)
+                    .WithMany()
+                    .OnDelete(DeleteBehavior.Restrict);
+
             //Popular Entidade TipoConta
             #region Dados TipoConta
             builder.Entity<TipoConta>().HasData(

@@ -1,14 +1,14 @@
 <div *ngIf="transacao">
   <h2><strong>Detalhes da Transação: {{transacao.descricao}}</strong></h2>
   <div>
-    <p><strong>Id: </strong> {{transacao.transacaoId}} </p>
-    <p><strong>Categoria: </strong> {{transacao.categoriaId}} </p>
-    <p><strong>ContaOrigemId: </strong> {{transacao.contaOrigemId}} </p>
-    <p><strong>ContaDestinoId: </strong> {{transacao.contaDestinoId}} </p>
+    <!--<p><strong>Id: </strong> {{transacao.transacaoId}} </p>-->
+    <p><strong>Categoria: </strong> {{transacao.categoria.nome}} </p>
+    <p><strong>ContaOrigemId: </strong> <a [routerLink]="['/conta-details/' + transacao.contaOrigem.contaId]">{{transacao.contaOrigem.descricao}}</a> </p>
+    <p><strong>ContaDestinoId: </strong> <a [routerLink]="['/conta-details/' + transacao.contaDestino.contaId]">{{transacao.contaDestino.descricao}}</a> </p>
     <p><strong>Montante: </strong> {{transacao.valor | currency:transacao.moeda}} </p>
     <p><strong>Beneficiario: </strong> {{transacao.beneficiario}} </p>
-    <p><strong>Data Criacao: </strong> {{transacao.dataCriacao | date:'dd/mm/yyyy'}} </p>
-    <p><strong>Data Transacao: </strong> {{transacao.dataTransacao | date:'dd/mm/yyyy'}} </p>
+    <p><strong>Data Criacao: </strong> {{transacao.dataCriacao | date:'dd/MM/yyyy'}} </p>
+    <p><strong>Data Transacao: </strong> {{transacao.dataTransacao | date:'dd/MM/yyyy'}} </p>
     <p><strong>Anexo: </strong> {{transacao.anexo}} </p>
   </div>
 
