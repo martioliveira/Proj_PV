@@ -8,6 +8,6 @@ namespace ProjetoPV_Angular.Models
         public long TipoContaId { get; set; }
 
         [Required]
-        public string? Descricao { get; set; }
+        public string Descricao { get; set; }
     }
 }

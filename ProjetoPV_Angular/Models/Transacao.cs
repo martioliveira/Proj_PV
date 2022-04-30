@@ -30,12 +30,12 @@ namespace ProjetoPV_Angular.Models
 
         [Required]
         public long ClienteId { get; set; }
-        public TipoTransacao? TipoTransacao { get; set; }
+        public TipoTransacao TipoTransacao { get; set; }
 
         public long TipoTransacaoId { get; set; }
 
         public long CategoriaId { get; set; }
 
-        public Categoria? Categoria { get; set; }
+        public Categoria Categoria { get; set; }
     }
 }

@@ -19,6 +19,7 @@ export class ContaListComponent implements OnInit{
   constructor(private service: ContaService) { }
 
   ngOnInit() {
+    this.getContas();
   }
  
   getContas(): void {

@@ -11,6 +11,5 @@ namespace ProjetoPV_Angular.Models
 
         [Display(Name = "Descrição da Categoria")]
         public string Descricao { get; set; }
-        public Cliente? Cliente { get; set; }
     }
 }

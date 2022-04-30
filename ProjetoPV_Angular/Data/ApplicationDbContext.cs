@@ -18,15 +18,6 @@ namespace ProjetoPV_Angular.Data
         {
             base.OnModelCreating(builder);
 
-            //Popular Entidade Cliente
-            #region Dados Cliente
-            builder.Entity<Cliente>().HasData(
-                new Cliente {ClienteId = 1},
-                new Cliente {ClienteId = 2},
-                new Cliente {ClienteId = 3}
-                );
-            #endregion
-
             //Popular Entidade TipoConta
             #region Dados TipoConta
             builder.Entity<TipoConta>().HasData(
@@ -418,13 +409,11 @@ namespace ProjetoPV_Angular.Data
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<TipoConta> TipoConta { get; set; }
         public DbSet<TipoTransacao> TipoTransacao { get; set; }
-        public DbSet<Cliente> Cliente { get; set; }
         public DbSet<ProjetoPV_Angular.Models.Conta> Conta { get; set; }
         public DbSet<ProjetoPV_Angular.Models.ContaClientes> ContaClientes { get; set; }
         public DbSet<ProjetoPV_Angular.Models.Objetivo> Objetivo { get; set; }
         public DbSet<ProjetoPV_Angular.Models.Orcamento> Orcamento { get; set; }
         public DbSet<ProjetoPV_Angular.Models.OrcamentoContas> OrcamentoContas { get; set; }
         public DbSet<ProjetoPV_Angular.Models.Transacao> Transacao { get; set; }
-        public DbSet<ProjetoPV_Angular.Models.Utilizador> Utilizador { get; set; }
     }
 }
