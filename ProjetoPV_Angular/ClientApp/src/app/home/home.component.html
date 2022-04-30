@@ -1,2 +1,5 @@
-<p *ngIf="!isAuthenticated">Bu sta dodo</p>
+<p *ngIf="!isAuthenticated">
+  <app-home-page-without-login></app-home-page-without-login>
+</p>
+
 <app-conta-list *ngIf="isAuthenticated"></app-conta-list>
