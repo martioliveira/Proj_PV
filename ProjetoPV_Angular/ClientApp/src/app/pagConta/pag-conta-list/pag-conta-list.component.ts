@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorizeService } from '../../../api-authorization/authorize.service';
 import { Conta } from '../../models/conta.model';
 import { ContaService } from '../../models/models-services/conta.service';
 
@@ -10,11 +11,17 @@ import { ContaService } from '../../models/models-services/conta.service';
 export class PagContaListComponent implements OnInit {
 
   public contas: Conta[] = [];
+  isAdmin = false;
 
-  constructor(private service: ContaService) { }
+  constructor(private service: ContaService, private userService: AuthorizeService) { }
 
   ngOnInit(): void {
     this.getContas();
+    this.getIsAdmin();
+  }
+
+  getIsAdmin(): void {
+    this.userService.isAdmin().subscribe(isAdmin => this.isAdmin = isAdmin);
   }
 
   getContas(): void {

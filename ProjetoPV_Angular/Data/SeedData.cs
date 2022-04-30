@@ -3,6 +3,7 @@ using ProjetoPV_Angular.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace ProjetoPV_Angular.Data
@@ -25,8 +26,9 @@ namespace ProjetoPV_Angular.Data
 
                 if (result.Succeeded)
                 {
-                    IdentityResult roleResult = await userManager.AddToRoleAsync(user, "ApplicationUser");
-                    System.Console.WriteLine($"Adding role ApplicationUser to user {user.UserName} - Succeeded: {roleResult.Succeeded}");
+                    await userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "User"));
+                    //IdentityResult roleResult = await userManager.AddToRoleAsync(user, "User");
+                    //System.Console.WriteLine($"Adding role User to user {user.UserName} - Succeeded: {roleResult.Succeeded}");
                 }
             }
 
@@ -38,24 +40,25 @@ namespace ProjetoPV_Angular.Data
 
                 if (result.Succeeded)
                 {
-                    IdentityResult roleResult = await userManager.AddToRoleAsync(user, "Administrador");
-                    System.Console.WriteLine($"Adding role Administrador to user {user.UserName} - Succeeded: {roleResult.Succeeded}");
+                    await userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "Admin"));
+                    //IdentityResult roleResult = await userManager.AddToRoleAsync(user, "Admin");
+                    //System.Console.WriteLine($"Adding role Admin to user {user.UserName} - Succeeded: {roleResult.Succeeded}");
                 }
             }
         }
 
         private static async Task SeedRoles(RoleManager<IdentityRole> roleManager)
         {
-            if (!roleManager.RoleExistsAsync("ApplicationUser").Result)
+            if (!roleManager.RoleExistsAsync("User").Result)
             {
-                IdentityRole role = new() { Name = "ApplicationUser" };
+                IdentityRole role = new() { Name = "User" };
                 IdentityResult roleResult = await roleManager.CreateAsync(role);
                 System.Console.WriteLine($"Creating role: {role.Name} - Succeeded: {roleResult.Succeeded}");
             }
 
-            if (!roleManager.RoleExistsAsync("Administrador").Result)
+            if (!roleManager.RoleExistsAsync("Admin").Result)
             {
-                IdentityRole role = new() { Name = "Administrador" };
+                IdentityRole role = new() { Name = "Admin" };
                 IdentityResult roleResult = await roleManager.CreateAsync(role);
                 System.Console.WriteLine($"Creating role: {role.Name} - Succeeded: {roleResult.Succeeded}");
             }

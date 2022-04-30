@@ -8,5 +8,4 @@ export class Conta {
   moeda: string = '';
   tipoContaId: string = '';
   tipoConta: TipoConta = new TipoConta();
-  transacoes: Transacao[] = [];
 }

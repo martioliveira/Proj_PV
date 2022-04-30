@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjetoPV_Angular.Data;
 using ProjetoPV_Angular.Models;
 using ProjetoPV_Angular.Services;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,12 +27,16 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => {
 }).AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddIdentityServer()
-    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>()
+    .AddProfileService<MyProfileService>();
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddJsonOptions(options => {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
 builder.Services.AddRazorPages();
 
 builder.Services.AddSwaggerGen();
@@ -39,6 +44,13 @@ builder.Services.AddSwaggerGen();
 // SendGrid configuration
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
+
+// Policies
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("UserOnly", policy => policy.RequireClaim(ClaimTypes.Role, "User"));
+    options.AddPolicy("AdminOnly", policy => policy.RequireClaim(ClaimTypes.Role, "Admin"));
+});
 
 var app = builder.Build();
 

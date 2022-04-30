@@ -19,19 +19,19 @@
               [routerLinkActiveOptions]="{ exact: true }">
             <a class="nav-link text-dark" [routerLink]="['/']">Página Inicial</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['router-link-active']">
+          <li *ngIf="isAuthenticated" class="nav-item" [routerLinkActive]="['router-link-active']">
             <a class="nav-link text-dark" [routerLink]="['/pag-contas']">Contas</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['router-link-active']">
+          <li *ngIf="isAuthenticated" class="nav-item" [routerLinkActive]="['router-link-active']">
             <a class="nav-link text-dark" [routerLink]="['/pag-transacoes']">Transações</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['router-link-active']">
+          <li *ngIf="isAuthenticated" class="nav-item" [routerLinkActive]="['router-link-active']">
             <a class="nav-link text-dark" [routerLink]="['/orcamento-list']">Orçamentos</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['router-link-active']">
+          <li *ngIf="isAuthenticated" class="nav-item" [routerLinkActive]="['router-link-active']">
             <a class="nav-link text-dark" [routerLink]="['/objetivos-list']">Objetivos</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['router-link-active']">
+          <li *ngIf="isAuthenticated" class="nav-item" [routerLinkActive]="['router-link-active']">
             <a class="nav-link text-dark" [routerLink]="['/export-page']">Exportar</a>
           </li>
         </ul>

@@ -43,7 +43,6 @@ namespace ProjetoPV_Angular.Controllers
                 {
                     CategoriaId = c.CategoriaId,
                     Nome = c.Nome,
-                    Cliente = c.Cliente,
                     Descricao = c.Descricao,
                     MyProperty = _context.Transacao.Sum(d => d.Valor).ToString(),
                 });

@@ -52,6 +52,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule, MatRippleModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { HomePageWithoutLoginComponent } from './home-page-without-login/home-page-without-login.component';
+import { UserGuard } from './user.guard';
+import { AdminGuard } from './admin.guard';
 
 
 
@@ -100,32 +102,30 @@ import { HomePageWithoutLoginComponent } from './home-page-without-login/home-pa
     BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'conta-create', component: ContaCreateComponent },
-      { path: 'transacoes-create', component: TransacoesCreateComponent },
-      { path: 'transacoes-details/:id', component: TransacoesDetailsComponent },
-      { path: 'transacoes-edit/:id', component: TransacoesEditComponent },
-      { path: 'conta-details/:id', component: ContaDetailsComponent },
-      { path: 'conta-edit/:id', component: ContaEditComponent },
-      { path: 'tipo-conta', component: TipoContaListComponent },
-      { path: 'export-page', component: ExportPageComponent },
-      { path: 'orcamento-list', component: OrcamentoListComponent },
-      { path: 'orcamento-create', component: OrcamentoCreateComponent },
-      { path: 'orcamento-edit/:id', component: OrcamentoEditComponent },
-      { path: 'orcamento-details/:id', component: OrcamentoDetailsComponent },
-      { path: 'tipo-conta-edit/:id', component: TipoContaEditComponent },
-      { path: 'tipo-conta-create', component: TipoContaCreateComponent },
-      { path: 'objetivos-list', component: ObjetivosListComponent },
-      { path: 'objetivos-create', component: ObjetivosCreateComponent },
-      { path: 'objetivos-details/:id', component: ObjetivosDetailsComponent },
-      { path: 'objetivos-edit/:id', component: ObjetivosEditComponent },
-      { path: 'pag-transacoes', component: PagTransacoesListComponent },
-      { path: 'pag-contas', component: PagContaListComponent },
-      { path: 'categoria-list', component: CategoriaListComponent },
-      { path: 'categoria-details/:id', component: CategoriaDetailsComponent },
-      { path: 'categoria-edit/:id', component: CategoriaEditComponent },
-      { path: 'categoria-create', component: CategoriaCreateComponent },
-
-
+      { path: 'conta-create', component: ContaCreateComponent, canActivate: [AuthorizeGuard, UserGuard] },
+      { path: 'transacoes-create', component: TransacoesCreateComponent, canActivate: [AuthorizeGuard] },
+      { path: 'transacoes-details/:id', component: TransacoesDetailsComponent, canActivate: [AuthorizeGuard] },
+      { path: 'transacoes-edit/:id', component: TransacoesEditComponent, canActivate: [AuthorizeGuard] },
+      { path: 'conta-details/:id', component: ContaDetailsComponent, canActivate: [AuthorizeGuard] },
+      { path: 'conta-edit/:id', component: ContaEditComponent, canActivate: [AuthorizeGuard] },
+      { path: 'tipo-conta', component: TipoContaListComponent, canActivate: [AuthorizeGuard, AdminGuard] },
+      { path: 'export-page', component: ExportPageComponent, canActivate: [AuthorizeGuard] },
+      { path: 'orcamento-list', component: OrcamentoListComponent, canActivate: [AuthorizeGuard] },
+      { path: 'orcamento-create', component: OrcamentoCreateComponent, canActivate: [AuthorizeGuard] },
+      { path: 'orcamento-edit/:id', component: OrcamentoEditComponent, canActivate: [AuthorizeGuard] },
+      { path: 'orcamento-details/:id', component: OrcamentoDetailsComponent, canActivate: [AuthorizeGuard] },
+      { path: 'tipo-conta-edit/:id', component: TipoContaEditComponent, canActivate: [AuthorizeGuard, AdminGuard] },
+      { path: 'tipo-conta-create', component: TipoContaCreateComponent, canActivate: [AuthorizeGuard, AdminGuard] },
+      { path: 'objetivos-list', component: ObjetivosListComponent, canActivate: [AuthorizeGuard] },
+      { path: 'objetivos-create', component: ObjetivosCreateComponent, canActivate: [AuthorizeGuard] },
+      { path: 'objetivos-details/:id', component: ObjetivosDetailsComponent, canActivate: [AuthorizeGuard] },
+      { path: 'objetivos-edit/:id', component: ObjetivosEditComponent, canActivate: [AuthorizeGuard] },
+      { path: 'pag-transacoes', component: PagTransacoesListComponent, canActivate: [AuthorizeGuard] },
+      { path: 'pag-contas', component: PagContaListComponent, canActivate: [AuthorizeGuard] },
+      { path: 'categoria-list', component: CategoriaListComponent, canActivate: [AuthorizeGuard] },
+      { path: 'categoria-details/:id', component: CategoriaDetailsComponent, canActivate: [AuthorizeGuard] },
+      { path: 'categoria-edit/:id', component: CategoriaEditComponent, canActivate: [AuthorizeGuard] },
+      { path: 'categoria-create', component: CategoriaCreateComponent, canActivate: [AuthorizeGuard] },
     ]),
     BrowserAnimationsModule,
     MatTableModule,

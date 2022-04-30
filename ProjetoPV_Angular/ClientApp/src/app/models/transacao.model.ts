@@ -1,11 +1,14 @@
 import { Categoria } from "./categoria.model";
 import { Cliente } from "./cliente.model";
+import { Conta } from "./conta.model";
 import { TipoTransacao } from "./tipotransacao.model";
 
 export class Transacao {
   transacaoId: string = '';
   contaOrigemId: number = 0;
+  contaOrigem: Conta = new Conta();
   contaDestinoId: number = 0;
+  contaDestino: Conta = new Conta();
   clienteId: number = 0;
   descricao: string = '';
   beneficiario: number = 0;
