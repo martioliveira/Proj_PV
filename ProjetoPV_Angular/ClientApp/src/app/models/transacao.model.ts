@@ -1,5 +1,4 @@
 import { Categoria } from "./categoria.model";
-import { Cliente } from "./cliente.model";
 import { Conta } from "./conta.model";
 import { TipoTransacao } from "./tipotransacao.model";
 

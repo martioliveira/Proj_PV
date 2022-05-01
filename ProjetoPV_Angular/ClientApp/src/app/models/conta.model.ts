@@ -1,5 +1,4 @@
 import { TipoConta } from "./tipoconta.model";
-import { Transacao } from "./transacao.model";
 
 export class Conta {
   contaId: string = '';
