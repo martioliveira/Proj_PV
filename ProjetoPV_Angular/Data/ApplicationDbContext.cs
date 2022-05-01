@@ -205,7 +205,6 @@ namespace ProjetoPV_Angular.Data
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
-                    ClienteId = 1,
                     CategoriaId = 1
                 },
                 new Transacao
@@ -221,7 +220,6 @@ namespace ProjetoPV_Angular.Data
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
-                    ClienteId = 2,
                     CategoriaId = 2
                 },
                 new Transacao
@@ -237,7 +235,6 @@ namespace ProjetoPV_Angular.Data
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
-                    ClienteId = 2,
                     CategoriaId = 3
                 },
                 new Transacao
@@ -253,7 +250,6 @@ namespace ProjetoPV_Angular.Data
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
-                    ClienteId = 2,
                     CategoriaId = 4
                 },
                 new Transacao
@@ -269,7 +265,6 @@ namespace ProjetoPV_Angular.Data
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
-                    ClienteId = 2,
                     CategoriaId = 5
                 },
                 new Transacao
@@ -285,7 +280,6 @@ namespace ProjetoPV_Angular.Data
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
-                    ClienteId = 3,
                     CategoriaId = 6
                 },
                 new Transacao
@@ -301,7 +295,6 @@ namespace ProjetoPV_Angular.Data
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
-                    ClienteId = 2,
                     CategoriaId = 7
                 },
                 new Transacao
@@ -317,7 +310,6 @@ namespace ProjetoPV_Angular.Data
                     Anexo = "",
                     DataCriacao = DateTime.Now,
                     DataTransacao = DateTime.Now,
-                    ClienteId = 2,
                     CategoriaId = 8
                 }
                 );

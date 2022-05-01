@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoPV_Angular.Data;
 using ProjetoPV_Angular.Models;
+using ProjetoPV_Angular.Services;
 
 namespace ProjetoPV_Angular.Controllers
 {
@@ -37,7 +38,16 @@ namespace ProjetoPV_Angular.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Objetivo>>> GetObjetivo()
         {
-            return await _context.Objetivo.ToListAsync();
+            var queryable = _context.Objetivo.AsQueryable();
+
+            // Filtrar por user logado
+            if (ControllerHelper.IsUser(User))
+            {
+                var userId = ControllerHelper.Id(User);
+                queryable = queryable.Where(o => o.ApplicationUserId == userId);
+            }
+
+            return await queryable.ToListAsync();
         }
 
         // GET: api/Objetivoes/5

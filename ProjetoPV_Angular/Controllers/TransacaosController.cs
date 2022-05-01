@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoPV_Angular.Data;
 using ProjetoPV_Angular.Models;
+using ProjetoPV_Angular.Services;
 
 namespace ProjetoPV_Angular.Controllers
 {
@@ -30,6 +31,13 @@ namespace ProjetoPV_Angular.Controllers
             [FromQuery] string TipoTransacaoId, [FromQuery] string CategoriaId, [FromQuery] string DataInicio, [FromQuery] string DataFim)
         {
             var query = _context.Transacao.AsQueryable();
+
+            // Filtrar por user logado
+            if (ControllerHelper.IsUser(User))
+            {
+                var userId = ControllerHelper.Id(User);
+                query = query.Where(t => t.ApplicationUserId == userId);
+            }
 
             // Filtrar por conta
             if (!string.IsNullOrEmpty(ContaId))

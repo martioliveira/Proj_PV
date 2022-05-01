@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoPV_Angular.Data;
 using ProjetoPV_Angular.Models;
+using ProjetoPV_Angular.Services;
 
 namespace ProjetoPV_Angular.Controllers
 {
@@ -46,13 +47,31 @@ namespace ProjetoPV_Angular.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Orcamento>>> GetOrcamento()
         {
-            return await _context.Orcamento.ToListAsync();
+            var queryable = _context.Orcamento.AsQueryable();
+
+            // Filtrar por user logado
+            if (ControllerHelper.IsUser(User))
+            {
+                var userId = ControllerHelper.Id(User);
+                queryable = queryable.Where(o => o.ApplicationUserId == userId);
+            }
+
+            return await queryable.ToListAsync();
         }
 
         // GET: api/Orcamentos/Tb2 (Versão Custom)
         [HttpGet("Tb2")]
         public ActionResult<IEnumerable<CustomOrcamento>> GetOrcamentoTb2() {
-            var orcamentoTb1 = _context.Orcamento.ToList();                     
+            var queryableOrcamentoTb1 = _context.Orcamento.AsQueryable();
+
+            // Filtrar por user logado
+            if (ControllerHelper.IsUser(User))
+            {
+                var userId = ControllerHelper.Id(User);
+                queryableOrcamentoTb1 = queryableOrcamentoTb1.Where(o => o.ApplicationUserId == userId);
+            }
+
+            var orcamentoTb1 = queryableOrcamentoTb1.ToList();                     
             // Através da lista de Orçamentos fazer join à tabela de contas
             var orcamentoConta = orcamentoTb1.Join(_context.OrcamentoContas,    
                                                    orca => orca.OrcamentoId,
