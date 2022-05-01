@@ -12,37 +12,29 @@ namespace ProjetoPV_Angular.Data
     {
         public static async Task Seed(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
-            await SeedRoles(roleManager);
+            //await SeedRoles(roleManager);
             await SeedUsers(userManager);
         }
 
         private static async Task SeedUsers(UserManager<ApplicationUser> userManager)
         {
-            if (userManager.FindByNameAsync("teste@ips.pt").Result == null)
+            await CreateUserAsync(userManager, "teste@ips.pt", "123456", "User");
+            await CreateUserAsync(userManager, "teste2@ips.pt", "123456", "User");
+            await CreateUserAsync(userManager, "admin@ips.pt", "123456", "Admin");
+        }
+
+        private static async Task CreateUserAsync(UserManager<ApplicationUser> userManager, string email, string password, string role)
+        {
+            if (userManager.FindByNameAsync(email).Result == null)
             {
-                ApplicationUser user = new() { UserName = "teste@ips.pt", Email = "teste@ips.pt", EmailConfirmed = true};
-                IdentityResult result = await userManager.CreateAsync(user, "123456");
+                ApplicationUser user = new() { UserName = email, Email = email, EmailConfirmed = true };
+                IdentityResult result = await userManager.CreateAsync(user, password);
                 System.Console.WriteLine($"Creating user: {user.UserName} - Succeeded: {result.Succeeded}");
 
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "User"));
-                    //IdentityResult roleResult = await userManager.AddToRoleAsync(user, "User");
-                    //System.Console.WriteLine($"Adding role User to user {user.UserName} - Succeeded: {roleResult.Succeeded}");
-                }
-            }
-
-            if (userManager.FindByNameAsync("admin@ips.pt").Result == null)
-            {
-                ApplicationUser user = new() { UserName = "admin@ips.pt", Email = "admin@ips.pt", EmailConfirmed = true };
-                IdentityResult result = await userManager.CreateAsync(user, "123456");
-                System.Console.WriteLine($"Creating user: {user.UserName} - Succeeded: {result.Succeeded}");
-
-                if (result.Succeeded)
-                {
-                    await userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "Admin"));
-                    //IdentityResult roleResult = await userManager.AddToRoleAsync(user, "Admin");
-                    //System.Console.WriteLine($"Adding role Admin to user {user.UserName} - Succeeded: {roleResult.Succeeded}");
+                    IdentityResult claimResult = await userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, role));
+                    System.Console.WriteLine($"Adding role to user: {user.UserName} - Succeeded: {claimResult.Succeeded}");
                 }
             }
         }
