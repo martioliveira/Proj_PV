@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoPV_Angular.Data;
@@ -33,8 +35,12 @@ namespace ProjetoPV_Angular.Controllers
     public class OrcamentosController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public OrcamentosController(ApplicationDbContext context) { _context = context; }
+        public OrcamentosController(ApplicationDbContext context, UserManager<ApplicationUser> userManager) {
+            _context = context;
+            _userManager = userManager;
+        }
 
         // GET: api/Orcamentos
         [HttpGet]
@@ -210,6 +216,18 @@ namespace ProjetoPV_Angular.Controllers
         public async Task<ActionResult<Orcamento>> PostOrcamento(CreateOrcamento orcamento)
         {
             using var transaction = _context.Database.BeginTransaction();
+
+            // Popular ApplicationUserId no orçamento
+            var userClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userClaim != null)
+            {
+                var userId = userClaim.Value;
+                var user = await _userManager.FindByIdAsync(userId);
+                if (user != null)
+                {
+                    orcamento.ApplicationUserId = user.Id;
+                }
+            }
 
             _context.Orcamento.Add(orcamento);
             await _context.SaveChangesAsync();

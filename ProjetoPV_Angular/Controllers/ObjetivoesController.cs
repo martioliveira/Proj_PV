@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoPV_Angular.Data;
@@ -23,10 +25,12 @@ namespace ProjetoPV_Angular.Controllers
     public class ObjetivoesController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ObjetivoesController(ApplicationDbContext context)
+        public ObjetivoesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: api/Objetivoes
@@ -112,6 +116,18 @@ namespace ProjetoPV_Angular.Controllers
         [HttpPost]
         public async Task<ActionResult<Objetivo>> PostObjetivo(Objetivo objetivo)
         {
+            // Popular ApplicationUserId no objetivo
+            var userClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userClaim != null)
+            {
+                var userId = userClaim.Value;
+                var user = await _userManager.FindByIdAsync(userId);
+                if (user != null)
+                {
+                    objetivo.ApplicationUserId = user.Id;
+                }
+            }
+
             _context.Objetivo.Add(objetivo);
             await _context.SaveChangesAsync();
 

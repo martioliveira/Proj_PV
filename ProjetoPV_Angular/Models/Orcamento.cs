@@ -23,6 +23,7 @@ namespace ProjetoPV_Angular.Models
         [Required, StringLength(3)]
         public string Moeda { get; set; }
 
+        public string ApplicationUserId { get; set; }
 
     }
 }
