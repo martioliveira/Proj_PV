@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Categoria } from '../../models/categoria.model';
+import { Conta } from '../../models/conta.model';
 import { CategoriaService } from '../../models/models-services/categoria.service';
+import { ContaService } from '../../models/models-services/conta.service';
 import { TransacaoService } from '../../models/models-services/transacao.service';
 import { TipoTransacao } from '../../models/tipotransacao.model';
 
@@ -22,12 +24,20 @@ export class TransacoesCreateComponent implements OnInit {
   }
 
   public categorias: Categoria[] = [];
+  public contas: Conta[] = [];
 
-  constructor(private serviceTransacao: TransacaoService, private serviceCategoria: CategoriaService, private router: Router) {
+  constructor(private serviceTransacao: TransacaoService, private serviceCategoria: CategoriaService, private router: Router, private contaService: ContaService) {
   }
 
   ngOnInit(): void {
     this.getCategoria();
+    this.getContas();
+  }
+
+  getContas(): void {
+    this.contaService.getContas().subscribe((contas: Conta[]) => {
+      this.contas = contas;
+    });
   }
 
   getCategoria(): void {

@@ -15,18 +15,30 @@
 
     <div class="form-group">
       <label for="categoriaId"> Categoria:</label>
-      <input id="categoriaId" name="categoriaId" type="text" [(ngModel)]="transacao.categoriaId" class="form-control" />
+      <select id="categoriaId" name="categoriaId" [(ngModel)]="transacao.categoriaId" class="form-control">
+        <option *ngFor="let categoria of categorias" [value]="categoria.categoriaId">
+          {{ categoria.nome }}
+        </option>
+      </select>
     </div>
 
     <div class="form-group">
-      <label for="contaOrigemId"> Conta origem Id:</label>
-      <input id="contaOrigemId" name="contaOrigemId" type="text" [(ngModel)]="transacao.contaOrigemId" class="form-control" />
+      <label for="contaOrigemId"> Conta origem:</label>
+      <select id="contaOrigemId" name="contaOrigemId" [(ngModel)]="transacao.contaOrigemId" class="form-control">
+        <option *ngFor="let conta of contas" [value]="conta.contaId">
+          {{ conta.descricao }}
+        </option>
+      </select>
     </div>
 
     <div class="form-group>">
       <label for="contaDestinoId"> Conta destino Id:</label>
-      <input id="contaDestinoId" name="contaDestinoId" type="text" [(ngModel)]="transacao.contaDestinoId" class="form-control" />
-    </div>
+      <select id="contaDestinoId" name="contaDestinoId" type="text" [(ngModel)]="transacao.contaDestinoId" class="form-control">
+        <option *ngFor="let conta of contas" [value]="conta.contaId">
+          {{ conta.descricao }}
+        </option>
+      </select>
+</div>
 
     <div class="form-group>">
       <label for="valor"> Valor:</label>
@@ -45,7 +57,7 @@
 
     <div class="form-group>">
       <label for="dataTransacao"> Data transacao:</label>
-      <input id="dataTransacao" name="dataTransacao" type="text" [(ngModel)]="transacao.dataTransacao" class="form-control" />
+      <input id="dataTransacao" name="dataTransacao" [(ngModel)]="transacao.dataTransacao" class="form-control" />
     </div>
 
     <div class="form-group>">
