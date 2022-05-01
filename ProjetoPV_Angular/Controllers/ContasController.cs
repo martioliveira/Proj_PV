@@ -16,6 +16,7 @@ namespace ProjetoPV_Angular.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ContasController : ControllerBase
     {
         private readonly ApplicationDbContext _context;

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -21,8 +22,14 @@ namespace ProjetoPV_Angular.Controllers
         public CustomOrcamento() : base() { }
     }
 
+    public class CreateOrcamento : Orcamento
+    {
+        public long ContaId { get; set; }
+    }
+
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class OrcamentosController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -200,10 +207,20 @@ namespace ProjetoPV_Angular.Controllers
         // POST: api/Orcamentoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Orcamento>> PostOrcamento(Orcamento orcamento)
+        public async Task<ActionResult<Orcamento>> PostOrcamento(CreateOrcamento orcamento)
         {
+            using var transaction = _context.Database.BeginTransaction();
+
             _context.Orcamento.Add(orcamento);
             await _context.SaveChangesAsync();
+
+            OrcamentoContas orcamentoContas = new OrcamentoContas();
+            orcamentoContas.OrcamentoId = orcamento.OrcamentoId;
+            orcamentoContas.ContaId = orcamento.ContaId;
+            _context.OrcamentoContas.Add(orcamentoContas);
+            await _context.SaveChangesAsync();
+
+            transaction.Commit();
 
             return CreatedAtAction("GetOrcamento", new { id = orcamento.OrcamentoId }, orcamento);
         }

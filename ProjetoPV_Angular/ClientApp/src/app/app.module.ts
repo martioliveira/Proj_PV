@@ -54,6 +54,7 @@ import { MatNativeDateModule, MatRippleModule, MAT_DATE_LOCALE } from '@angular/
 import { HomePageWithoutLoginComponent } from './home-page-without-login/home-page-without-login.component';
 import { UserGuard } from './user.guard';
 import { AdminGuard } from './admin.guard';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -139,6 +140,7 @@ import { AdminGuard } from './admin.guard';
     MatDialogModule,
     MatNativeDateModule,
     MatRippleModule,
+    MatSelectModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },

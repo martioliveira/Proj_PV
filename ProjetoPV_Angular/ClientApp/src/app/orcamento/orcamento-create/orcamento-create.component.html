@@ -25,12 +25,12 @@
     <mat-label>Moeda</mat-label>
     <input ngModel name="moeda" id="moeda" #moeda="ngModel" placeholder="EUR" matInput type="text" required>
   </mat-form-field>
-  <!-- <mat-form-field class="example-full-width" appearance="fill">
+   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Conta</mat-label>
-    <mat-select>
-      <mat-option value="option">TESTE</mat-option>
+    <mat-select ngModel name="contaId" id="contaId" #contaId="ngModel" required>
+      <mat-option *ngFor="let conta of contas" [value]="conta.contaId">{{ conta.descricao }}</mat-option>
     </mat-select>
-  </mat-form-field>-->
+  </mat-form-field>
   <div class="form-group" style="margin-left:37%">
     <button mat-raised-button type="submit">Criar</button>
     <button mat-raised-button type="button" routerLink="/orcamento-list">Voltar</button>
